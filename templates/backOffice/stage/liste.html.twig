@@ -1,0 +1,102 @@
+{% extends 'baseadmin.html.twig'  %}
+{% block title %} Les stages{% endblock %}
+{% block nompage %} Les stages{% endblock %}
+
+{% block body %}
+    <style>
+        th.sortable {
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Lien pour ajouter un nouveau crédit -->
+
+            </div>
+            <!-- row -->
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="card" >
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des stage</h4> <a href="{{ path('createStage') }}"><button type="button" class="btn btn-success">Ajouter un stage </button></a>
+                        </div>
+                        <div class="card-body" style="background-color: white">
+                            <div class="table-responsive">
+
+                                <table class="table table-responsive-md">
+                                    <thead>
+                                    <tr >
+
+                                        <th class="sortable"><strong>ID_Stage</strong></th>
+                                        <th class="sortable"><strong>Sujet</strong></th>
+{#                                        <th><strong>date début</strong></th>#}
+                                        <th class="sortable"><strong>ID stagiaire</strong></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for a in stages %}
+                                        <tr>
+                                            <td>{{a.id }}</td>
+                                            <td>{{ a.sujet }}</td>
+{#                                            <td>{{ a.dateDebut | date('d F Y')  }}</td>#}
+                                            <td>
+                                            {% for item in a.idStagiare %}
+                                                {{ item }}
+                                            {% endfor %}</td>
+
+
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{ path('modifierStage', {'id':a.id}) }}"> <button class="btn btn-success shadow btn-xs sharp me-1">Approuver</button></a>
+                                                   <a href="{{ path('deleteStage', {'id':a.id}) }}" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');" > <button class="btn btn-danger shadow btn-xs sharp">Rejeter</button></a>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        var headers = document.querySelectorAll('th.sortable');
+
+        headers.forEach(function(header) {
+            header.addEventListener('click', function() {
+                // Obtient le numéro de colonne à trier
+                var columnIndex = Array.prototype.indexOf.call(header.parentNode.children, header);
+
+                // Obtient toutes les lignes du tableau, sauf la première (en-tête)
+                var rows = Array.from(document.querySelectorAll('tbody tr')).slice(1);
+
+                // Trie les lignes en fonction du contenu de la colonne cliquée
+                rows.sort(function(a, b) {
+                    var aValue = a.cells[columnIndex].innerText;
+                    var bValue = b.cells[columnIndex].innerText;
+
+                    return aValue - bValue;
+                });
+
+                // Met à jour le tableau avec les lignes triées
+                rows.forEach(function(row) {
+                    row.parentNode.appendChild(row);
+                });
+            });
+        });
+    </script>
+
+
+{% endblock %}

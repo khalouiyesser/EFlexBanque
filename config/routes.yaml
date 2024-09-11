@@ -1,0 +1,61 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+like_article:
+  path: '/article/{id}/like'
+  controller: 'App\Controller\ArticleController::like'
+  methods: ['POST']
+# Définition d'une route pour une page d'accueil
+#index:
+ # path: /
+ # controller: App\Controller\ChequeController::index
+ # methods: GET
+
+dislike_article:
+  path: '/article/{id}/dislike'
+  controller: 'App\Controller\ArticleController::dislike'
+  methods: ['POST']
+
+save_article:
+  path: '/article/{id}/save'
+  controller: 'App\Controller\ArticleController::save'
+  methods: ['POST']
+
+
+  # config/routes.yaml
+app_SS:
+    path: '/Shayma/{id}'
+    controller: App\Controller\HomeController::index
+    methods: [ GET, POST ]
+app_chat:
+    path: '/AnalyseurCvApi/{id}/{cv}'
+    controller: App\Controller\HomeController::index
+    methods: [GET, POST]
+app_Maryem:
+  path: '/MdpOublie/{email}'
+  controller: App\Controller\HomeController::index
+  methods: [GET, POST]
+
+app_cht:
+      path: '/Recommandation'
+      controller: App\Controller\YesserController::index
+      methods: [ GET, POST ]
+
+app_y:
+  path: '/mailingApprouver/{email}/{id}'
+  controller: App\Controller\YesserController::index
+  methods: [ GET, POST ]
+app_c:
+  path: '/mailingRefuser/{email}/{id}'
+  controller: App\Controller\HomeController::index
+  methods: [ GET, POST ]
+app_L:
+    path: '/Mailing/{email}'
+    controller: App\Controller\HomeController::index
+    methods: [ GET, POST ]
+# Définition d'une route avec un paramètre
+cheque_signature:
+  path: /api_public/v3/signature_request/{signatureRequestId}/signer
+  controller: App\Controller\ChequeController::signature
+  methods: POST
+

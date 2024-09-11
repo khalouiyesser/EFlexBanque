@@ -1,0 +1,108 @@
+{% block body %}
+<div class="container">
+    <div class="newspaper">
+        <header class="newspaper-header">
+            <h1 class="newspaper-title">{{ user.name }}</h1>
+            <p class="newspaper-date">{{ "now"|date('Y-m-d') }}</p>
+        </header>
+        <article class="newspaper-article">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Photo</th>
+                       <td> <img src="{{ absolute_url(asset('images/' ~ user.photo)) }}" style="height:100px;width:100px;" alt="Photo de profil"  class="newspaper-image"></td>
+                       
+                    </tr>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ user.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ user.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>CIN</th>
+                        <td>{{ user.cin }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date de Naissance</th>
+                        <td>{{ user.dateNaissance }}</td>
+                    </tr>
+                    <tr>
+                        <th>Téléphone</th>
+                        <td>{{ user.tel }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{ user.adresse }}</td>
+                    </tr>
+                    <tr>
+                        <th>Salaire</th>
+                        <td>{{ user.salaire }}</td>
+                    </tr>
+                    <tr>
+                        <th>Profession</th>
+                        <td>{{ user.poste }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <footer class="newspaper-footer">
+ 
+        </footer>
+    </div>
+</div>
+
+<style>
+    .newspaper {
+        font-family: 'Times New Roman', Times, serif;
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #d3d3d3;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+    .newspaper-header, 
+    .newspaper-footer {
+        text-align: center;
+        border-bottom: 1px solid #d3d3d3;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .newspaper-title {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+    .newspaper-date {
+        font-size: 18px;
+        color: #555;
+    }
+    .newspaper-article {
+        text-align: justify;
+    }
+    .newspaper-category {
+        font-size: 18px;
+        color: #555;
+    }
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+    }
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+    .table th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+</style>
+{% endblock %}

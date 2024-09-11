@@ -1,0 +1,76 @@
+{% extends 'baseadmin.html.twig'  %}
+{% block title %} Les Contrats{% endblock %}
+{% block nompage %} Les Contrats {% endblock %}
+
+{% block body %}
+
+
+    <div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Lien pour ajouter un nouveau crédit -->
+
+            </div>
+
+
+            <!-- row -->
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="card" >
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des contrats</h4> <a href="{{ path('addContrat') }}"><button type="button" class="btn btn-success">Ajouter un contrat </button></a>
+                        </div>
+                        <div class="card-body" style="background-color: white">
+                            <div class="table-responsive">
+
+                                <table class="table table-responsive-md">
+                                    <thead>
+                                    <tr >
+
+                                        <th><strong>ID_contrat</strong></th>
+                                        <th><strong>Stagiaire</strong></th>
+                                        <th><strong>Date de début</strong></th>
+                                        <th><strong>Date de fin</strong></th>
+                                        <th><strong>Durée</strong></th>
+{#                                        <th><strong>Sujet</strong></th>#}
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {% for a in contrat %}
+                                        <tr>
+                                            <td>{{a.id }}</td>
+                                            <td>{{ a.user }}</td>
+                                            <td>{{ a.dateDebut | date('d F Y') }}</td>
+                                            <td>{{ a.datefin | date('d F Y')  }}</td>
+                                            <td>{{ a.dure }}</td>
+{#                                            <td>{{ a.sujet }}</td>#}
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{ path('modifierContrat', {'id':a.id}) }}"> <button class="btn btn-success shadow btn-xs sharp me-1">Modifier</button></a>
+                                                   <a href="{{ path('deleteContrat',{'id':a.id}) }}" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');" ><button class="btn btn-danger shadow btn-xs sharp">Rejeter</button></a>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

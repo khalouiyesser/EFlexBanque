@@ -1,0 +1,84 @@
+{% extends 'baseadmin.html.twig' %}
+{% block title %}New Project{% endblock %}
+
+{% block stylesheets %}
+<br><br><br>
+
+    {{ parent() }}
+    <style>
+        /* Custom styles for the form */
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #333;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        /* Additional custom styles for form elements */
+        .form-control {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Formulaire pour ajouter un projet</h5>
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        <div class="mb-3">
+                            {{ form_row(form.nomprojet, {'attr': {'class': 'form-control'}, 'id': 'nom_projet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.categorie, {'attr': {'class': 'form-control'}, 'id': 'categorie'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.descriptionprojet, {'attr': {'class': 'form-control'}, 'id': 'descriptionprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.budgetprojet, {'attr': {'class': 'form-control'}, 'id': 'budgetprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.datecreation, {'attr': {'class': 'form-control'}, 'id': 'datecreation'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.dureeprojet, {'attr': {'class': 'form-control'}, 'id': 'dureeprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.statutprojet, {'attr': {'class': 'form-control'}, 'id': 'statutprojet'}) }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Soumettre</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

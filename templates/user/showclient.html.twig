@@ -1,0 +1,79 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Fiche Client</h5>
+                        <div class="user-profile">
+                            <div class="profile-picture">
+{#                                <img src="{{asset('images/avatar/1.jpg')}}" style="height:100px;width:100px;" alt="Photo de profil">#}
+                                <h1>Client</h1>
+
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <td><img src="{{ asset('/uploads_directory/'~ user.Photo) }}" alt="" width="80" height="80"></td>
+                                    </tr>
+{#                                    <tr>#}
+{#                                        <th>Id</th>#}
+{#                                        <td>{{ user.id }}</td>#}
+{#                                    </tr>#}
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{ user.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>name</th>
+                                        <td>{{ user.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cin</th>
+                                        <td>{{ user.cin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DateNaissance</th>
+                                        <td>{{ user.dateNaissance }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tel</th>
+                                        <td>{{ user.tel }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adresse</th>
+                                        <td>{{ user.adresse }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Salaire</th>
+                                        <td>{{ user.salaire }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Profession</th>
+                                        <td>{{ user.poste}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-center">
+                                    <button class="btn btn-danger" style="margin-right: 10px;" onclick="window.location.href='{{ path('pdf_generate', {'id': user.id}) }}'">imprimer
+
+                                    </button>
+                                    <button class="btn btn-primary" style="margin-right: 10px;" onclick="window.location.href='{{ path('app_user_block', {'id': user.id}) }}'">Block</button>
+                                    <button class="btn btn-secondary" onclick="window.location.href='{{ path('app_user_clients') }}'">Retour à la liste</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('users/style.css') }}">
+{% endblock %}
+

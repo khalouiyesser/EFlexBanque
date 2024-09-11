@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('formulaireClient/assets/img/favicon.png') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/plugins/fontawesome/css/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/css/feathericon.min.css') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/plugins/morris/morris.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('formulaireClient/assets/css/bootstrap-datetimepicker.min.css') }}">
+<link rel="stylesheet" href="{{ asset('formulaireClient/assets/css/style.css') }}">
+
+    <style>
+        body {
+            background-image: url('{{ asset('form/pexels-gary-barnes-6248545.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card-form {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+</head>
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_row(form._token) }}
+
+<body>
+
+<div class="container">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col d-flex justify-content-center">
+                    <h3 class="page-title mt-5"><strong>Demande de création de compte Bancaire</strong></h3>
+                </div>
+            </div>
+
+            <br>
+        </div>
+        <div class="card p-11 "  style="background-color: rgba(255, 255, 255, 0.8);">
+            <div class="row" style="margin:20px">
+            <div class="col-lg-12">
+                <form>
+                    <div class="row formtype">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.Email, 'Email') }}
+                                {{ form_widget(form.Email, { 'attr': {'class': 'form-control', 'placeholder': 'exemple@exemple.com'} }) }}
+                                {{ form_errors(form.Email,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.confirmationEmail, 'Confirmation Email') }}
+                                {{ form_widget(form.confirmationEmail, { 'attr': {'class': 'form-control', 'placeholder': 'exemple@exemple.com'} }) }}
+                                {{ form_errors(form.confirmationEmail,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.TypeCin, 'Type Cin') }}
+                                {{ form_widget(form.TypeCin, { 'attr': {'class': 'form-control', 'id': 'sel2'} }) }}
+                                {{ form_errors(form.TypeCin,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.cin, 'Numéro de Cin') }}
+                                {{ form_widget(form.cin, { 'attr': {'class': 'form-control', 'placeholder': ''} }) }}
+                                {{ form_errors(form.cin,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Date délivrance de cin </label>
+                                <div>  {{ form_widget(form.DateDelivranceCin, { 'attr': {'class': ''} }) }}
+                             </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.NumeroTelephone, 'Numéro de téléphone') }}
+                                {{ form_widget(form.NumeroTelephone, { 'attr': {'class': 'form-control', 'placeholder': '########'} }) }}
+                                {{ form_errors(form.NumeroTelephone,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.nom, 'Nom') }}
+                                {{ form_widget(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez votre nom'} }) }}
+                                {{ form_errors(form.nom,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.prenom, 'Prénom') }}
+                                {{ form_widget(form.prenom, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez votre prénom'} }) }}
+                                {{ form_errors(form.prenom,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.DateNaissance, 'Date de naissance') }}
+                                <div>
+                                    {{ form_widget(form.DateNaissance, { 'attr': {'class': ''} }) }}
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.typeCompte, 'Type de Compte') }}
+                                {{ form_widget(form.typeCompte, { 'attr': {'class': 'form-control', 'id': 'sel3'} }) }}
+                                {{ form_errors(form.typeCompte,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.Montant, 'Montant de dépôt initial') }}
+                                {{ form_widget(form.Montant, { 'attr': {'class': 'form-control', 'placeholder': 'Entrez le montant'} }) }}
+                                {{ form_errors(form.Montant,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.nationalite, 'Nationalité') }}
+                                {{ form_widget(form.nationalite, { 'attr': {'class': 'form-control', 'id': 'nat'} }) }}
+                                {{ form_errors(form.nationalite,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.proffesion, 'Profession') }}
+                                {{ form_widget(form.proffesion, { 'attr': {'class': 'form-control', 'id': 'usr'} }) }}
+                                {{ form_errors(form.proffesion,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.StatutMarital, 'Staut Marital') }}
+                                {{ form_widget(form.StatutMarital, { 'attr': {'class': 'form-control', 'id': 'usr'} }) }}
+                                {{ form_errors(form.StatutMarital,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <div class="form-label">
+                                {{ form_label(form.sexe, 'Sexe') }}
+                                {{ form_widget(form.sexe, { 'attr': {'class': '', 'id': 'usr'} }) }}
+                                {{ form_errors(form.sexe,{'attr':{'class': 'text-danger'}}) }}
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 offset-md-4 text-center" >
+                            <div class="form-label">
+                                {{ form_label(form.PreferenceCommunic, 'Preference de Communication') }}
+                                {{ form_widget(form.PreferenceCommunic, { 'attr': {'class': '', 'id': 'usr'} }) }}
+                                {{ form_errors(form.PreferenceCommunic,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+                         <div class="col-md-4 offset-md-4 text-center" >
+                            <div class="form-group">
+                                {{ form_row(form.recaptcha) }}
+                                {{ form_errors(form.recaptcha,{'attr':{'class': 'text-danger'}}) }}
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 offset-md-4 mt-5"> <!-- Utilisation de la classe offset-md-4 pour déplacer le bouton au centre -->
+                            <div class="form-group text-center"> <!-- Ajout de la classe text-center pour centrer le contenu du groupe de formulaire -->
+                                <button type="submit" class="btn btn-success">Confirmer</button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+
+        {# <button type="submi" class="btn btn-success mt-5">Confirmer</button> #}
+    </div>
+</div>
+</body>
+<script src="{{ asset('formulaireClient/assets/js/jquery-3.5.1.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/plugins/raphael/raphael.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ asset('formulaireClient/assets/js/script.js') }}"></script>
+<script>
+    $(function() {
+        $('#datetimepicker3').datetimepicker({
+            format: 'LT'
+        });
+    });
+</script>
+</html>
+
+{{ form_end(form) }}
+

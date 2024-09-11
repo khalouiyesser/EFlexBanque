@@ -1,0 +1,121 @@
+{% extends 'baseclient.html.twig'  %}
+
+        {% block body %}
+            <style>
+                .modifier-text {
+                    font-weight:normal;
+                    color: blue;
+                    text-decoration: underline;
+
+                }
+                .supprimer-text {
+                    font-weight:normal;
+                    color: #8c0615;
+                    text-decoration: underline;
+
+                }
+
+            </style>
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header pb-0">
+                                <div class="col-6 text-end" style="margin-left: auto;">
+                                    <a class="btn bg-gradient-success mb-0" href="{{ path('addcheques')}}">&nbsp;&nbsp;Ajouter un Demande de Chéque</a>
+                                </div>
+
+
+                                <h6>Historique Demande Chéque</h6>
+                            </div>
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-0">
+
+                                    <table class="table align-items-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Nom et Prenom</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">photo Cin </th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Bénéficiaire</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Montant</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Date</th>
+                                           {#  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">signature</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">document</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">signer</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">pdf sans signature</th>#}
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Resultat</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for i in cheques  %}
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ i.NomPrenom}}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>  <a href="{{ asset('uploads_directory/' ~ i.photoCin) }}" target="_blank"><button class="badge badge-sm bg-gradient-primary">Ouvrir Photo </button></a><br><br>
+
+
+                                            </td>
+
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">{{ i.Beneficiaire}}</p>
+
+                                            </td>
+                                            <td class="align-middle text-center text-sm">
+                                                <p class="text-xs font-weight-bold mb-0">{{ i.Montant}}</p>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ i.date|date('Y-m-d') }}</span>
+                                            </td>
+
+                                            <td class="align-middle">
+                                                {% if (i.Decision=='Approuvé') %}
+                                                    <span class="badge badge-sm bg-gradient-success">Approuvé</span>
+                                                {% endif %}
+
+                                                {% if (i.Decision == 'encours') %}
+                                                    <span class="badge badge-sm bg-gradient-secondary">En cours</span>
+
+                                                    &nbsp;
+{#                                                    <a href="{{ path('showCheque', { 'id': i.id }) }}">#}
+{#                                                        <i class="fas fa-pencil-alt text-dark me-2 edit-icon" aria-hidden="true"></i>#}
+{#                                                    </a>#}
+
+
+                                                    <a href="{{ path('modifierCheque', { 'id': i.id }) }}">
+                                                    <i class="fas fa-pencil-alt text-dark me-2 edit-icon" aria-hidden="true"></i>
+                                                    </a>
+
+                                                    &nbsp;
+                                                    <a href="{{ path('deleteDemandeChequeClient', { 'id': i.id }) }}">
+                                                        <i class="far fa-trash-alt me-2 trash-icon" aria-hidden="true"></i>
+                                                    </a>
+                                                {% endif %}
+                                                {% if (i.Decision =='Réfuser') %}
+                                                    <span class="badge badge-sm bg-gradient-danger"> &nbsp;Réfuser   &nbsp</span>
+                                                {% endif %}
+
+
+
+                                            </td>
+                                        </tr>
+
+
+
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        {% endblock %}

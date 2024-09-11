@@ -1,0 +1,115 @@
+{% extends 'baseclient.html.twig'  %}
+
+        {% block body %}
+            <style>
+                .modifier-text {
+                    font-weight:normal;
+                    color: blue;
+                    text-decoration: underline;
+
+                }
+                .supprimer-text {
+                    font-weight:normal;
+                    color: #8c0615;
+                    text-decoration: underline;
+
+                }
+                .edit-icon {
+                    color: blue;
+                }
+                .trash-icon {
+                    color: red;
+                }
+
+
+
+            </style>
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mb-4">
+                            <div class="card-header pb-0">
+                                <div class="col-6 text-end" style="margin-left: auto;">
+                                    <a class="btn bg-gradient-success mb-0" href="{{ path('addvirement')}}">&nbsp;&nbsp;Ajouter un Demande de Virement</a>
+                                </div>
+                                <h6>Historique Demande Virement </h6>
+                            </div>
+                            <div class="card-body px-0 pt-0 pb-2">
+                                <div class="table-responsive p-0">
+                                    <table class="table align-items-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Nom et Prenom</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Cin</th>
+                                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Photo de Cin</th>
+
+                                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">transferezA</th>
+                                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 ">Montant</th>
+                                            <th  class=" text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 ;">Resultat </th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for i in virement  %}
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">{{ i.NometPrenom}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">{{ i.Cin}}</p>
+                                                <td>
+                                                    <a href="{{ asset('uploads_directory/' ~ i.photoCinV) }}" target="_blank"><button class="badge badge-sm bg-gradient-primary">Ouvrir Photo </button></a><br><br>
+                                                </td>
+                                                <td class="align-middle text-center text-sm">
+                                                    <p class="text-xs font-weight-bold mb-0">{{ i.transferezA}}</p>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-xs font-weight-bold">{{ i.Montant }}</span>
+                                                </td>
+                                                <td class="align-middle " >
+                                                    {% if (i.DecisionV == 'Approuvé') %}
+                                                        <span class="badge badge-sm bg-gradient-success">Approuvé</span>
+                                                    {% endif %}
+
+                                                    {% if (i.DecisionV == 'encours') %}
+                                                        <span class="badge badge-sm bg-gradient-secondary">En cours</span>
+                                                        &nbsp;
+                                                        <a href="{{ path('modifierVirement', { 'id': i.id }) }}">
+                                                        <i class="fas fa-pencil-alt text-dark me-2 edit-icon" aria-hidden="true"></i>
+
+                                                    </a>
+                                                        &nbsp;
+                                                        <a href="{{ path('deleteVirement', { 'id': i.id }) }}">
+                                                        <i class="far fa-trash-alt me-2 trash-icon" aria-hidden="true"></i>
+
+                                                    </a>
+                                                    {% endif %}
+
+
+                                                    {% if (i.DecisionV=='Refuser') %}
+                                                        <span class="badge badge-sm bg-gradient-danger"> &nbsp; Réfuser &nbsp;  </span>
+                                                    {% endif %}
+
+
+                                                </td>
+
+                                            </tr>
+
+
+
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}

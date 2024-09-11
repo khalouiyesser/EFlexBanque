@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Innovatix{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+         Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="{{asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css') }}">
+
+<link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    <!-- Custom Stylesheet -->
+    <link href="{{ asset('css/nice-select.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+
+
+
+        {% block stylesheets %}
+{#            {{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+{#            {{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img src="{{ asset('images/2.png') }}" class="rounded-lg me-2" width="70" alt="">
+				<div class="brand-title">
+					<h2 class="">EFB</h2>
+					<span class="brand-sub-title">Admin</span>
+				</div>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+
+
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="dashboard_bar">
+								{% block nompage %}{% endblock %}
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                           <li class="nav-item d-flex align-items-center">
+                        <div class="input-group search-area">
+                            <input type="text" id="searcharea" name="id" class="form-control" placeholder="Recherche ...">
+                            <button id="searchBtn" class="input-group-text">
+                                <i class="flaticon-381-search-2"></i>
+                            </button>
+                        </div>
+        <div class="input-group search-area">
+            <input type="number" id="minAmount" name="minAmount" class="form-control" placeholder="Montant minimum">
+            <input type="number" id="maxAmount" name="maxAmount" class="form-control" placeholder="Montant maximum">
+            <button id="searchBtn2" class="input-group-text">
+                <i class="flaticon-381-search-2"></i>
+            </button>
+        </div>
+
+    </li>
+</ul>
+
+
+
+
+							<li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell-link " href="javascript:void(0);">
+								<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M27.076 6.24662C26.962 5.48439 26.5787 4.78822 25.9955 4.28434C25.4123 3.78045 24.6679 3.50219 23.8971 3.5H4.10289C3.33217 3.50219 2.58775 3.78045 2.00456 4.28434C1.42137 4.78822 1.03803 5.48439 0.924011 6.24662L14 14.7079L27.076 6.24662Z" fill="#717579"></path>
+									<path d="M14.4751 16.485C14.3336 16.5765 14.1686 16.6252 14 16.6252C13.8314 16.6252 13.6664 16.5765 13.5249 16.485L0.875 8.30025V21.2721C0.875926 22.1279 1.2163 22.9484 1.82145 23.5536C2.42659 24.1587 3.24707 24.4991 4.10288 24.5H23.8971C24.7529 24.4991 25.5734 24.1587 26.1786 23.5536C26.7837 22.9484 27.1241 22.1279 27.125 21.2721V8.29938L14.4751 16.485Z" fill="#717579"></path>
+								</svg>
+									<span class="badge light text-white bg-danger rounded-circle">76</span>
+                                </a>
+							</li>
+
+
+
+							<li class="nav-item dropdown  header-profile">
+								<a class="nav-link" href="javascript:void();" role="button" data-bs-toggle="dropdown">
+                                    <img src="{{ asset('images/user.jpg') }}" width="56" alt="">
+                                    </a>
+								<div class="dropdown-menu dropdown-menu-end">
+									<a href="app-profile.html" class="dropdown-item ai-icon">
+										<svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+										<span class="ms-2">Profile </span>
+									</a>
+									<a href="email-inbox.html" class="dropdown-item ai-icon">
+										<svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+										<span class="ms-2">Inbox </span>
+									</a>
+									<a href="page-error-404.html" class="dropdown-item ai-icon">
+										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+										<span class="ms-2">Logout </span>
+									</a>
+								</div>
+							</li>
+                        </ul>
+                    </div>
+				</nav>
+			</div>
+		</div>
+
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="dlabnav">
+            <div class="dlabnav-scroll">
+                <ul class="metismenu" id="menu">
+
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="fas fa-user-check"></i>
+                            <span class="nav-text">Utilisateurs</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{path('app_user_employes')}}">Liste des employés</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
+                            <li><a href="{{path('app_user_clients')}}">Liste des clients</a></li>
+                        </ul>
+
+                    </li>
+
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="bi bi-person-vcard-fill"></i>
+                            <span class="nav-text">Comptes</span>
+                        </a>
+                        <ul aria-expanded="false">
+
+                            <li><a href="{{path('afficheCompte')}}">Les Demandes de Créations des comptes</a></li>
+                            <li><a href="{{path('AfficherDemande')}}">Les Demandes de chèque</a></li>
+                            <li><a href="{{path('showDemande')}}">Les Demandes de virement</a></li>
+                            <li><a href="{{path('showHistorique')}}">Liste des Compte</a></li>
+                            <li><a href="{{path('showListeCheque')}}">Liste des Chéques</a></li>
+                            <li><a href="{{path('showHistoriqueV')}}">Liste des Virements</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="nav-text">Crédits</span>
+                        </a>
+                        <ul aria-expanded="false">
+
+                            <li><a href="{{path('app_listecredit')}}">Liste des crédits</a></li>
+                            <li><a href="{{path('app_listerdv')}}">Liste des rdv</a></li>
+
+                            <li><a href="{{path('app_rdv')}}">CALANDER</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="nav-text">Investissement</span>
+                        </a>
+                        <ul aria-expanded="false">
+
+                            <li><a  href="{{ path('app_investissement_listA') }}">Liste des investissements</a></li>
+                            <li><a  href="{{ path('app_evenement_index') }}">Liste des événements</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="bi bi-clipboard-data-fill"></i>
+                            <span class="nav-text">Projet</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ path('app_project_admin') }}">Liste des projets</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="bi bi-person-down"></i>
+                            <span class="nav-text">Stages</span>
+                        </a>
+
+                        <ul aria-expanded="true">
+                            <li><a href="{{ path('AffichageDesDemandes')}}">Les demandes </a></li>
+                            <li><a href="{{ path('AfficheStage') }}">Liste des stagiaires</a></li>
+                            <li><a href="{{ path('AffichageDesContrats') }}">Liste des Contrats</a></li>
+                            <li><a href="{{ path('AfficheStage') }}">Liste des stages</a></li>
+                            <li><a href="{{ path('afficheOffreStages') }}">Liste des offres</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="bi bi-newspaper"></i>
+                            <span class="nav-text">Actualités</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{path('app_article_index')}}">Articles</a></li>
+                            <li><a href="{{path('app_commentaire_index')}}">Commentaires</a></li>
+                            <li><a href="{{path('reponseCommentaire')}}">Mes réponses </a></li>
+
+                        </ul>
+
+                    </li>
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                            <i class="fa fa-exclamation-circle"></i>
+                            <span class="nav-text">Réclamations</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{path('app_reclamation_index')}}">Réclamations</a></li>
+
+                            <li><a href="{{path('app_reponse_index')}}">Réponses</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+
+
+        <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="{{ asset('js/dlabnav-init.js') }}"></script>
+<script src="{{ asset('js/demo.js') }}"></script>
+
+
+        <script>
+            $(document).ready(function()}
+                // SmartWizard initialize
+                $('#smartwizard').smartWizard();
+            });
+
+            // Get reference to the button element
+            var myButton = document.getElementById("myButton");
+
+            // Add click event listener
+            myButton.addEventListener("click", function() }
+                // Show the alert
+                alert("Article ajouté avec succés");
+            });
+        </script>
+
+
+{# Assuming jQuery is already included#}
+<script src="{{ asset('vendor/global/global.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-steps/build/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>
+<script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+
+<script src="{{ asset('js/plugins-init/jquery.validate-init.js') }}"></script>
+<script src="{{ asset('js/custom.min.js') }}"></script>
+<script src="{{ asset('js/dlabnav-init.js') }}"></script>
+<script src="{{ asset('js/demo.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+	<script>
+		$(document).ready(function()}
+			// SmartWizard initialize
+			$('#smartwizard').smartWizard();
+		});
+
+  // Get reference to the button element
+  var myButton = document.getElementById("myButton");
+
+  // Add click event listener
+  myButton.addEventListener("click", function() }
+    // Show the alert
+    alert("Article ajouté avec succés");
+  });
+	</script>
+
+
+        {% block body %}
+
+
+        {% endblock %}
+    </body>
+</html>
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>{% block title %}Innovatix{% endblock %}</title>#}
+{#    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">#}
+{#    #}{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">#}
+{#    <link href="{{asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}" rel="stylesheet">#}
+
+{#    <link href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css') }}">#}
+
+{#    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">#}
+{#    <!-- Custom Stylesheet -->#}
+{#    <link href="{{ asset('css/nice-select.css') }}" rel="stylesheet">#}
+{#    <link href="{{ asset('css/style.css') }}" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">#}
+
+{#    {% block stylesheets %}#}
+{#        #}{#            {{ encore_entry_link_tags('app') }}#}
+{#    {% endblock %}#}
+
+{#    {% block javascripts %}#}
+{#        #}{#            {{ encore_entry_script_tags('app') }}#}
+{#    {% endblock %}#}
+{#</head>#}
+{#<body>#}
+
+{#<!--**********************************#}
+{#    Main wrapper start#}
+{#***********************************-->#}
+{#<div id="main-wrapper">#}
+
+{#    <!--**********************************#}
+{#        Nav header start#}
+{#    ***********************************-->#}
+{#    <div class="nav-header">#}
+{#        <a href="index.html" class="brand-logo">#}
+{#            <img src="{{ asset('images/2.png') }}" class="rounded-lg me-2" width="70" alt="">#}
+{#            <div class="brand-title">#}
+{#                <h2 class="">EFB</h2>#}
+{#                <span class="brand-sub-title">Admin</span>#}
+{#            </div>#}
+{#        </a>#}
+{#        <div class="nav-control">#}
+{#            <div class="hamburger">#}
+{#                <span class="line"></span><span class="line"></span><span class="line"></span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!--**********************************#}
+{#        Nav header end#}
+{#    ***********************************-->#}
+
+{#    <!--**********************************#}
+{#        Chat box start#}
+{#    ***********************************-->#}
+
+{#    <!--**********************************#}
+{#        Chat box End#}
+{#    ***********************************-->#}
+
+
+
+
+{#    <!--**********************************#}
+{#        Header start#}
+{#    ***********************************-->#}
+{#    <div class="header">#}
+{#        <div class="header-content">#}
+{#            <nav class="navbar navbar-expand">#}
+{#                <div class="collapse navbar-collapse justify-content-between">#}
+{#                    <div class="header-left">#}
+{#                        <div class="dashboard_bar">#}
+{#                            {% block nompage %}{% endblock %}#}
+{#                        </div>#}
+
+{#                    </div>#}
+{#                    <ul class="navbar-nav header-right">#}
+{#                        <li class="nav-item d-flex align-items-center">#}
+{#                            <div class="input-group search-area">#}
+{#                                <input type="text" id="searcharea" name="id" class="form-control" placeholder="Recherche ...">#}
+{#                                <button id="searchBtn" class="input-group-text">#}
+{#                                    <i class="flaticon-381-search-2"></i>#}
+{#                                </button>#}
+{#                            </div>#}
+{#                            <div class="input-group search-area">#}
+{#                                <input type="number" id="minAmount" name="minAmount" class="form-control" placeholder="Montant minimum">#}
+{#                                <input type="number" id="maxAmount" name="maxAmount" class="form-control" placeholder="Montant maximum">#}
+{#                                <button id="searchBtn2" class="input-group-text">#}
+{#                                    <i class="flaticon-381-search-2"></i>#}
+{#                                </button>#}
+{#                            </div>#}
+
+{#                        </li>#}
+{#                    </ul>#}
+
+
+
+
+{#                    <li class="nav-item dropdown notification_dropdown">#}
+{#                        <a class="nav-link bell-link " href="javascript:void(0);">#}
+{#                            <svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">#}
+{#                                <path d="M27.076 6.24662C26.962 5.48439 26.5787 4.78822 25.9955 4.28434C25.4123 3.78045 24.6679 3.50219 23.8971 3.5H4.10289C3.33217 3.50219 2.58775 3.78045 2.00456 4.28434C1.42137 4.78822 1.03803 5.48439 0.924011 6.24662L14 14.7079L27.076 6.24662Z" fill="#717579"></path>#}
+{#                                <path d="M14.4751 16.485C14.3336 16.5765 14.1686 16.6252 14 16.6252C13.8314 16.6252 13.6664 16.5765 13.5249 16.485L0.875 8.30025V21.2721C0.875926 22.1279 1.2163 22.9484 1.82145 23.5536C2.42659 24.1587 3.24707 24.4991 4.10288 24.5H23.8971C24.7529 24.4991 25.5734 24.1587 26.1786 23.5536C26.7837 22.9484 27.1241 22.1279 27.125 21.2721V8.29938L14.4751 16.485Z" fill="#717579"></path>#}
+{#                            </svg>#}
+{#                            <span class="badge light text-white bg-danger rounded-circle">76</span>#}
+{#                        </a>#}
+{#                    </li>#}
+
+
+
+{#                    <li class="nav-item dropdown  header-profile">#}
+{#                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">#}
+{#                            <img src="{{ asset('images/user.jpg') }}" width="56" alt="">#}
+{#                        </a>#}
+{#                        <div class="dropdown-menu dropdown-menu-end">#}
+{#                            <a href="app-profile.html" class="dropdown-item ai-icon">#}
+{#                                <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>#}
+{#                                <span class="ms-2">Profile </span>#}
+{#                            </a>#}
+{#                            <a href="email-inbox.html" class="dropdown-item ai-icon">#}
+{#                                <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>#}
+{#                                <span class="ms-2">Inbox </span>#}
+{#                            </a>#}
+{#                            <a href="page-error-404.html" class="dropdown-item ai-icon">#}
+{#                                <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>#}
+{#                                <span class="ms-2">Logout </span>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                    </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </nav>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <!--**********************************#}
+{#        Header end ti-comment-alt#}
+{#    ***********************************-->#}
+
+{#    <!--**********************************#}
+{#        Sidebar start#}
+{#    ***********************************-->#}
+{#    <div class="dlabnav">#}
+{#        <div class="dlabnav-scroll">#}
+{#            <ul class="metismenu" id="menu">#}
+
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-user-check"></i>#}
+{#                        <span class="nav-text">Utilisateurs</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{path('app_user_employes')}}">Liste des employés</a></li>#}
+{#                    </ul>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{path('app_user_clients')}}">Liste des clients</a></li>#}
+{#                    </ul>#}
+
+{#                </li>#}
+
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-person-vcard-fill"></i>#}
+{#                        <span class="nav-text">Comptes</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+
+{#                        <li><a href="{{path('afficheCompte')}}">Les Demandes de Créations des comptes</a></li>#}
+{#                        <li><a href="{{path('AfficherDemande')}}">Les Demandes de chèque</a></li>#}
+{#                        <li><a href="{{path('showDemande')}}">Les Demandes de virement</a></li>#}
+{#                        <li><a href="{{path('showHistorique')}}">Liste des Compte</a></li>#}
+{#                        <li><a href="{{path('showListeCheque')}}">Liste des Chéques</a></li>#}
+{#                        <li><a href="{{path('showHistoriqueV')}}">Liste des Virements</a></li>#}
+{#                    </ul>#}
+
+{#                </li>#}
+
+
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-file-alt"></i>#}
+{#                        <span class="nav-text">Crédits</span>#}
+
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+
+{#                        <li><a href="{{path('app_listecredit')}}">Liste des crédits</a></li>#}
+{#                        <li><a href="{{path('app_listerdv')}}">Liste des rdv</a></li>#}
+{#                        <li><a href="{{path('sortedlist')}}">Liste des credit ordonne</a></li>#}
+{#                        <li><a href="{{path('app_graphique')}}">stats</a></li>#}
+{#                        <li><a href="{{path('app_rdv')}}">CALANDER</a></li>#}
+{#                        <li><a href="{{path('app_home')}}">reminder RDV</a></li>#}
+
+
+
+
+{#                    </ul>#}
+{#                </li>#}
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-chart-line"></i>#}
+{#                        <span class="nav-text">Investissement</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+
+{#                        #}{#                            <li><a  href="{{ path('app_investissement_listA') }}">Liste des investissements</a></li>#}
+{#                        <li><a  href="{{ path('app_evenement_index') }}">Liste des événements</a></li>#}
+
+{#                    </ul>#}
+
+{#                </li>#}
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-clipboard-data-fill"></i>#}
+{#                        <span class="nav-text">Projet</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{ path('app_project_admin') }}">Liste des projets</a></li>#}
+{#                    </ul>#}
+
+{#                </li>#}
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-person-down"></i>#}
+{#                        <span class="nav-text">Stages</span>#}
+{#                    </a>#}
+
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{ path('AffichageDesDemandes')}}">Les demandes </a></li>#}
+{#                        #}{#                                            <li><a href="ListeDesStagiares.html">Liste des stagiaires</a></li>#}
+{#                        <li><a href="{{ path('AffichageDesContrats') }}">Liste des Contrats</a></li>#}
+{#                        <li><a href="{{ path('AfficheStage') }}">Liste des stages</a></li>#}
+{#                        <li><a href="{{ path('afficheOffreStages') }}">Liste des offres</a></li>#}
+
+{#                    </ul>#}
+{#                </li>#}
+
+
+
+
+
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-newspaper"></i>#}
+{#                        <span class="nav-text">Actualités</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{path('app_article_index')}}">Articles</a></li>#}
+{#                        <li><a href="{{path('app_commentaire_index')}}">Commentaires</a></li>#}
+{#                        <li><a href="{{path('reponseCommentaire')}}">Mes réponses </a></li>#}
+
+{#                    </ul>#}
+
+{#                </li>#}
+{#                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fa fa-exclamation-circle"></i>#}
+{#                        <span class="nav-text">Réclamations</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{path('app_reclamation_index')}}">Réclamations</a></li>#}
+
+{#                        <li><a href="{{path('app_reponse_index')}}">Réponses</a></li>#}
+{#                    </ul>#}
+
+{#                </li>#}
+{#            </ul>#}
+
+
+{#                </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!--**********************************#}
+{#        Sidebar end#}
+{#    ***********************************-->#}
+
+
+
+{#    <script src="{{ asset('vendor/global/global.min.js') }}"></script>#}
+{#    <script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>#}
+{#    <script src="{{ asset('js/custom.min.js') }}"></script>#}
+{#    <script src="{{ asset('js/dlabnav-init.js') }}"></script>#}
+{#    <script src="{{ asset('js/demo.js') }}"></script>#}
+
+{#    <script>#}
+{#        document.getElementById("searchBtn").addEventListener("click", function() {#}
+{#            var searchValue = document.getElementById("searcharea").value;#}
+{#            if (searchValue.trim() !== "") {#}
+{#                window.location.href = "{{ path('app_recherchecreditid', {'id': 'PLACEHOLDER'}) }}".replace("PLACEHOLDER", encodeURIComponent(searchValue));#}
+{#            }#}
+{#        });#}
+{#        document.getElementById("searchBtn2").addEventListener("click", function() {#}
+{#            var min = document.getElementById("minAmount").value;#}
+{#            var max = document.getElementById("maxAmount").value;#}
+
+{#            var url = "{{ path('creditminmax', {'min': 'MIN_PLACEHOLDER', 'max': 'MAX_PLACEHOLDER'}) }}";#}
+{#            url = url.replace("MIN_PLACEHOLDER", encodeURIComponent(min));#}
+{#            url = url.replace("MAX_PLACEHOLDER", encodeURIComponent(max));#}
+
+{#            window.location.href = url;#}
+{#        });#}
+
+{#    </script>#}
+
+
+
+
+{#    #}{# Assuming jQuery is already included #}
+{#    <script src="{{ asset('vendor/global/global.min.js') }}"></script>#}
+{#    <script src="{{ asset('vendor/jquery-steps/build/jquery.steps.min.js') }}"></script>#}
+{#    <script src="{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}"></script>#}
+{#    <script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>#}
+{#    <script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>#}
+
+{#    <script src="{{ asset('js/plugins-init/jquery.validate-init.js') }}"></script>#}
+{#    <script src="{{ asset('js/custom.min.js') }}"></script>#}
+{#    <script src="{{ asset('js/dlabnav-init.js') }}"></script>#}
+{#    <script src="{{ asset('js/demo.js') }}"></script>#}
+{#    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>#}
+
+
+
+
+
+
+
+
+{#    <script>#}
+{#        $(document).ready(function(){#}
+{#            // SmartWizard initialize#}
+{#            $('#smartwizard').smartWizard();#}
+{#        });#}
+
+{#        // Get reference to the button element#}
+{#        var myButton = document.getElementById("myButton");#}
+
+{#        // Add click event listener#}
+{#        myButton.addEventListener("click", function() {#}
+{#            // Show the alert#}
+{#            alert("Article ajouté avec succés");#}
+{#        });#}
+{#    </script>#}
+
+
+{#    {% block body %}#}
+
+
+{#    {% endblock %}#}
+
+{#</body>#}
+{#</html>#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>{% block title %}Welcome!{% endblock %}</title>#}
+{#    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">#}
+{#    <!-- Run composer require symfony/webpack-encore-bundle to start using Symfony UX -->#}
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">#}
+{#    <link href="{{ asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css') }}" rel="stylesheet">#}
+{#    <link href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="{{ asset('vendor/nouislider/nouislider.min.css') }}">#}
+{#    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">#}
+{#    <!-- Custom Stylesheets -->#}
+{#    <link href="{{ asset('vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">#}
+{#    <link href="{{ asset('css/style.css') }}" rel="stylesheet">#}
+
+{#    {% block stylesheets %}#}
+{#        {{ encore_entry_link_tags('app') }}#}
+{#    {% endblock %}#}
+
+{#    {% block javascripts %}#}
+{#        {{ encore_entry_script_tags('app') }}#}
+{#    {% endblock %}#}
+{#</head>#}
+{#<body>#}
+{#<div id="main-wrapper">#}
+{#    <div class="nav-header">#}
+{#        <a href="index.html" class="brand-logo">#}
+{#            <img src="{{ asset('images/2.png') }}" class="rounded-lg me-2" width="70" alt="">#}
+{#            <div class="brand-title">#}
+{#                <h2 class="">EFB</h2>#}
+{#                <span class="brand-sub-title">Admin</span>#}
+{#            </div>#}
+{#        </a>#}
+{#        <div class="nav-control">#}
+{#            <div class="hamburger">#}
+{#                <span class="line"></span><span class="line"></span><span class="line"></span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="header">#}
+{#        <div class="header-content">#}
+{#            <nav class="navbar navbar-expand">#}
+{#                <div class="collapse navbar-collapse justify-content-between">#}
+{#                    <div class="header-left">#}
+{#                        <div class="dashboard_bar">#}
+{#                            {% block nompage %}{% endblock %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <ul class="navbar-nav header-right">#}
+{#                        <li class="nav-item dropdown header-profile">#}
+{#                            <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">#}
+{#                                <img src="{{ asset('images/user.jpg') }}" width="56" alt="">#}
+{#                            </a>#}
+{#                            <div class="dropdown-menu dropdown-menu-end">#}
+{#                                <a href="{{ path('app_ProfilAdmin') }}" class="dropdown-item ai-icon">#}
+{#                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>#}
+{#                                    <span class="ms-2">Profile </span>#}
+{#                                </a>#}
+{#                                <a href="#" class="dropdown-item ai-icon">#}
+{#                                    <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>#}
+{#                                    <span class="ms-2">Inbox </span>#}
+{#                                </a>#}
+{#                                <a href="{{ path('app_logout') }}" class="dropdown-item ai-icon">#}
+{#                                    <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>#}
+{#                                    <span class="ms-2">Logout </span>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </nav>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="dlabnav">#}
+{#        <div class="dlabnav-scroll">#}
+{#            <ul class="metismenu" id="menu">#}
+{#                <li>#}
+{#                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-home"></i>#}
+{#                        <span class="nav-text">Dashboard</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{ path('app_dashbord_admin') }}">Dashboard Admin</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-user-check"></i>#}
+{#                        <span class="nav-text">Utilisateurs</span>#}
+{#                    </a>#}
+{#                    <ul class="collapse" aria-expanded="false">#}
+{#                        <li><a href="{{ path('app_user_employes') }}">Liste des employés</a></li>#}
+{#                        <li><a href="{{ path('app_user_clients') }}">Liste des clients</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-person-vcard-fill"></i>#}
+{#                        <span class="nav-text">Comptes</span>#}
+{#                    </a>#}
+{#                    <ul class="collapse" aria-expanded="false">#}
+{#                        <li><a href="{{ path('afficheCompte') }}">Les Demandes de Créations des comptes</a></li>#}
+{#                        <li><a href="{{ path('AfficherDemande') }}">Les Demandes de chèque</a></li>#}
+{#                        <li><a href="{{ path('showDemande') }}">Les Demandes de virement</a></li>#}
+{#                        <li><a href="{{ path('showHistorique') }}">Liste des Comptes</a></li>#}
+{#                        <li><a href="{{ path('showListeCheque') }}">Liste des Chèques</a></li>#}
+{#                        <li><a href="{{ path('showHistoriqueV') }}">Liste des Virements</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="fas fa-file-alt"></i>#}
+{#                        <span class="nav-text">Crédits</span>#}
+{#                    </a>#}
+{#                    <ul class="collapse" aria-expanded="false">#}
+{#                        <li><a href="{{ path('app_listecredit') }}">Liste des crédits</a></li>#}
+{#                        <li><a href="{{ path('app_listerdv') }}">Liste des RDV</a></li>#}
+{#                        <li><a href="{{ path('app_rdv') }}">CALENDAR</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">#}
+{#                        <i class="bi bi-person-vcard-fill"></i>#}
+{#                        <span class="nav-text">Articles</span>#}
+{#                    </a>#}
+{#                    <ul aria-expanded="false">#}
+{#                        <li><a href="{{ path('app_article_list') }}">Liste des articles</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="widget-basic.html" class="ai-icon" aria-expanded="false">#}
+{#                        <i class="fas fa-user"></i>#}
+{#                        <span class="nav-text">Profil</span>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+{#            <div class="plus-box">#}
+{#                <p>Organize your menus through button bellow</p>#}
+{#            </div>#}
+{#            <div class="copyright">#}
+{#                <p><strong> Eazy For Bank Dashboard</strong> © 2023 All Rights Reserved</p>#}
+{#                <p>Made with <span class="heart"></span> by RedStar</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="content-body">#}
+{#        <div class="container-fluid">#}
+{#            {% block body %}{% endblock %}#}
+{#        </div>#}
+{#    </div>#}
+
+{#    <div class="footer">#}
+{#        <div class="copyright">#}
+{#            <p>Copyright © Designed &amp; Developed by <a href="https://www.dexignzone.com/" target="_blank">DexignZone</a> 2023</p>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+{#<script src="{{ asset('vendor/global/global.min.js') }}"></script>#}
+{#<script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>#}
+{#<script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>#}
+{#<script src="{{ asset('js/custom.min.js') }}"></script>#}
+{#<script src="{{ asset('js/deznav-init.js') }}"></script>#}
+{#<script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>#}
+{#<script src="{{ asset('vendor/owl-carousel/owl.carousel.js') }}"></script>#}
+{#<script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>#}
+{#<script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>#}
+{#<script src="{{ asset('vendor/nouislider/nouislider.min.js') }}"></script>#}
+{#<script src="{{ asset('js/nice-select.js') }}"></script>#}
+
+{#<!-- Custom JavaScript -->#}
+{#<script>#}
+{#    document.addEventListener('DOMContentLoaded', function () {#}
+{#        // Initialisation de l'état des sous-menus#}
+{#        const subMenus = document.querySelectorAll('.metismenu ul.collapse');#}
+{#        subMenus.forEach(subMenu => {#}
+{#            subMenu.classList.remove('show');#}
+{#        });#}
+
+{#        // Ajout d'un écouteur d'événement pour les éléments de menu principal#}
+{#        const menuItems = document.querySelectorAll('.metismenu > li > a.has-arrow');#}
+{#        menuItems.forEach(menuItem => {#}
+{#            menuItem.addEventListener('click', function () {#}
+{#                const parentLi = this.parentElement;#}
+{#                const subMenu = parentLi.querySelector('ul.collapse');#}
+{#                subMenus.forEach(subMenu => {#}
+{#                    if (subMenu !== parentLi.querySelector('ul.collapse')) {#}
+{#                        subMenu.classList.remove('show');#}
+{#                    }#}
+{#                });#}
+{#                subMenu.classList.toggle('show');#}
+{#            });#}
+{#        });#}
+{#    });#}
+{#</script>#}
+{#</body>#}
+{#</html>#}

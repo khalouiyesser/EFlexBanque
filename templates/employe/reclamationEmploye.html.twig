@@ -1,0 +1,46 @@
+{% extends 'baseEmploye.html.twig' %}
+{% block body %}
+<div class="page-wrapper d-flex justify-content-center align-items-center">
+    <div class="content mt-5 col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 text-center">
+                <h4 class="page-title">Liste des réclamations</h4>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="activity">
+                    <div class="activity-box">
+                        <ul class="activity-list">
+                            {% for reclamation in reclamations %}
+                            <li class="activity-list_li d-flex align-items-center justify-content-between">
+                                <div class="reclamation-details">
+                                    <div class="activity-user">
+                                        <a href="#" title="{{ reclamation.nomAutRec }}" data-toggle="tooltip" class="avatar">
+                                            <img alt="" src="{{asset('images/profile.png')}}" class="img-fluid rounded-circle">
+                                        </a>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="timeline-content">
+                                            <a href="#" class="name">{{ reclamation.nomAutRec }}</a> a ajouté une nouvelle réclamation {{reclamation.id}}<br>
+                                            <span class="time">{{ reclamation.dateRec|date("d-m-Y H:i:s") }}</span>
+                                            <p>Objet: {{ reclamation.objetRec }}</p>
+                                            <p>Contenu: {{ reclamation.contenuRec }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                  
+                                    <a href="{{ path('app_reclamationEmploye_delete', {'id': reclamation.id}) }}" class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-original-title="Edit user" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');">Supprimer</a>
+
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

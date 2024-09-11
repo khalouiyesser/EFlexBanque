@@ -1,0 +1,51 @@
+
+    {% block body %}
+    {% block nompage %}modifier creditf{% endblock %}
+     
+    
+    
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-4">Formulaire pour modifier une demande de crédit</h5>
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div class="mb-3">
+                                {{ form_row(form.id_client, {'attr': {'class': 'form-control'}, 'id': 'id_client'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.montant, {'attr': {'class': 'form-control'}, 'id': 'montant'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.statusclient, {'attr': {'class': 'form-control'}, 'id': 'statusclient'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.mensualite, {'attr': {'class': 'form-control'}, 'id': 'mensualite'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.datedebut, {'attr': {'class': 'form-control'}, 'id': 'datedebut'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.duree, {'attr': {'class': 'form-control'}, 'id': 'duree'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.taux, {'attr': {'class': 'form-control'}, 'id': 'taux', 'readonly': 'readonly'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.status, {'attr': {'class': 'form-control'}, 'id': 'status'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.fraisretard, {'attr': {'class': 'form-control'}, 'id': 'fraisretard', 'readonly': 'readonly'}) }}
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}

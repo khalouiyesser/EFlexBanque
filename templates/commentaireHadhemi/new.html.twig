@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Commentaire{% endblock %}
+
+{% block body %}
+    <h1>Create new Commentaire</h1>
+
+    {{ include('commentaireHadhemi/_form.html.twig') }}
+
+    <a href="{{ path('app_commentaire_index') }}">back to list</a>
+{% endblock %}
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Liste des commentaires{% endblock %}
+
+{% block body %}
+<div class="content-body">
+    <div class="container-fluid">
+       
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ajouter un nouveau commentaire</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#home8">
+                                    <span>
+                                        <i class="ti-home"></i>
+                                    </span>
+                                </a>
+                            </li>
+                          
+                        </ul>
+                     <div class="tab-content tabcontent-border">
+    <div class="tab-pane fade show active" id="home8" role="tabpanel">
+    
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'pt-4'}}) }}
+
+        
+           
+
+            <!-- Utilisation de form pour générer les champs -->
+            <div class="form-group">
+                {{ form_label(form.nomAutCom, 'Nom de l\'auteur :') }}
+                {{ form_widget(form.nomAutCom, {'attr': {'class': 'form-control', 'placeholder': 'Nom de l\'auteur'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.contenu, 'Contenu :') }}
+                {{ form_widget(form.contenu, {'attr': {'class': 'form-control', 'placeholder': 'Contenu'}}) }}
+            </div>
+
+      
+               
+
+    </div>
+</div>
+	    <div class="container-contact1-form-btn">
+            <button class="contact1-form-btn" type="submit">
+                <span>
+                    Envoyer
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                </span>
+            </button>
+        </div>
+
+
+
+
+
+ {{ form_end(form) }}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

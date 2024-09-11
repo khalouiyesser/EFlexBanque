@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('client/assets/img/apple-icon.png') }}">
+     <title>
+     Evenement
+    </title>
+    <!-- Fonts and icons -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('client/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ asset('client/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    .card{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: 450ms;
+    }
+
+    .front, .back{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+    }
+
+    .front{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+
+    .image{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        clip-path: polygon(0 0, 100% 0, 100% 71%, 0 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #fa5f64bb) , url('https://cdn.pixabay.com/photo/2020/10/09/11/53/mask-5640359_1280.jpg');
+        background-position:center;
+        background-size: cover;
+    }
+    .image-1{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 71%, 81% 81%, 26% 81%, 0 71%, 0% 20%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #ffd166bb) , url('https://wallpapersmug.com/large/ba48dd/colorful-smoke-man-in-mask.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+
+    .ham{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .ham i{
+        font-size: 25px;
+        color: #323031;
+    }
+
+    .plus{
+        position: absolute;
+        top: 34.5%;
+        right: 20%;
+        z-index: 5;
+        width: 60px;
+        height: 60px;
+        background: #e8cbc0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    }
+
+    .plus i{
+        font-size: 30px;
+        color: #323031;
+    }
+    .plus-2{
+        position: absolute;
+        top: 34.5%;
+        left: 20%;
+        z-index: 5;
+        width: 50px;
+        height: 50px;
+        background: #e8cbc0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    }
+
+
+    .content h1{
+        font-size: 40px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        line-height: 1;
+        font-weight: 900;
+        text-transform: uppercase;
+        padding: 0 10px;
+        color: #323031;
+    }
+
+    .content h2{
+        font-size: 30px;
+        text-align: center;
+        line-height: 1.2;
+        font-weight: 500;
+        margin-bottom: 15px;
+        padding: 0 10px;
+        color: #177e89;
+    }
+
+    .content p{
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.2;
+        font-weight: 500;
+        margin-bottom: 15px;
+        padding: 0 10px;
+        color: #463d41;
+    }
+
+    .social{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+        color: #084c61;
+    }
+
+
+    .social i{
+        font-size: 30px;
+    }
+
+    .follow{
+        border-top: 3px solid black;
+    }
+
+    .top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        gap: 110px;
+        color: #323031;
+    }
+    .bottom{
+        display: inline-block;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* margin-left: 10px; */
+        color: #db3a34;
+    }
+
+    .top span{
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .bottom span{
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+    :root {
+        --blue: #0071FF;
+        --light-blue: #B6DBF6;
+        --dark-blue: #005DD1;
+        --grey: #f2f2f2;
+    }
+
+
+
+
+    .img-area {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        background: var(--grey);
+        margin-bottom: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .img-area .icon {
+        font-size: 100px;
+    }
+    .img-area h3 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    .img-area p {
+        color: #999;
+    }
+    .img-area p span {
+        font-weight: 600;
+    }
+    .img-area img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 100;
+    }
+    .img-area::before {
+        content: attr(data-img);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5);
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: all .3s ease;
+        z-index: 200;
+    }
+    .img-area.active:hover::before {
+        opacity: 1;
+    }
+    .select-image {
+        display: block;
+        width: 100%;
+        padding: 16px 0;
+        border-radius: 15px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all .3s ease;
+    }
+    .select-image:hover {
+        background: var(--dark-blue);
+    }
+
+
+       button.like1 {
+         width: 50px;
+         height: 50px;
+         margin: 0 auto;
+         line-height: 50px; /* corrected misspelling */
+         border-radius: 50%;
+         color: rgba(0, 150, 136, 1);
+         background-color: rgba(38, 166, 154, 0.3);
+         border-color: rgba(0, 150, 136, 1);
+         border-width: 1px;
+         font-size: 15px;
+       }
+
+       button.dislike1 {
+         width: 50px;
+         height: 50px;
+         margin: 0 auto;
+         line-height: 50px; /* corrected misspelling */
+         border-radius: 50%;
+         color: rgba(255, 82, 82, 1);
+         background-color: rgba(255, 138, 128, 0.3);
+         border-color: rgba(255, 82, 82, 1);
+         border-width: 1px;
+         font-size: 15px;
+       }
+
+       button.learnmore {
+         width: 100%;
+         padding: 15px; /* increased padding */
+         border: none;
+         background: rgba(0, 151, 167, 1);
+         border-radius: 5px;
+         text-transform: uppercase;
+         font-size: 16px;
+         color: #fff;
+         letter-spacing: 1px;
+       }
+       .like1, .dislike1 {
+         display: inline-block;
+         width: 40px;
+         height: 40px;
+         margin-right: 10px;
+         border: none;
+         border-radius: 50%;
+         background-color: transparent;
+         font-size: 20px;
+         color: #333;
+         cursor: pointer;
+       }
+
+       .like1:hover, .dislike1:hover {
+         background-color: #f2f2f2;
+       }
+
+       .like1 i, .dislike1 i {
+         line-height: 40px;
+       }
+
+       .like1.active, .dislike1.active {
+         color: #009688; /* Change color to green when active */
+       }
+
+       .like1.disabled, .dislike1.disabled {
+         pointer-events: none; /* Disable clicking when button is disabled */
+         opacity: 0.5; /* Make button slightly transparent */
+       }
+
+</style>
+
+
+</head>
+
+<body class="">
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div class="container-fluid pe-0">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{ path('app_event') }}">
+               Innovatix
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+              <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+
+
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="../pages/sign-up.html">
+                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    S'inscrire
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="../pages/sign-in.html">
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Se connecter
+                  </a>
+                </li>
+              </ul>
+              <li class="nav-item d-flex align-items-center">
+                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Constructeur en ligne</a>
+              </li>
+              <ul class="navbar-nav d-lg-block d-none">
+                <li class="nav-item">
+                  <a  href="{{ path('app_main') }}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark"> Page d'accueil</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </div>
+  <main class="main-content  mt-0">
+  <section class="py-3">
+        <div class="bg-gradient-primary position-relative m-3 border-radius-xl">
+            <img src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute start-0 top-md-0 w-100 opacity-6">
+            <div class="container pb-lg-9 pb-7 pt-7 postion-relative z-index-2">
+                <div class="row">
+                    <div class="col-md-8 mx-auto text-center">
+                        <span class="badge bg-gradient-dark mb-2">Investissement</span>
+
+<h3 class="text-white">Découvrez nos investissements</h3>
+<p class="text-white">Vous bénéficiez de mises à jour illimitées gratuites et d'un support premium sur chaque forfait.</p></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="row justify-content-start">
+                    <div class="col-md-6">
+                        <div class="info">
+                            <div class="icon icon-md">
+                                <svg width="25px" height="25px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>spaceship</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-1720.000000, -592.000000)" fill="#923DFA" fill-rule="nonzero">
+                                            <g transform="translate(1716.000000, 291.000000)">
+                                                <g transform="translate(4.000000, 301.000000)">
+                                                    <path d="M39.3,0.706666667 C38.9660984,0.370464027 38.5048767,0.192278529 38.0316667,0.216666667 C14.6516667,1.43666667 6.015,22.2633333 5.93166667,22.4733333 C5.68236407,23.0926189 5.82664679,23.8009159 6.29833333,24.2733333 L15.7266667,33.7016667 C16.2013871,34.1756798 16.9140329,34.3188658 17.535,34.065 C17.7433333,33.98 38.4583333,25.2466667 39.7816667,1.97666667 C39.8087196,1.50414529 39.6335979,1.04240574 39.3,0.706666667 Z M25.69,19.0233333 C24.7367525,19.9768687 23.3029475,20.2622391 22.0572426,19.7463614 C20.8115377,19.2304837 19.9992882,18.0149658 19.9992882,16.6666667 C19.9992882,15.3183676 20.8115377,14.1028496 22.0572426,13.5869719 C23.3029475,13.0710943 24.7367525,13.3564646 25.69,14.31 C26.9912731,15.6116662 26.9912731,17.7216672 25.69,19.0233333 L25.69,19.0233333 Z"></path>
+                                                    <path d="M1.855,31.4066667 C3.05106558,30.2024182 4.79973884,29.7296005 6.43969145,30.1670277 C8.07964407,30.6044549 9.36054508,31.8853559 9.7979723,33.5253085 C10.2353995,35.1652612 9.76258177,36.9139344 8.55833333,38.11 C6.70666667,39.9616667 0,40 0,40 C0,40 0,33.2566667 1.855,31.4066667 Z"></path>
+                                                    <path d="M17.2616667,3.90166667 C12.4943643,3.07192755 7.62174065,4.61673894 4.20333333,8.04166667 C3.31200265,8.94126033 2.53706177,9.94913142 1.89666667,11.0416667 C1.5109569,11.6966059 1.61721591,12.5295394 2.155,13.0666667 L5.47,16.3833333 C8.55036617,11.4946947 12.5559074,7.25476565 17.2616667,3.90166667 L17.2616667,3.90166667 Z" opacity="0.598539807"></path>
+                                                    <path d="M36.0983333,22.7383333 C36.9280725,27.5056357 35.3832611,32.3782594 31.9583333,35.7966667 C31.0587397,36.6879974 30.0508686,37.4629382 28.9583333,38.1033333 C28.3033941,38.4890431 27.4704606,38.3827841 26.9333333,37.845 L23.6166667,34.53 C28.5053053,31.4496338 32.7452344,27.4440926 36.0983333,22.7383333 L36.0983333,22.7383333 Z" id="color-3" opacity="0.598539807"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5>Entièrement intégré</h5>
+                            <p>Nous sommes insultés par les autres, perdons confiance en ceux Nous revenons gèle</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info">
+                            <div class="icon icon-md">
+                                <svg width="25px" height="25px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>briefcase-24</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-2170.000000, -292.000000)" fill="#923DFA" fill-rule="nonzero">
+                                            <g transform="translate(1716.000000, 291.000000)">
+                                                <g id="briefcase-24" transform="translate(454.000000, 1.000000)">
+                                                    <path d="M26.25,31.5 L26.25,35 L15.75,35 L15.75,31.5 L1.75,31.5 L1.75,40.25 C1.75,41.216 2.534,42 3.5,42 L38.5,42 C39.466,42 40.25,41.216 40.25,40.25 L40.25,31.5 L26.25,31.5 Z"></path>
+                                                    <path d="M40.25,7 L29.75,7 L29.75,1.75 C29.75,0.784 28.966,0 28,0 L14,0 C13.034,0 12.25,0.784 12.25,1.75 L12.25,7 L1.75,7 C0.784,7 0,7.784 0,8.75 L0,26.25 C0,27.216 0.784,28 1.75,28 L15.75,28 L15.75,22.75 L26.25,22.75 L26.25,28 L40.25,28 C41.216,28 42,27.216 42,26.25 L42,8.75 C42,7.784 41.216,7 40.25,7 Z M26.25,7 L15.75,7 L15.75,3.5 L26.25,3.5 L26.25,7 Z" opacity="0.6"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5>Fonctionnalité de paiement</h5>
+                            <p>Nous sommes insultés par les autres, perdons confiance en ceux Nous revenons gèle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-start">
+                    <div class="col-md-6">
+                        <div class="info">
+                            <div class="icon icon-md">
+                                <svg width="25px" height="25px" viewBox="0 0 45 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>map-big</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="nonzero">
+                                        <g transform="translate(-2321.000000, -593.000000)" fill="#923DFA" fill-rule="nonzero">
+                                            <g transform="translate(1716.000000, 291.000000)">
+                                                <g id="map-big" transform="translate(605.000000, 302.000000)">
+                                                    <polygon points="31.875 0.71625 24.375 4.46625 24.375 40.53375 31.875 36.78375"></polygon>
+                                                    <polygon points="20.625 4.46625 13.125 0.71625 13.125 36.78375 20.625 40.53375"></polygon>
+                                                    <path d="M9.375,0.81375 L0.909375,5.893125 C0.346875,6.230625 0,6.84 0,7.5 L0,43.125 L9.375,37.06125 L9.375,0.81375 Z" opacity="0.70186942"></path>
+                                                    <path d="M44.090625,5.893125 L35.625,0.81375 L35.625,37.06125 L45,43.125 L45,7.5 C45,6.84 44.653125,6.230625 44.090625,5.893125 Z" opacity="0.70186942"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5>Composants pré-construits</h5>
+                            <p>Nous sommes insultés par les autres, perdons confiance en ceux Nous revenons gèle</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info">
+                            <div class="icon icon-md">
+                                <svg width="25px" height="25px" viewBox="0 0 42 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>time-alarm</title>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="nonzero">
+                                        <g transform="translate(-2319.000000, -440.000000)" fill="#923DFA" fill-rule="nonzero">
+                                            <g transform="translate(1716.000000, 291.000000)">
+                                                <g id="time-alarm" transform="translate(603.000000, 149.000000)">
+                                                    <path d="M18.8086957,4.70034783 C15.3814926,0.343541521 9.0713063,-0.410050841 4.7145,3.01715217 C0.357693695,6.44435519 -0.395898667,12.7545415 3.03130435,17.1113478 C5.53738466,10.3360568 11.6337901,5.54042955 18.8086957,4.70034783 L18.8086957,4.70034783 Z" opacity="0.6"></path>
+                                                    <path d="M38.9686957,17.1113478 C42.3958987,12.7545415 41.6423063,6.44435519 37.2855,3.01715217 C32.9286937,-0.410050841 26.6185074,0.343541521 23.1913043,4.70034783 C30.3662099,5.54042955 36.4626153,10.3360568 38.9686957,17.1113478 Z" opacity="0.6"></path>
+                                                    <path d="M34.3815652,34.7668696 C40.2057958,27.7073059 39.5440671,17.3375603 32.869743,11.0755718 C26.1954189,4.81358341 15.8045811,4.81358341 9.13025701,11.0755718 C2.45593289,17.3375603 1.79420418,27.7073059 7.61843478,34.7668696 L3.9753913,40.0506522 C3.58549114,40.5871271 3.51710058,41.2928217 3.79673036,41.8941824 C4.07636014,42.4955431 4.66004722,42.8980248 5.32153275,42.9456105 C5.98301828,42.9931963 6.61830436,42.6784048 6.98113043,42.1232609 L10.2744783,37.3434783 C16.5555112,42.3298213 25.4444888,42.3298213 31.7255217,37.3434783 L35.0188696,42.1196087 C35.6014207,42.9211577 36.7169135,43.1118605 37.53266,42.5493622 C38.3484064,41.9868639 38.5667083,40.8764423 38.0246087,40.047 L34.3815652,34.7668696 Z M30.1304348,25.5652174 L21,25.5652174 C20.49574,25.5652174 20.0869565,25.1564339 20.0869565,24.6521739 L20.0869565,15.5217391 C20.0869565,15.0174791 20.49574,14.6086957 21,14.6086957 C21.50426,14.6086957 21.9130435,15.0174791 21.9130435,15.5217391 L21.9130435,23.7391304 L30.1304348,23.7391304 C30.6346948,23.7391304 31.0434783,24.1479139 31.0434783,24.6521739 C31.0434783,25.1564339 30.6346948,25.5652174 30.1304348,25.5652174 Z"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h5>Plateforme améliorée</h5>
+                            <p>Nous sommes insultés par les autres, perdons confiance en ceux Nous revenons gèle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 ms-auto">
+                <div class="card">
+                    <img class="card-img-top" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/funny.jpg">
+                    <div class="position-relative overflow-hidden" style="height:50px;margin-top:-50px;">
+                        <div class="position-absolute w-100 top-0 z-index-1">
+                            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                                <defs>
+                                    <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                                </defs>
+                                <g class="moving-waves">
+                                    <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(255,255,255,0.30"></use>
+                                    <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                                    <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>
+                            Système de conception Soft UI
+                        </h4>
+                        <p>
+                            Un des kits d'interface utilisateur les plus beaux et complexes construits par l'équipe de Creative Tim. C'est assez impressionnant.
+                        </p>
+                        <a href="javascript:;" class="text-primary icon-move-right">En savoir plus sur nous
+                            <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5 bg-gray-100">
+        <div class="container">
+            <div class="row">
+            <br>
+                       {% for evenement in evenements %}
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="card card-blog card-plain">
+             <br>
+                    <div class="card">
+                  <div class="front">
+                    <div style="  top: 0;
+        left: 0;
+        width: 100%;
+        height: 250px;
+        clip-path: polygon(0 0, 100% 0, 100% 71%, 0 100%);
+background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(60, 90, 136, 0.151), #ffd166bb),
+            url('{{ asset('uploads/' ~ evenement.img) }}');
+                    background-position:center;
+        background-size: cover;">
+                        <div class="ham">
+                            <i class="fa-solid fa-bars"></i>
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                    </div>
+                    <div class="plus"><a href="http://localhost/integrate-stripe-payment-gateway-in-php/index.php">
+                        <i class="fab fa-paypal opacity-10" aria-hidden="true"></i>                      </a>
+                    </div>
+                    <div class="content">
+                        <h1>{{ evenement.nom }}</h1>
+                        <h2>Web Developer</h2>
+                        <p>{{ evenement.description }}</p>
+                        <div class="social">
+                           <a href="https://www.instagram.com/ayoub_mekni/"> <i class="fa-brands fa-instagram"></i></a>
+                            <i class="fa-brands fa-telegram"></i>
+                           <a href="https://github.com/Ayoubmekni7"> <i class="fa-brands fa-github"></i></a>
+                          <a href="http://localhost/integrate-stripe-payment-gateway-in-php/index.php" target="_blank">
+                           <a href="https://www.linkedin.com/in/ayoub-mekni-%F0%9F%87%B9%F0%9F%87%B3-%F0%9F%87%B9%F0%9F%87%B7-20899124b/"><i class="fab fa-linkedin"></i></a>
+                          </a>
+                        </div>
+
+                      <div class="card-body">
+                        <!-- Boutons de like, dislike et enregistrement -->
+                        <div class="d-flex justify-content-center align-items-center">
+                          <!-- Bouton de like -->
+                          <form action="{{ path('app_evenement_like', {'id': evenement.id}) }}" method="post" class="me-3">
+
+                            <button type="submit" class="like1" style="    animation: bounce 3s infinite;">
+                              <i class="fa-solid fa-heart"></i>
+                            </button>
+
+                            <span class="mx-2">{{ evenement.likes }}</span> <!-- Affichage du nombre de likes -->
+                          </form>
+
+                          <!-- Bouton de dislike -->
+                          <form action="{{ path('app_evenement_dislike', {'id': evenement.id}) }}" method="post" class="me-3">
+
+                            <button type="submit" class="dislike1" style="    animation: bounce 3s infinite;">
+                              <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                            </button>
+                            <span class="mx-2">{{ evenement.dislikes }}</span>
+
+                          </form>
+
+                          <!-- Bouton d'enregistrement -->
+
+                        </div>
+                      </div>
+
+                      <br>
+
+                    </div>
+
+                </div>
+            </div>
+                            <br>
+                            <div class="card h-100" >
+
+              <div class="card-header pb-0 p-3">
+                <h6 class="mb-0">Commentaire</h6>
+              </div>
+              <div class="card-body p-3">
+                <ul class="list-group">
+                        {% for commentaire in commentaires %}
+                                {% if commentaire.evenement == evenement %}
+                    <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div class="avatar me-3" style="width: 50px; height: 50px; overflow: hidden; border-radius: 50%;">
+                            <img src="{{ asset('uploads/' ~ commentaire.img) }}" class="img-fluid" alt="user-avatar">
+                        </div>
+                        <div class="d-flex align-items-start flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm" style="color: #333; font-weight: bold; margin-bottom: 5px;">{{ commentaire.nomuser }}</h6>
+                            <p class="mb-0 text-xs" style="color: #666;">{{ commentaire.contenu }}...</p>
+                        </div>
+                    </li>
+                {% endif %}
+                {% endfor %}
+
+
+
+                </ul>
+
+                </body>
+
+                           <br>
+
+
+                <form role="form text-left" action="{{ path('app_CommentaireAddd' , {'id': evenement.id}) }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-1">
+                            <div class="img-area" data-img="">
+                            <i class='bx bxs-cloud-upload icon'></i>
+                            <h3>Upload Image</h3>
+                            <p>Image size must be less than <span>2MB</span></p>
+                <input type="file" name="my_image"
+                    style="padding: 5px;
+                            margin-top: 5px;
+                            border: 1px solid #ccc;
+              border-radius: 3px;
+              background-color: #f9f9f9;
+              color: #333;
+              font-size: 14px;
+              line-height: 1.5;
+              box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+              cursor: pointer;
+              color: blue;">
+
+		</div>
+
+
+                </div>
+            <div class="mb-3">
+                <input name="nomuser" type="text" class="form-control" placeholder="Nom" aria-label="Name" aria-describedby="email-addon" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            </div>
+            <div class="mb-3">
+                <textarea name="contenu" class="form-control" id="message" rows="3" placeholder="Écrivez un commentaire ...." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn bg-gradient-primary mt-4" style="padding: 10px 20px; border-radius: 5px; border: none; color: white; background-color: #007bff;">Envoyer un commentaire</button>
+            </div>
+
+            </form>
+
+
+              </div>
+            </div>
+
+                    </div>
+                </div>
+                            <br>
+            <br>
+
+                                 {% endfor %}
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+<section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h4 class="text-gradient text-primary">Rejoignez notre formidable équipe</h4>
+
+                </div>
+            </div>
+            <div class="row mt-lg-5 mt-4">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Ahmed Marzouguî </h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">PHP Developer</span>
+                                <br>
+                                <button type="button" class="btn btn-twitter btn-simple px-2 mb-0">
+                                    <i class="fab fa-twitter text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-slack btn-simple px-2 mb-0">
+                                    <i class="fab fa-slack text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl" src="https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/403714135_2382208238656836_3383174147791022134_n.jpg?stp=dst-jpg_p320x320&_nc_cat=104&ccb=1-7&_nc_sid=5740b7&_nc_ohc=cUJTVccOL9UAX-0t4Jf&_nc_ht=scontent.ftun10-1.fna&oh=00_AfB3EIgsRzwd_J7nuxKVwiE_ts4CRu0WMKAzj7wLHs9ZVg&oe=65E67654">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Àyoùb Mékni</h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">directeur général</span>
+                                <br>
+                                <button type="button" class="btn btn-facebook btn-simple px-2 mb-0">
+                                    <i class="fab fa-facebook-f text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-slack btn-simple px-2 mb-0">
+                                    <i class="fab fa-slack text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                         <img class="avatar avatar-xxl" src="{{ asset('client/assets/img/ayoub.jpeg') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">El Khaloui Yesser</h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">Vue.js Specialist</span>
+                                <br>
+                                <button type="button" class="btn btn-twitter btn-simple px-2 mb-0">
+                                    <i class="fab fa-twitter text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-github btn-simple px-2 mb-0">
+                                    <i class="fab fa-github text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl" src="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-6/347585813_6396456030443128_674978379584929797_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=gNdQI9WalA4AX-71JIB&_nc_ht=scontent.ftun10-2.fna&oh=00_AfBKA_Hf1YNyiBXKwHmusHrMV764pD9xfH6ldk2O82NlYw&oe=65E68E5A">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="row mt-lg-5 mt-4">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Hadhemi Mhd</h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">PHP Developer</span>
+                                <br>
+                                <button type="button" class="btn btn-twitter btn-simple px-2 mb-0">
+                                    <i class="fab fa-twitter text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-slack btn-simple px-2 mb-0">
+                                    <i class="fab fa-slack text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl" src="https://scontent.ftun10-2.fna.fbcdn.net/v/t39.30808-6/411034985_763144555653789_3630252769617782161_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9c7eae&_nc_ohc=y-_dxJWet4wAX_jJFKl&_nc_ht=scontent.ftun10-2.fna&oh=00_AfAsLJIIdnURJ9ZzJObKDqhEX2qK5CFZPp6sI30zjtQvXg&oe=65E5CCBD">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Mariem Mhamdi</h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">Laravel Senior</span>
+                                <br>
+                                <button type="button" class="btn btn-facebook btn-simple px-2 mb-0">
+                                    <i class="fab fa-facebook-f text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-slack btn-simple px-2 mb-0">
+                                    <i class="fab fa-slack text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl" src="https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/417459700_1573841940099135_8536990084868321427_n.jpg?stp=c0.0.320.320a_dst-jpg_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=5740b7&_nc_ohc=UeZ6UuBUjAUAX_jOY5P&_nc_ht=scontent.ftun10-1.fna&oh=00_AfBq2F6dcw5sW9QSffwUvwJXjws_Qj60hCTpBu6vuhkvLg&oe=65E5ACC8">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="mb-2">Shãyma Ouerhani</h5>
+                                <span class="badge badge-sm rounded-pill mb-3 text-dark">Vue.js Specialist</span>
+                                <br>
+                                <button type="button" class="btn btn-twitter btn-simple px-2 mb-0">
+                                    <i class="fab fa-twitter text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-dribbble btn-simple px-2 mb-0">
+                                    <i class="fab fa-dribbble text-lg" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-github btn-simple px-2 mb-0">
+                                    <i class="fab fa-github text-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-lg-5 text-end my-auto">
+                                <img class="avatar avatar-xxl" src="https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/408227915_1550484739119785_5522487767743234514_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=6VscJ5PziowAX8W293r&_nc_ht=scontent.ftun10-1.fna&oh=00_AfAM4xTMHHuFOaGx4UbkPTEW7-KhJ4j3uqqX-G71E3iqIA&oe=65E5289F">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="py-4">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6 mx-auto text-center">
+                <h2>Questions Fréquemment Posées</h2>
+                <p>Beaucoup de gens n'apprécient pas le moment tant qu'il n'est pas passé. Je ne fais pas de mon mieux, et je ne cherche pas à le faire.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="accordion" id="accordionRental">
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingOne">
+                            <button class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Comment puis-je commander ?
+                                <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                                <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionRental" style="">
+                            <div class="accordion-body text-dark text-sm opacity-8">
+                                Nous ne sommes pas toujours dans la position que nous voulons être. Nous sommes constamment en train de grandir. Nous faisons constamment des erreurs. Nous essayons constamment de nous exprimer et de réaliser nos rêves. Si vous avez l'occasion de jouer à ce jeu de la vie, vous devez apprécier chaque moment. Beaucoup de gens n'apprécient pas le moment tant qu'il n'est pas passé.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Comment puis-je effectuer le paiement ?
+                                <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                                <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionRental" style="">
+                            <div class="accordion-body text-dark text-sm opacity-8">
+                                Cela importe vraiment et ensuite cela n'importe vraiment pas. Ce qui importe, ce sont les gens qui sont inspirés par cela. Et les gens qui en sont offensés, cela n'a pas d'importance. Parce qu'il s'agit de motiver les acteurs. Parce que je suis ici pour suivre mes rêves et inspirer d'autres personnes à suivre leurs rêves aussi.
+                                <br>
+                                Nous ne sommes pas toujours dans la position que nous voulons être. Nous sommes constamment en train de grandir. Nous faisons constamment des erreurs. Nous essayons constamment de nous exprimer et de réaliser nos rêves. Si vous avez l'occasion de jouer à ce jeu de la vie, vous devez apprécier chaque moment. Beaucoup de gens n'apprécient pas le moment tant qu'il n'est pas passé.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingThree">
+                            <button class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Combien de temps faut-il pour recevoir la commande ?
+                                <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                                <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-dark text-sm opacity-8">
+                                Le moment est venu pour que ce soit acceptable d'être génial. Les gens dans ce monde évitent les gens pour être géniaux. Pour être une couleur vive. Pour se démarquer. Mais le moment est venu d'être d'accord pour être le meilleur de vous-même. Croiriez-vous en ce en quoi vous croyez, si vous étiez le seul à y croire ?
+                                Si tout ce que je faisait échouait - ce qui n'est pas le cas, en fait, cela réussit - le simple fait que je sois prêt à échouer est une inspiration. Les gens ont tellement peur de perdre qu'ils n'essaient même pas. Comme, une chose que les gens ne peuvent pas dire, c'est que je n'essaie pas, et je n'essaie pas de mon mieux, et je n'essaie pas de faire de mon mieux de la meilleure façon que je connaisse.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingFour">
+                            <button class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Puis-je revendre les produits ?
+                                <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                                <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-dark text-sm opacity-8">
+                                J'ai toujours senti que je pouvais tout faire. C’est la principale chose que les gens sont contrôlés par ! Les pensées - leur perception d'eux-mêmes ! Ils sont ralentis par leur perception d'eux-mêmes. Si on vous enseigne que vous ne pouvez rien faire, vous ne ferez rien. On m'a appris que je pouvais tout faire.
+                                <br><br>
+                                Si tout ce que je faisait échouait - ce qui n'est pas le cas, en fait, cela réussit - le simple fait que je sois prêt à échouer est une inspiration. Les gens ont tellement peur de perdre qu'ils n'essaient même pas. Comme, une chose que les gens ne peuvent pas dire, c'est que je n'essaie pas, et je n'essaie pas de mon mieux, et je n'essaie pas de faire de mon mieux de la meilleure façon que je connaisse.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3">
+                        <h5 class="accordion-header" id="headingFifth">
+                            <button class="accordion-button border-bottom font-weight-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                                Où puis-je trouver les détails d'expédition ?
+                                <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                                <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3" aria-hidden="true"></i>
+                            </button>
+                        </h5>
+                        <div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth" data-bs-parent="#accordionRental">
+                            <div class="accordion-body text-dark text-sm opacity-8">
+                                Il n'y a rien que je voulais vraiment faire dans la vie que je n'ai pas pu bien faire. C'est ma compétence. Je ne suis pas vraiment doué pour quelque chose en particulier, sauf pour la capacité d'apprendre. C'est ce que je fais. C'est pour cela que je suis ici. N'ayez pas peur d'avoir tort car vous ne pouvez rien apprendre d'un compliment.
+                                J'ai toujours senti que je pouvais tout faire. C’est la principale chose que les gens sont contrôlés par ! Les pensées - leur perception d'eux-mêmes ! Ils sont ralentis par leur perception d'eux-mêmes. Si on vous enseigne que vous ne pouvez rien faire, vous ne ferez rien. On m'a appris que je pouvais tout faire.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<a type="button" class="btn bg-gradient-primary mt-4" href="{{ path('app_dashboard1')}}">interface client</a>
+</body>
+ <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/soft-design-system.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/countup.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/typedjs.js"></script>
+    <script>
+        if (document.getElementById("state1")) {
+                    const countUp = new CountUp("state1", document.getElementById("state1").getAttribute("countTo"));
+                    if (!countUp.error) {
+                      countUp.start();
+                    } else {
+                      console.error(countUp.error);
+                    }
+                  }
+                  if (document.getElementById("state2")) {
+                    const countUp1 = new CountUp("state2", document.getElementById("state2").getAttribute("countTo"));
+                    if (!countUp1.error) {
+                      countUp1.start();
+                    } else {
+                      console.error(countUp1.error);
+                    }
+                  }
+                  if (document.getElementById("state3")) {
+                    const countUp2 = new CountUp("state3", document.getElementById("state3").getAttribute("countTo"));
+                    if (!countUp2.error) {
+                      countUp2.start();
+                    } else {
+                      console.error(countUp2.error);
+                    };
+                  }
+
+         if (document.querySelector('.datepicker-1')) {
+              flatpickr('.datepicker-1', {
+              }); // flatpickr
+            }
+
+         if (document.querySelector('.datepicker-2')) {
+              flatpickr('.datepicker-2', {
+              }); // flatpickr
+            }
+        if (document.getElementById("typed")) {
+            var typed = new Typed("#typed", {
+              stringsElement: "#typed-strings",
+              typeSpeed: 70,
+              backSpeed: 50,
+              backDelay: 200,
+              startDelay: 500,
+              loop: true
+            });
+          }
+    </script>
+<script>const button = document.querySelector("button");
+  let timer;
+  let timer2;
+  const audio = new Audio("https://lasonotheque.org/UPLOAD/mp3/1417.mp3");
+
+  button.addEventListener("click", function () {
+    if (!this.classList.contains("added")) {
+      clearTimeout(timer);
+      clearTimeout(timer2);
+    }
+
+    if (
+      this.classList.contains("tapis-roulant") &&
+      !this.classList.contains("added")
+    ) {
+      document.querySelector(
+        ".tapis-roulant>div:nth-child(4)>div"
+      ).style.animationPlayState = "paused";
+      document.querySelector(
+        ".tapis-roulant>div:nth-child(2)>div"
+      ).style.animationPlayState = "paused";
+      this.style.pointerEvents = "none";
+      this.classList.add("canceled");
+      setTimeout(() => {
+        this.style.pointerEvents = "initial";
+        this.classList.remove("tapis-roulant");
+        this.classList.remove("canceled");
+      }, 1000);
+    }
+
+    if (!this.classList.contains("tapis-roulant")) {
+      this.classList.add("tapis-roulant");
+      document.querySelector(
+        ".tapis-roulant>div:nth-child(4)>div"
+      ).style.animationPlayState = "running";
+      document.querySelector(
+        ".tapis-roulant>div:nth-child(2)>div"
+      ).style.animationPlayState = "running";
+      timer = setTimeout(() => {
+        this.classList.add("added");
+        audio.play();
+        this.style.pointerEvents = "none";
+        timer2 = setTimeout(() => {
+          this.classList.remove("added");
+          this.classList.remove("tapis-roulant");
+          this.style.pointerEvents = "initial";
+        }, 1600);
+      }, 1400);
+    }
+  });
+</script>
+    <script src="./assets/js/loopple/loopple.js"></script>
+</html>

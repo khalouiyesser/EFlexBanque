@@ -1,0 +1,123 @@
+
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Offre de stage{% endblock %}
+
+{% block body %}
+{#    <div class="form" style="margin-top: 190px;margin-left: 100px;width: 100%; flex-direction: row;#}
+{#    flex-wrap: wrap;">#}
+{#        margin: 150px 20px 20px 400px;#}
+{#        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">#}
+{#        <link rel="stylesheet" href="{{ asset('css/demande.css') }}">#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    .yesser{
+        height: 180px;
+        width: 100%;
+        border-radius: 8px;
+        resize: none;
+        outline:none;
+        border:1px solid #aaa;
+    }
+</style>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Lien pour ajouter un nouveau crédit -->
+
+
+                <!-- row -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Offre de stage</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                                {{ form_row(form._token) }}
+                                                <div class="container-fluid"  >
+                                                    <form class="form" >
+                                                        <h4 class="text-center">Offre de stage</h4>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.title, 'Saisir le titre de l\'offre', {'label_attr': {'class': 'form-label'}}) }} </label>
+                                                            <div > {{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}</div>
+                                                            {{ form_errors(form.title, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.domaine, 'Choisir le domaine de l\'offre', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div >   {{ form_widget(form.domaine, {'attr': {'class': 'form-control', 'placeholder': 'Domaine'}}) }} </div>
+                                                            {{ form_errors(form.domaine, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.typeOffre, 'Le type de l\'offre', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div>{{ form_widget(form.typeOffre, {'attr': {'class': 'form-control', 'placeholder': 'Type d \'offre'}}) }}</div>
+                                                            {{ form_errors(form.typeOffre, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3 mt-5">
+                                                            <label  class="form-label" > {{ form_label(form.postePropose, 'Le nombre de poste proposé', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div>{{ form_widget(form.postePropose, {'attr': {'class': 'form-control', 'placeholder': '2'}}) }}</div>
+                                                            {{ form_errors(form.postePropose, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div>
+                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.experience, 'l\'experience souhaité' , {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div > {{ form_widget(form.experience, {'attr': {'class': 'form-control'}}) }} </div>
+                                                            {{ form_errors(form.experience, {'attr': {'class': 'valid-feedback', ' placeholder': ' Sélectionnez une option'}}) }}
+
+                                                        </div>
+                                                        <div>
+                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.niveau, 'niveau des demande' , {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div > {{ form_widget(form.niveau, {'attr': {'class': 'form-control form-select'}}) }} </div>
+                                                            {{ form_errors(form.niveau, {'attr': {'class': 'valid-feedback', ' placeholder': ' Sélectionnez une option'}}) }}
+                                                        </div>
+
+                                        {#                <div class="mb-3">#}
+                                        {#                    <label class="form-label" style="margin-top: 10px"> {{ form_label(form.niveau, 'niveau des demande', {'label_attr': {'class': 'form-label'}}) }}</label>#}
+                                        {#                    <div >{{ form_widget(form.niveau, {'attr': {'class': 'form-control'}}) }}</div>#}
+                                        {#                    {{ form_errors(form.niveau, {'attr': {'class': 'valid-feedback','placeholder': 'Sélectionnez une option'}}) }}#}
+                                        {#                </div>#}
+                                                        <div class="mb-3">
+                                                            <label class="form-label" style="margin-top: 10px"> {{ form_label(form.language, 'language', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div >{{ form_widget(form.language, {'attr': {'class': 'form-control', 'placeholder': 'Veuillez choisir la langue '}}) }}</div>
+                                                            {{ form_errors(form.language, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="wrap-input1 validate-input" style="margin-top: 10px"> {{ form_label(form.description, 'Description ', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div >{{ form_widget(form.description, {'attr': {'class': 'form-control yesser input1', 'placeholder': 'Veuillez ecrire une description pour l\'offre '}}) }}</div>
+                                                            {{ form_errors(form.description, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="wrap-input1 validate-input" style="margin-top: 10px"> {{ form_label(form.exigenceOffre, 'Exigence de l\'offre ', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div >{{ form_widget(form.exigenceOffre, {'attr': {'class': 'form-control yesser input1', 'placeholder': 'Veuillez ecrire les exigences de l\'offre '}}) }}</div>
+                                                            {{ form_errors(form.exigenceOffre, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+{#                                                        <div class="mb-3">#}
+{#                                                            <label class="wrap-input1 validate-input" style="margin-top: 10px"> {{ form_label(form.datePostu, 'Date de l\'offre ', {'label_attr': {'class': 'form-label'}}) }}</label>#}
+{#                                                            <div >{{ form_widget(form.datePostu, {'attr': {'class': 'form-control input1', 'placeholder': 'Date de l\'offre'}}) }}</div>#}
+{#                                                            {{ form_errors(form.datePostu, {'attr': {'class': 'valid-feedback'}}) }}#}
+{#                                                        </div>#}
+                                                        <div class="mb-3">
+                                                            <label class="wrap-input1 validate-input" style="margin-top: 10px;width: 100%"> {{ form_label(form.motsCles, 'Les mots clés', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                             <div >{{ form_widget(form.motsCles, {'multiple':'multiple','attr': {'class': 'form-control', 'placeholder': 'Veuillez choisir les mots clé de cet offre '}}) }}</div>
+                                                            {{ form_errors(form.motsCles, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <div class="mb-3" style="">
+                                                            <label class="wrap-input1 validate-input" style="margin-top: 10px"> {{ form_label(form.pfeBook, 'pfeBook', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                            <div >{{ form_widget(form.pfeBook, {'attr': {'class': 'form-control', 'type':'file', 'placeholder': 'Upload votre pfeBook'}}) }}</div>
+                                                            {{ form_errors(form.pfeBook, {'attr': {'class': 'valid-feedback'}}) }}
+                                                        </div>
+                                                        <button class="btn btn-primary btn-lg btn-block " type="submit" style=" margin-bottom: 20px">{{ ajouter }}</button>
+                                                    </form>
+                                                </div>
+                                        </div>
+                                 </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,283 @@
+{% extends 'baseadmin.html.twig'  %}
+{% block title %} Recrutement {% endblock %}
+{% block nompage %} Recrutement {% endblock %}
+
+{% block body %}
+
+
+    <style>
+        th.sortable {
+            cursor: pointer;
+        }
+        .direction {
+            position: relative;
+        }
+
+        .direction::after {
+            content: 'click ici pour voire les détails cet offre !';
+            display: none;
+            position: revert;
+            top: 100%;
+            left: 0;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .direction:hover::after {
+            display: block;
+        }
+        .show {
+            position: relative;
+        }
+
+        .show::after {
+            content: 'click ici pour voir la liste des demandes pour cette offre !';
+            display: none;
+            position: absolute;
+            top: -90px; /* Ajustez cette valeur selon votre préférence */
+            left: 0;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Afficher le texte sur plusieurs lignes */
+            word-wrap: break-word;
+        }
+
+        .show:hover::after {
+            display: block;
+        }
+
+        .supprimer {
+            position: relative;
+        }
+
+        .modifier::after {
+            content: 'click ici pour voire !';
+            display: none;
+            position: revert;
+            top: 100%;
+            left: 0;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .modifier:hover::after {
+            display: block;
+        }
+        .modifier {
+            position: relative;
+        }
+
+        .supprimer::after {
+            content: 'click ici pour voire la liste des demandes pour cet offre !';
+            display: none;
+            position: revert;
+            top: 100%;
+            left: 0;
+            padding: 5px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .supprimer:hover::after {
+            display: block;
+        }
+    </style>
+
+    <div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Lien pour ajouter un nouveau crédit -->
+
+            </div>
+
+
+            <!-- row -->
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des offres</h4> <button class="btn btn-outline-success " onclick="toggleColumns()">Afficher/Masquer les colonnes</button><a href="{{ path('addOffre') }}"> <button type="button" class="btn btn-success">Ajouter une offre </button></a>
+
+                        </div>
+                        <div class="card-body" style="background-color: white" >
+                            <div class="table-responsive " >
+
+                                <table class="table table-responsive-md"  >
+                                    <thead>
+                                    <tr>
+{#                                        <th  class="sortable"><strong>ID_offre</strong></th>#}
+                                        <th  class="sortable"><strong>Title</strong></th>
+                                        <th class="sortable"><strong>Domaine</strong></th>
+                                        <th class="sortable"><strong>Type</strong></th>
+                                        <th class="sortable"><strong>Poste</strong></th>
+                                        <th class="sortable additional-column "><strong>Expérience</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Niveau</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Language</strong></th>
+                                        <th  class="sortable additional-column hidden" style="width: 200px" ><strong>Description</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Exigence</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Date</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Mots Clés</strong></th>
+                                        <th class="sortable additional-column hidden"><strong>Pfe</strong></th>
+                                        <th class="sortable " style="text-align: center"><strong>Action</strong></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for a in offres %}
+                                        <tr>
+{#                                            <td>{{ a.id }}</td>#}
+                                            <td ><a  class="direction" href="{{ path('DeatailAdmin', {'id': a.id}) }}">{{ a.title }}</a></td>
+                                            <td>{{ a.domaine }}</td>
+                                            <td>{{ a.typeOffre }}</td>
+                                            <td>{{ a.postePropose }}</td>
+                                            <td class="additional-column hidden">{{ a.experience }}</td>
+                                            <td class="additional-column hidden">
+                                                {% for i in a.niveau %}
+
+                                                {{ i  }}
+                                            {% endfor %}</td>
+                                            <td class="additional-column hidden">{% for i in  a.language %}
+                                                {{ i ~ "-"  }}
+                                                   {% endfor %}
+                                            </td>
+
+                                            <td style="font-size: 15px;
+                                                        " class="additional-column hidden" > <p  style="color:#777;
+                                                        font-size: 15px;
+                                                        display: -webkit-box;
+                                                        -webkit-line-clamp: 2;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        line-height: 1.5;" > {{ a.description }}</p>
+                                            </td>
+                                            <td  style="font-size: 15px;
+                                                        " class="additional-column hidden"><p  style="color:#777;
+                                                        font-size: 15px;
+                                                        display: -webkit-box;
+                                                        -webkit-line-clamp: 2;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        line-height: 1.5;" > {{ a.exigenceOffre }}</p>
+                                            </td>
+                                            <td class="additional-column hidden">{{ a.datePostu | date('d F Y') }}</td>
+
+                                            <td class="additional-column hidden">
+                                                {% if a.motsCles is empty %}
+
+                                                <p> n'a pas de mots clés </p>
+                                                {% else %}
+                                                {% for item in a.motsCles %}
+                                                    {{ item ~ ',' }}
+                                                {% endfor %}
+                                                    {% endif %}
+                                            </td>
+                                            <td style="background-size: 5cm" class="additional-column hidden">
+                                                {% if a.pfeBook is empty %}
+
+                                                    <p style="color:#777;
+                                                        font-size: 15px;
+                                                        display: -webkit-box;
+                                                        -webkit-line-clamp: 2;
+                                                        -webkit-box-orient: vertical;
+                                                        overflow: hidden;
+                                                        line-height: 1.5;"> il n'y a pas de pfe Book</p>
+                                                {% else %}
+                                                    <a href="{{ asset('upload/CV/' ~ a.pfeBook) }}" target="_blank">
+                                                        <button>Ouvrir PDF</button>
+                                                    </a>
+                                                    <a href="{{ asset('upload/CV/' ~ a.pfeBook) }}" download="{{ a.pfeBook ~ '.pdf' }}">
+                                                        <button class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">Télécharger</button>
+                                                    </a>
+                                                {% endif %}
+                                            </td>
+                                            <td style="margin-left: 10px">
+                                                <div class="d-flex" style="margin: auto">
+                                                    <a href="{{ path('DemandeParOffres',{'id':a.id}) }}">
+                                                        <button class="show btn btn-info shadow btn-xs sharp me-1  ">show</button>
+                                                    </a>
+                                                    <a href="{{ path('editOffre', {'id':a.id}) }}">
+                                                        <button class="btn btn-success shadow btn-xs sharp me-1">Modifier</button>
+                                                    </a>
+                                                    <a href="{{ path('deleteOffre', {'id':a.id}) }}">
+                                                        <button class="btn btn-danger shadow btn-xs sharp">Supprimer</button>
+                                                    </a>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        var headers = document.querySelectorAll('th.sortable');
+
+        headers.forEach(function(header) {
+            header.addEventListener('click', function() {
+                // Obtient le numéro de colonne à trier
+                var columnIndex = Array.prototype.indexOf.call(header.parentNode.children, header);
+
+                // Obtient toutes les lignes du tableau, sauf la première (en-tête)
+                var rows = Array.from(document.querySelectorAll('tbody tr')).slice(1);
+
+                // Trie les lignes en fonction du contenu de la colonne cliquée
+                rows.sort(function(a, b) {
+                    var aValue = a.cells[columnIndex].innerText;
+                    var bValue = b.cells[columnIndex].innerText;
+
+                    return aValue - bValue;
+                });
+
+                // Met à jour le tableau avec les lignes triées
+                rows.forEach(function(row) {
+                    row.parentNode.appendChild(row);
+                });
+            });
+        });
+        var hidden = false;
+
+        function toggleColumns() {
+            var additionalColumns = document.querySelectorAll('.additional-column');
+            var rows = document.querySelectorAll('tbody tr');
+
+            if (hidden) {
+                // Affiche les colonnes supplémentaires
+                additionalColumns.forEach(function(column) {
+                    column.style.display = 'table-cell';
+                });
+                hidden = false;
+            } else {
+                // Masque les colonnes supplémentaires
+                additionalColumns.forEach(function(column) {
+                    column.style.display = 'none';
+                });
+                hidden = true;
+            }
+        }
+    </script>
+
+
+
+{% endblock %}

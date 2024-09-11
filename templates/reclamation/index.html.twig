@@ -1,0 +1,201 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block nompage %}Liste des réclamations
+{% endblock %}
+
+
+{% block body %}
+    <div class="content-body">
+        <div
+                class="container-fluid">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="input-group search-area">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+                                <span class="input-group-text">
+									<a href="javascript:void(0)">
+										<i class="flaticon-381-search-2"></i>
+									</a>
+								</span>
+                            </div>
+                        </li>
+
+                        <script>
+                            function filterTable() {
+                                const filter = document.getElementById('searchInput').value.toUpperCase();
+                                const rows = document.querySelectorAll('table tr');
+                                for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                        const cell = cols[j];
+                                        if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                            visible = true;
+                                            break;
+                                        }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                }
+                            }
+                            document.getElementById('searchInput').addEventListener('keyup', filterTable);
+                        </script>
+                        <div class="card-header ">
+                            <h4 class="card-title">
+                                Liste des Réclamations</h4>
+                            <button class="btn btn-outline-success text-center" onclick="toggleColumns()">Afficher/Masquerles colonnes</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm mb-0 table-striped table-responsive-md">
+                                    <thead>
+                                    <tr>
+                                        {#<th class="sortable"><strong>Id</strong></th>#}
+                                        <th class="sortable">
+                                            <strong>Nom Auteur</strong>
+                                        </th>
+                                        <th class="sortable">
+                                            <strong>Adresse Auteur</strong>
+                                        </th>
+                                        <th class="py-2 sortable ">
+                                            <strong>Date Rec</strong>
+                                        </th>
+                                        <th class="py-2 sortable ">
+                                            <strong>Dép concerné</strong>
+                                        </th>
+                                        <th class="py-2 sortable ">
+                                            <strong>Objet</strong>
+                                        </th>
+                                        <th class="py-2 sortable additional-column">
+                                            <strong>Contenu</strong>
+                                        </th>
+                                        <th class="py-2 sortable ">
+                                            <strong>Pièce jointe</strong>
+                                        </th>
+                                        <th class="py-2 sortable additional-column">
+                                            <strong>Statut</strong>
+                                        </th>
+                                        <th class="py-2 sortable additional-column">
+                                            <strong>Actions</strong>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="customers">
+                                    {% for reclamation in reclamations %}
+                                        <tr
+                                                class="btn-reveal-trigger">
+                                            {#}  <td class="py-3">
+												                                            <a href="#">
+												                                                <div class="media d-flex align-items-center">
+												                                                    <div class="media-body">
+												                                                        {{ reclamation.id ~ '' }}
+												                                                    </div>
+												                                                </div>
+												                                            </a>
+												                                        </td>#}
+                                            <td class="py-2 sortable">{{ reclamation.nomAutRec }}</td>
+                                            <td class="py-2 sortable">{{ reclamation.adrRec }}</td>
+                                            <td class="py-2 sortable">{{ reclamation.dateRec ? reclamation.dateRec|date('Y-m-d') : '' }}</td>
+                                            <td class="py-2 sortable ">{{ reclamation.depRec }}</td>
+                                            <td class="py-2 sortable ">{{ reclamation.objetRec }}</td>
+                                            <td class="py-2 sortable additional-column">{{ reclamation.contenuRec }}</td>
+                                            <td>
+                                                {% if reclamation.pieceJRec == 'Aucune pièce jointe' %}
+                                                    Aucune pièce jointe
+                                                {% else %}
+                                                    <a href="{{ asset('uploads_directory_rec/' ~ reclamation.pieceJRec) }}" target="_blank">
+                                                        <button class="badge badge-success">Ouvrir PDF</button>
+                                                    </a>
+{#                                                    <a href="{{ asset('uploads_directory_rec/' ~ reclamation.pieceJRec) }}" download="{{reclamation.pieceJRec ~ '_' ~ '.pdf' }}">#}
+{#                                                        <button class="btn-rounded btn-warning">Télécharger &nbsp;<span class="btn-icon-start text-warning">#}
+{#                    <i class="fa fa-download color-warning"></i>#}
+{#                </span>#}
+{#                                                        </button>#}
+{#                                                    </a>#}
+                                                {% endif %}
+                                            </td>
+
+                                            <td class="py-2 additional-column">{{ reclamation.statutRec }}</td>
+                                            <td class="py-2 ps-5 sortable additional-column">
+                                                {% if reclamation.pieceJRec == 'Aucune pièce jointe' %}
+                                                    <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1 sortable">
+                                                        <i class="bi bi-eye"></i>
+                                                    </a>
+                                                    <a href="{{ path('app_reclamation_delete', {'id': reclamation.id}) }}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('Voulez-vous supprimer cet élément ?');">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                {% else %}
+                                                    <div class="d-flex">
+                                                        <a href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1 sortable">
+                                                            <i class="bi bi-eye"></i>
+                                                        </a>
+                                                        <a href="{{ path('app_reponse_new', {'id': reclamation.id , 'var': reclamation.depRec}) }}" class="btn btn-primary shadow btn-xs sharp me-1 sortable">
+                                                            <i class="bi bi-reply"></i>
+                                                        </a>
+                                                        <a href="{{ path('app_reclamation_delete', {'id': reclamation.id}) }}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('Voulez-vous supprimer cet élément ?');">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var headers = document.querySelectorAll('th.sortable');
+
+        headers.forEach(function (header) {
+            header.addEventListener('click', function () { // Obtient le numéro de colonne à trier
+                var columnIndex = Array.prototype.indexOf.call(header.parentNode.children, header);
+
+// Obtient toutes les lignes du tableau, sauf la première (en-tête)
+                var rows = Array.from(document.querySelectorAll('tbody tr')).slice(1);
+
+// Trie les lignes en fonction du contenu de la colonne cliquée
+                rows.sort(function (a, b) {
+                    var aValue = a.cells[columnIndex].innerText;
+                    var bValue = b.cells[columnIndex].innerText;
+
+                    return aValue - bValue;
+                });
+
+// Met à jour le tableau avec les lignes triées
+                rows.forEach(function (row) {
+                    row.parentNode.appendChild(row);
+                });
+            });
+        });
+        var hidden = false;
+
+        function toggleColumns() {
+            var additionalColumns = document.querySelectorAll('.additional-column');
+            var rows = document.querySelectorAll('tbody tr');
+
+            if (hidden) { // Affiche les colonnes supplémentaires
+                additionalColumns.forEach(function (column) {
+                    column.style.display = 'table-cell';
+                });
+                hidden = false;
+            } else { // Masque les colonnes supplémentaires
+                additionalColumns.forEach(function (column) {
+                    column.style.display = 'none';
+                });
+                hidden = true;
+            }
+        }
+    </script>
+
+
+{% endblock %}

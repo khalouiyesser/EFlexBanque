@@ -1,0 +1,112 @@
+  {% extends 'baseadmin.html.twig' %}
+ {% block nompage %}Liste des articles{% endblock %}
+
+          {% block body %}
+          <div class="content-body">
+            <div class="container-fluid">
+				
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-6  col-md-6 col-xxl-3 ">
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade show active" id="first">
+                                                <img class="img-fluid" src="{{ asset('/uploads_directory/' ~ article.imageArt) }}" alt="">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav slide-item-list mt-3" role="tablist">
+                                                <li role="presentation" class="show">
+                                                    <a href="#first" role="tab" data-bs-toggle="tab">
+                                                        <img class="img-fluid" src="images/tab/1.jpg" alt="" width="50">
+                                                    </a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/2.jpg" alt="" width="50"></a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#third" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/3.jpg" alt="" width="50"></a>
+                                                </li>
+												<li role="presentation">
+                                                    <a href="#for" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/4.jpg" alt="" width="50"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--Tab slider End-->
+                                    <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
+                                        <div class="product-detail-content">
+                                            <!--Product details-->
+                                            <div class="new-arrival-content pr">
+                                                <h2>Titre : {{article.titreArt}}</h2>
+                                                <div class="comment-review star-rating">
+													<ul>
+														<li><i class="fa fa-star"></i></li>
+														<li><i class="fa fa-star"></i></li>
+														<li><i class="fa fa-star"></i></li>
+														<li><i class="fa fa-star"></i></li>
+														<li><i class="fa fa-star"></i></li>
+
+													</ul>
+												
+												</div>
+                                                  <p>Nom de l'auteur : <span class="item"> {{article.nomAutArt}}</span> </p>
+
+												 <p>Adresse de l'auteur : <span class="item"><a class="product-review" href="mailto:{{article.adrAutArt}}" data-bs-toggle="modal" data-bs-target="#reviewModal">{{article.adrAutArt}}</a></span> </p>
+
+                                                <p>Date de publication: <span class="item"> {{article.datePubArt ? article.datePubArt|date('Y-m-d') : ''}} <i class="fa fa-shopping-basket"></i></span>
+                                                </p>
+                                                 <p>Durée: <span class="item">{{article.dureeArt}}</span> </p>
+                                               
+                                                <p>Catégorie :&nbsp;&nbsp;
+                                                    <span class="badge badge-success light">{{article.categorieArt}}</span>
+                                                </p>
+                                                <p class="text-content">Contenu : <br>{{article.contenuArt}}</p>
+												<div class="d-flex align-items-end flex-wrap mt-4">
+													<div class="filtaring-area me-3">
+														<div class="size-filter">
+															
+															
+															
+															<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                              <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
+                                                                 <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-outline-primary">Modifier</a>
+															   
+                                             
+															  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked="">
+<a href="{{ path('app_article_index') }}" class="btn btn-outline-primary">Liste des articles</a>
+
+
+															 
+
+															  <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
+<a href="{{ path('app_article_delete', {'id': article.id}) }}" class="btn btn-outline-primary" onclick="return confirm('Are you sure you want to delete this item?');">Supprimer</a>
+                                                           </div>
+															
+														</div>
+													</div>
+												
+													
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<!-- review -->
+					
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+                {% endblock %}

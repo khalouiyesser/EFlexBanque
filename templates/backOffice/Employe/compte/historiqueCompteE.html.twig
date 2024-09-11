@@ -1,0 +1,78 @@
+{% extends 'baseEmploye.html.twig' %}
+{% block nompage %}Liste des Comptes{% endblock %}
+
+{% block body %}
+    <div class="content-body">
+    <div class="container-fluid">
+
+    <!-- row -->
+
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+    <div class="card-body">
+    <div class="table-responsive">
+    <table class="table table-sm mb-0 table-striped">
+        <br><br>
+        <thead>
+        <tr>
+            <th ><strong></strong></th>
+            <th ><strong>Email</strong></th>
+            <th ><strong>Cin</strong></th>
+            <th ><strong>Type de Cin</strong></th>
+            <th ><strong>Date Delivrance Cin</strong></th>
+            <th ><strong>nom</strong></th>
+            <th ><strong>prenom </strong></th>
+            <th ><strong>sexe</strong></th>
+            <th ><strong>Date de Naissance</strong></th>
+            <th ><strong>Statut Marital</strong></th>
+            <th ><strong>Proffesion</strong></th>
+            <th ><strong>Nationalité</strong></th>
+            <th ><strong>type de Compte</strong></th>
+            <th ><strong>Montant </strong></th>
+            <th ><strong>telephone</strong></th>
+
+        </tr>
+        </thead>
+        <tbody id="customers" >
+        {% for comptes in comptes %}
+            <tr class="btn-reveal-trigger" >
+                <td class="py-3" >
+                    <a href="#">
+                        <div class="media d-flex align-items-center">
+                            <div class="media-body">
+                                {{comptes.cin}}
+                            </div>
+                        </div>
+                    </a>
+                </td>
+
+                <td class="py-2" style="padding-left: 200px">{{comptes.Email }}</a></td>
+                <td class="py-2" style="">{{comptes.Cin }}</td>
+                <td class="py-2" style=" padding-left: 30px">{{comptes.TypeCin }}</td>
+                <td class="py-2">{{comptes.DateDelivranceCin | date('d F Y')}}</td>
+                <td class="py-2">{{comptes.nom }}</td>
+                <td class="py-2">{{comptes.prenom}}</td>
+                <td class="py-2">{{comptes.sexe}}</td>
+                <td class="py-2">{{comptes.DateNaissance | date('d F Y')}}</td>
+                <td class="py-2">{{comptes.StatutMarital}}</td>
+                <td class="py-2">{{comptes.proffesion}}</td>
+                <td class="py-2">{{comptes.Nationalite}}</td>
+                <td class="py-2">{{comptes.typeCompte}}</td>
+                <td class="py-2">{{comptes.Montant}}</td>
+                <td class="py-2">{{comptes.NumeroTelephone}}</td>
+
+
+                </td>
+
+            </tr>
+
+
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

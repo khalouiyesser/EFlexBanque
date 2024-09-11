@@ -1,0 +1,139 @@
+{% extends 'baseadmin.html.twig' %}
+
+    {% block body %}
+        {% block nompage %}Liste des créditsx{% endblock %}
+     
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Link to add a new credit -->
+                    </div>
+                </div>
+                <!-- row -->
+    
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Liste des demandes</h4>
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="input-group search-area">
+                                        <input type="text" id="searcharea" name="id" class="form-control" placeholder="Recherche ...">
+                                        <button id="searchBtn" class="input-group-text">
+                                            <i class="flaticon-381-search-2"></i>
+                                        </button>
+                                    </div>
+                                    <div class="input-group search-area">
+                                        <input type="number" id="minAmount" name="minAmount" class="form-control" placeholder="Montant minimum">
+                                        <input type="number" id="maxAmount" name="maxAmount" class="form-control" placeholder="Montant maximum">
+                                        <button id="searchBtn2" class="input-group-text">
+                                            <i class="flaticon-381-search-2"></i>
+                                        </button>
+                                        <button class="btn btn-success shadow btn-xs sharp me-1" onclick="window.location.href='{{ path('sortedlist') }}'">
+                                            <i class="fas fa-arrow-up"></i> <!-- Arrow pointing upwards -->
+                                            </button>
+                                    </div>
+
+                                </li>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr>
+                                                <th><strong>CIN</strong></th>
+                                                <th><strong>Montant</strong></th>
+                                                <th><strong>objectif</strong></th>
+                                                <th><strong>Mensualité</strong></th>
+                                                <th><strong>Date de début</strong></th>
+                                                <th><strong>Durée</strong></th>
+                                                <th><strong>Taux d'intérêt</strong></th>
+                                                <th><strong>Status</strong></th>
+                                                <th><strong>Frais de retard</strong></th>
+
+                                            
+
+                                                       <th><strong>Actions</strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for credit in credits %}
+                                                <tr>
+                                                    <td>{{ credit.idclient }}</td>
+                                                    <td>{{ credit.montant }}</td>
+                                                    <td>{{ credit.statusclient }}</td>
+                                                    <td>{{ credit.mensualite }}</td>
+                                                    <td>{{ credit.datedebut|date('Y-m-d') }}</td>
+                                                    <td>{{ credit.duree }}</td>
+                                                    <td>{{ credit.taux }}</td>
+                                                    <td>{{ credit.status }}</td>
+
+
+                                                    <td>{{ credit.fraisretard }}</td>
+
+                                                   
+
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            
+                                                            
+                                                            <button class="btn btn-success shadow btn-xs sharp me-1"
+                                                            onclick="window.location.href='{{ path('app_approuvercredit', {'id': credit.id}) }}'"><span>&#10003;</span>
+                                                     </button>
+                                                            <button class="btn btn-danger shadow btn-xs sharp"
+                                                            onclick="window.location.href='{{ path('app_refusercredit', {'id': credit.id}) }}'"><span>&#10005;</span>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <button type="button" class="btn btn-primary shadow btn-xs sharp me-1" onclick="window.location.href='{{ path('app_modifiercredit', {'id': credit.id}) }}'">
+                                                                <i class="bi bi-pencil"></i> <!-- Utilisation de l'icône de modification -->
+                                                            </button>
+                                                        
+
+
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger shadow btn-xs sharp" onclick="window.location.href='{{ path('app_deletecredit', {'id': credit.id}) }}'">
+                                                                <i class="fa fa-trash"></i> <!-- Garder l'icône de suppression -->
+                                                            </button>
+                                                            
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("searchBtn").addEventListener("click", function() {
+                var searchValue = document.getElementById("searcharea").value;
+                if (searchValue.trim() !== "") {
+                    window.location.href = "{{ path('app_recherchecreditid', {'id_client': 'PLACEHOLDER'}) }}".replace("PLACEHOLDER", encodeURIComponent(searchValue));
+                }
+            });
+            document.getElementById("searchBtn2").addEventListener("click", function() {
+                var min = document.getElementById("minAmount").value;
+                var max = document.getElementById("maxAmount").value;
+
+                var url = "{{ path('creditminmax', {'min': 'MIN_PLACEHOLDER', 'max': 'MAX_PLACEHOLDER'}) }}";
+                url = url.replace("MIN_PLACEHOLDER", encodeURIComponent(min));
+                url = url.replace("MAX_PLACEHOLDER", encodeURIComponent(max));
+
+                window.location.href = url;
+            });
+
+        </script>
+
+
+    {% endblock %}
+    

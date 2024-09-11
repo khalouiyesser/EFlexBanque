@@ -1,0 +1,111 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Lien afficher list des employés -->
+                    {# Ajoutez ici le lien avec le texte à traduire #}
+                </div>
+            </div>
+
+            <!-- row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="input-group search-area">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+                                <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+                            </div>
+                        </li>
+
+
+                        <script>
+                            function filterTable() {
+                                const filter = document.getElementById('searchInput').value.toUpperCase();
+                                const rows = document.querySelectorAll('table tr');
+                                for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                        const cell = cols[j];
+                                        if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                            visible = true;
+                                            break;
+                                        }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                }
+                            }
+                            document.getElementById('searchInput').addEventListener('keyup', filterTable);</script>
+                        <div class="card-header">
+                            <h4 class="card-title">{{ 'Liste des employés' | trans }}</h4>
+                            <a href="{{ path('app_user_newemploye')}}" class="btn btn-outline-success btn-rounded fs-16">{{ '+ Nouveau employé' | trans }}</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-responsive-md">
+                                    <thead>
+                                    <tr>
+{#                                        <th><strong>{{ 'id' | trans }}</strong></th>#}
+                                        <th><strong>{{ 'nom' | trans }}</strong></th>
+                                        <th><strong>Photo</strong></th>
+                                        <th><strong>{{ 'Email' | trans }}</strong></th>
+                                        <th><strong>{{ 'date naissance' | trans }}</strong></th>
+                                        <th><strong>{{ 'tel' | trans }}</strong></th>
+                                        <th><strong>{{ 'adresse' | trans }}</strong></th>
+                                        <th><strong>{{ 'salaire' | trans }}</strong></th>
+                                        <th><strong>{{ 'poste' | trans }}</strong></th>
+
+
+                                        <th><strong>{{ 'action' | trans }}</strong></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+{#                                            <td>{{ user.id }}</td>#}
+                                            <td>{{ user.name }}</td>
+                                            <td style="height: 10;width: 10;"><img src="{{ asset('uploads_directory/' ~ user.Photo) }}" style="height:40px;width:40px;">
+                                            </td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.dateNaissance }}</td>
+                                            <td>{{ user.tel }}</td>
+                                            <td>{{ user.adresse }}</td>
+                                            <td>{{ user.salaire }}</td>
+                                            <td>{{ user.poste }}</td>
+
+                                            <td>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn-primary shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_editEmploye', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>&nbsp;
+                                                    <button type="button" class="btn btn-danger shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_showemploye', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>&nbsp;
+                                                    <button type="button" class="btn btn-success shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_unblock', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-shield-check"></i>
+                                                    </button>&nbsp;
+                                                    </form>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{#            <div class="pagination">#}
+{#                {{ knp_pagination_render(users) }}#}
+{#            </div>#}
+        </div>
+    </div>
+{% endblock %}

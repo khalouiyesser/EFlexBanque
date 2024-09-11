@@ -1,0 +1,107 @@
+{% extends 'baseadmin.html.twig' %}	
+ 
+{% block body %}
+   <div class="content-body">
+   
+<div class="container-fluid">
+ <div class="project-page d-flex justify-content-between align-items-center flex-wrap">
+					<div class="project mb-4">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-bs-toggle="tab" href="#AllStatus" role="tab">Tous les evenements</a>
+							</li>
+							<li class="nav-item">
+ 							</li>
+							<li class="nav-item">
+ 							</li>
+							<li class="nav-item">
+ 							</li>
+						</ul>
+					</div>
+					<div class="mb-4">
+						<a href="{{ path('app_evenement_new') }}" class="btn btn-primary btn-rounded fs-18">+ Nouveau evenement</a>
+ 
+					</div>
+				</div>          
+            <div class="container-fluid">
+            <!-- row -->
+           <div class="row">
+                    <div class="col-lg-12">
+					
+                        <div class="card">
+                            <div class="card-body">
+                            
+                            <li class="nav-item d-flex align-items-center">
+								<div class="input-group search-area">
+									<input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+								</div>
+							</li>
+
+
+                             <script>
+                                        function filterTable() {
+                                    const filter = document.getElementById('searchInput').value.toUpperCase();
+                                    const rows = document.querySelectorAll('table tr');
+                                    for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                    const cell = cols[j];
+                                    if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                    visible = true;
+                                    break;
+                                    }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                    }
+                                    }
+                                    document.getElementById('searchInput').addEventListener('keyup', filterTable);</script>
+                         
+   <div class="table-responsive">
+    <table class="table table-sm mb-0 table-striped">
+        <thead>
+            <tr>
+                <th><center><strong>Nom</strong></center></th>
+                <th><center><strong>Description</strong></center></th>
+                <th><center><strong>Date de début</strong></center></th>
+                <th><center><strong>Date de fin</strong></center></th>
+                <th><center><strong>Lieu</strong></center></th>
+                <th><center><strong>Organisateur</strong></center></th>
+                <th><center><strong>Prix</strong></center></th>
+                <th><center><strong>Actions</strong></center></th>
+            </tr>
+        </thead>
+        <tbody id="customers">
+            {% for evenement in evenements %}
+            <tr class="btn-reveal-trigger">
+                <td class="py-2"><a href="{{ path('app_evenement_showA', {'id': evenement.id}) }}">{{ evenement.nom }}</a></td>
+                <td class="py-2">{{ evenement.description }}</td>
+                <td class="py-2">{{ evenement.dateDebut ? evenement.dateDebut|date('d-m-Y') : '' }}</td>
+                <td class="py-2">{{ evenement.dateFin ? evenement.dateFin|date('d-m-Y') : '' }}</td>
+                <td class="py-2">{{ evenement.lieu }}</td>
+                <td class="py-2">{{ evenement.organisateur }}</td>
+                <td class="py-2">{{ evenement.prix }}</td>
+                <td>
+                    <a href="{{ path('app_evenement_showA', {'id': evenement.id}) }}" class="btn btn-danger shadow btn-xs sharp"><i class="bi bi-eye"> </i></a>
+                    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="{{ path('app_evenement_delete', {'id': evenement.id}) }}" class="btn btn-danger shadow btn-xs sharp me-1" onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+          </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+        </div>
+        </div>
+        </div>
+
+
+ {% endblock %}

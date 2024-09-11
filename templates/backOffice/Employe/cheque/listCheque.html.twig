@@ -1,0 +1,76 @@
+    {% extends 'baseEmploye.html.twig' %}
+
+    {% block body %}
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+            <title>Hotel Dashboard Template</title>
+            <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+            <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+            <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
+            <link rel="stylesheet" href="assets/css/feathericon.min.css">
+            <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+            <link rel="stylesheet" href="assets/css/style.css"> </head>
+
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+                <div class="row">
+                    <br class="col-sm-12">
+                     <br> <br>
+                    <div class="card card-table">
+                        <br> <br>
+                        <h1 class="text-center" style="font-size: 24px;"> liste des Chéque Bancaire</h1>
+                        <div class="card-body booking_card">
+                            <div class="table-responsive">
+                                <table class="datatable table table-stripped table table-hover table-center mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>RIB</th>
+                                        <th>Cin</th>
+                                        <th>Photo Cin</th>
+                                        <th>Nom et Prenom</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                        <th>Beneficiaire</th>
+                                        <th>Numéro de téléphone</th>
+                                        <th>Montant</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in cheques  %}
+                                        <tr>
+                                            <td>{{ i.compte}}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a>{{ i.Cin }}</a>
+                                                </h2>
+                                            </td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a>{{ i.photoCin }}</a>
+                                                </h2>
+                                            </td>
+                                            <td>{{ i.NomPrenom }}</td>
+                                            <td>{{i.Email}}</td>
+                                            <td>{{i.date | date('d F Y')}}</td>
+                                            <td>{{ i.Beneficiaire}}</td>
+                                            <td>{{ i.telephone }}</td>
+                                            <td>{{ i.Montant }}</td>
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endblock %}

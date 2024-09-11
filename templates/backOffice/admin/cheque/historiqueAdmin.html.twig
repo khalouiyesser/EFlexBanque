@@ -1,0 +1,119 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Hello ChequeController!{% endblock %}
+
+
+
+{% block body %}
+
+    {% block nompage %}Cheque{% endblock %}
+
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+    <div class="content-body">
+        <div class="container-fluid">
+
+            <!-- row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des chèques </h4>
+                            <li class="nav-item d-flex align-items-center">
+                                <div class="input-group search-area">
+                                    <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+                                    <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+                                </div>
+                            </li>
+
+
+                            <script>
+                                function filterTable() {
+                                    const filter = document.getElementById('searchInput').value.toUpperCase();
+                                    const rows = document.querySelectorAll('table tr');
+                                    for (let i = 1; i < rows.length; i++) {
+                                        const cols = rows[i].querySelectorAll('td');
+                                        let visible = false;
+                                        for (let j = 0; j < cols.length; j++) {
+                                            const cell = cols[j];
+                                            if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                                visible = true;
+                                                break;
+                                            }
+                                        }
+                                        rows[i].style.display = visible ? '' : 'none';
+                                    }
+                                }
+                                document.getElementById('searchInput').addEventListener('keyup', filterTable);</script>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm mb-0 table-striped">
+                                    <thead>
+                                    <tr>
+
+                                        <th><strong>RIB</strong></th>
+                                        <th><strong>Cin</strong></th>
+                                        <th><strong>Nom et Prenom</strong></th>
+                                        <th><strong>Email</strong></th>
+                                        <th><strong>Date</strong></th>
+                                        <th><strong>Beneficiaire</strong></th>
+                                        <th><strong>Numéro de téléphone</strong></th>
+                                        <th><strong>Montant</strong></th>
+
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in cheques  %}
+                                        <tr>
+
+                                            <td>{{ i.compte}}</td>
+                                            <td>{{ i.Cin }}</td>
+                                            <td>{{ i.NomPrenom }}</td>
+                                            <td>{{i.Email}} </td>
+                                            <td>{{i.date | date('d F Y')}} </td>
+                                            <td>{{ i.Beneficiaire}} </td>
+                                            <td>{{ i.telephone }}</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">{{ i.Montant }}</div>
+                                            </td>
+
+
+                                            <td>
+
+
+
+                                                <!--<div class="d-flex">
+                                                    <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                                                            class="fas fa-pencil-alt"></i></a>
+
+                                                    <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
+                                                            class="fa fa-trash"></i></a>
+
+                                                </div>-->
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+
+
+
+{% endblock %}

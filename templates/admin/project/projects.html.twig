@@ -1,0 +1,131 @@
+ {% extends 'baseadmin.html.twig' %}
+{% block recherche %}
+
+
+{% endblock %}
+        {% block body %}
+  <!--**********************************
+            Content body start
+        ***********************************-->
+            <div class="content-body">
+   
+<div class="container-fluid">
+ <div class="project-page d-flex justify-content-between align-items-center flex-wrap">
+					<div class="project mb-4">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-bs-toggle="tab" href="#AllStatus" role="tab">Tous les projets</a>
+							</li>
+							<li class="nav-item">
+ 							</li>
+							<li class="nav-item">
+ 							</li>
+							<li class="nav-item">
+ 							</li>
+						</ul>
+					</div>
+					<div class="mb-4">
+						<a href="{{ path('app_project_new') }}" class="btn btn-primary btn-rounded fs-18">+ Nouveau projet</a>
+ 
+					</div>
+				</div>          
+            <div class="container-fluid">
+            <!-- row -->
+           <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            
+                            <li class="nav-item d-flex align-items-center">
+								<div class="input-group search-area">
+									<input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+								</div>
+							</li>
+
+
+                             <script>
+                                        function filterTable() {
+                                    const filter = document.getElementById('searchInput').value.toUpperCase();
+                                    const rows = document.querySelectorAll('table tr');
+                                    for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                    const cell = cols[j];
+                                    if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                    visible = true;
+                                    break;
+                                    }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                    }
+                                    }
+                                    document.getElementById('searchInput').addEventListener('keyup', filterTable);</script>
+                                <div class="table-responsive">
+                                    <table class="table table-sm mb-0 table-striped">
+                                        <thead>
+                                            <tr>
+                                             <th><center><strong>Nom</strong></center></th>
+                                        <th><center><strong>Nom projet</strong></center></th>
+                                        <th><center><strong>Categorie</strong></center></th>
+                                        <th><center><strong>Description</strong></center></th>
+                                        <th><center><strong>Budget</strong></center></th>
+                                        <th><center><strong>Date</strong></center></th>
+                                        <th><center><strong>Dureé</strong></center></th>
+                                        <th><center><strong>actions</strong></center></th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="customers">
+                                                {% for project in projects %}
+
+                                            <tr class="btn-reveal-trigger">
+                                                <td class="py-3">
+                                                    <a href="#">
+                                                        <div class="media d-flex align-items-center">
+                                                            <div class="avatar avatar-xl me-2">
+                                                                <div class="">    <img class="rounded-circle img-fluid" src="{{ asset('images/avatar/5.png') }}" width="30" alt="">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h5 class="mb-0 fs--1">{{project.user.name ?? 'No user' }}</h5>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                                <td class="py-2"><a href="mailto:ricky@example.com">{{ project.nomProjet }}</a></td>
+                                                <td class="py-2"> <a href="tel:2012001851">{{ project.categorie }}</a></td>
+                                                <td class="py-2 ps-5">{{ project.descriptionProjet }}</td>
+                                                <td class="py-2">{{ project.budgetProjet }}</td>
+                                                <td class="py-2">{{ project.dateCreation ? project.dateCreation|date('d-m-Y') : '' }}</td>
+                                                <td class="py-2">{{ project.dureeProjet }}</td>
+                                                  <td >
+                                              
+														<a href="{{ path('app_project_indexshowsA', {'id': project.id}) }}" class="btn btn-danger shadow btn-xs sharp"><i class="bi bi-eye"> </i></a>
+  										                <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="{{ path('app_project_delete', {'id': project.id}) }}" class="btn btn-danger shadow btn-xs sharp me-1" onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
+                                                         <i class="fas fa-trash"></i>
+                                                        </a>
+
+                                                </td>
+                                            </tr>
+                                                    {% endfor %}
+
+                                                                                                                                </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+        </div>
+        </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+{% endblock %}

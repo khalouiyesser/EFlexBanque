@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.6;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333; /* Couleur du titre */
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    /* Style pour les différentes parties du texte */
+    .signature {
+        font-style: italic;
+    }
+
+    .beneficiaire {
+        font-weight: bold;
+    }
+
+    .date {
+        font-weight: bold;
+        font-style: italic;
+        color: #555; /* Couleur de la date */
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+     <h1>Demande de Chéque </h1>
+   Madame ,Monsieur
+<ul>
+    <li> je soussigné(e) {{ i.NomPrenom }} </li>
+    <li>  titulaire du compte dépot n°{{ i.compte }} ,auprés de votre banque EFB ,sollicite par la présente l'émission d'un chéque de banque pour mon compte </li>
+    <li>d'un montant de {{ i.Montant }} TND , pour le {{ i.date|date ('d/m/Y') }}</li>
+    <li>Le Bénéficiaire de ce chéque est un(e) {{ i.Beneficiaire }}</li>
+    <li> à cette fin , je joins à la présente une copie de ma convention de compte </li>
+    <li> Je vous remercie de bien vouloir me confirmer l'émission de ce chéque ,et étant dans l'impssibilité de m'envoyer ledit chéque a l'adresse figurant dans la demande </li>
+    <li> En vous remercianr pour l'attention que vous porterez à ma requête je vous prie d'agréer , Madame, Monsieur , l'expression de mes salutations distinguées .   </li>
+</ul>
+</body>
+</html>

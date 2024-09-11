@@ -1,0 +1,63 @@
+{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Nom et Prénom</th>
+                                    <td>{{ i.NomPrenom }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bénéficiaire</th>
+                                    <td>{{ i.Beneficiaire }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Montant</th>
+                                    <td>{{ i.Montant }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <td>{{ i.date| date('Y-m-d')  }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Signature</th>
+                                    <td>{{ i.signatureId }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Document</th>
+                                    <td>{{ i.documentId }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Signer</th>
+                                    <td>{{ i.signatureId }}</td>
+                                </tr>
+                                <tr>
+                                    <th>PDF sans Signature</th>
+                                    <td>{{ i.pdfSansSignature }}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div>
+                                <a role="button" href="{{ path('signature', {'id': i.id}) }}">Envoyer Signature</a>
+                            </div>
+                            <a href="{{ path('historique') }}">Retour</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

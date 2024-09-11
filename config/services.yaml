@@ -1,0 +1,46 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+#    uploads_directory: '%kernel.project_dir%/public/uploads_directory'
+    YOUSIGN_SANDBOX_API_KEY : 'vhnTh0zpdi0CE05rH07NCcWvfKtiuBgm'
+    uploads_directory_Rec: '%kernel.project_dir%/public/uploads_directory_rec'
+    uploads_directory: '%kernel.project_dir%/public/uploads_directory'
+    chat_gpt_api_url: '%env(CHAT_GPT_API_URL)%'
+    chat_gpt_api_key: '%env(CHAT_GPT_API_KEY)%'
+#    YOUSIGN_SANDBOX_API_KEY : 'vhnTh0zpdi0CE05rH07NCcWvfKtiuBgm'
+#    uploads_directory_Rec: '%kernel.project_dir%/public/uploads_directory_rec'
+    #YOUSIGN_SANDBOX_API_KEY : '%env(shayma)%'
+    env(TWILIO_ACCOUNT_SID): 'AC8aab9f4433d1f7c8dfec3d6b2817b0e2'
+    env(TWILIO_AUTH_TOKEN): '5f222239c037f19637b25e08389a8aa0'
+    env(TWILIO_FROM_NUMBER): '+19492696499'
+
+# config/services.yaml
+  #vhnTh0zpdi0CE05rH07NCcWvfKtiuBgm
+
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+    App\ServiceReclamation\RSSFeedFetcher:
+        arguments:
+            $feedUrl: 'https://rss.app/feeds/v1.1/thkx5eAK3e1WaItb.json'
+
+    App\Controller\HomeController:
+        tags: ['controller.service_arguments']

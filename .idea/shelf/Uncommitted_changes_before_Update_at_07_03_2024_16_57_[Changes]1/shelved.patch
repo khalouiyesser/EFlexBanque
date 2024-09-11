@@ -1,0 +1,19 @@
+Index: templates/articleH/edit.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'baseadmin.html.twig' %}\r\n\r\n{% block body %}\r\n    {% block nompage %}Modifier l'article{% endblock %}\r\n    <div class=\"container\">\r\n        <div class=\"row justify-content-center mt-4\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-body\">\r\n                        <h5 class=\"card-title text-center mb-4\">Formulaire pour modifier un article</h5>\r\n                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.nomAutArt, {'label': 'Nom :', 'attr': {'class': 'form-control'}, 'id': 'nomAutArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.adrAutArt, {'label': 'Adresse :', 'attr': {'class': 'form-control'}, 'id': 'adrAutArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.datePubArt, {'label': 'Date de la publication :', 'attr': {'class': 'form-control'}, 'id': 'datePubArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.dureeArt, {'label': 'Durée de la publication :', 'attr': {'class': 'form-control'}, 'id': 'dureeArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.categorieArt, {'label': 'Catégorie de l\\'article :', 'attr': {'class': 'form-control'}, 'id': 'categorieArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.titreArt, {'label': 'Titre de l\\'article :', 'attr': {'class': 'form-control'}, 'id': 'titreArt'}) }}\r\n                        </div>\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.contenuArt, {'label': 'Contenu de l\\'article:', 'attr': {'class': 'form-control'}, 'id': 'contenuArt'}) }}\r\n                        </div>\r\n                          \r\n\r\n                        <div class=\"mb-3\">\r\n                            {{ form_row(form.piecejointeArt, {'label': 'Pièce jointe :', 'attr': {'class': 'form-control'}, 'id': 'piecejointeArt'}) }}\r\n                        </div>\r\n                        <div class=\"text-center\">\r\n                            <button type=\"submit\" class=\"btn btn-primary\">Modifier</button>\r\n                        </div>\r\n                        {{ form_end(form) }}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/articleH/edit.html.twig b/templates/articleH/edit.html.twig
+--- a/templates/articleH/edit.html.twig	
++++ b/templates/articleH/edit.html.twig	
+@@ -2,6 +2,8 @@
+ 
+ {% block body %}
+     {% block nompage %}Modifier l'article{% endblock %}
++    <br><br><br><br><br>
++
+     <div class="container">
+         <div class="row justify-content-center mt-4">
+             <div class="col-md-6">

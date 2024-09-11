@@ -1,0 +1,82 @@
+
+{% extends 'baseadmin.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Fiche employe</h5>
+                        <div class="user-profile">
+                            <link rel="stylesheet" type="text/css" href="{{asset('users/style.css')}}">
+                            <div class="profile-picture">
+                                <img src="{{ asset('uploads_directory/' ~ user.Photo) }}" style="height:100px;width:100px;" alt="Photo de profil">
+
+                                <h1>Employe</h1>
+
+                                <table class="table">
+                                    <tbody>
+
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ user.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>{{ user.email }}</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th>name</th>
+                                        <td>{{ user.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cin</th>
+                                        <td>{{ user.cin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DateNaissance</th>
+                                        <td>{{ user.dateNaissance }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tel</th>
+                                        <td>{{ user.tel }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Adresse</th>
+                                        <td>{{ user.adresse }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Salaire</th>
+                                        <td>{{ user.salaire }}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Poste</th>
+                                        <td>{{ user.poste }}</td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                <div class="text-center">
+                                    <form action="{{ path('pdf_generate', {'id': user.id}) }}" method="get" style="display: inline;">
+                                        <button type="submit" class="btn btn-danger">Imprimer
+
+                                        </button>
+                                    </form>
+                                    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ path('app_user_block', {'id': user.id}) }}'">Block</button>
+                                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ path('app_user_employes') }}'">Retour à la liste</button>
+                                </div>
+                                <script type="text/javascript" src="{{asset('users/main.js')}}"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

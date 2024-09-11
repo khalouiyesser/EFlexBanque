@@ -1,0 +1,121 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Lien afficher list des clients -->
+                </div>
+            </div>
+
+            <!-- row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="input-group search-area">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+                                <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+                            </div>
+                        </li>
+
+
+                        <script>
+                            function filterTable() {
+                                const filter = document.getElementById('searchInput').value.toUpperCase();
+                                const rows = document.querySelectorAll('table tr');
+                                for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                        const cell = cols[j];
+                                        if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                            visible = true;
+                                            break;
+                                        }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                }
+                            }
+                            document.getElementById('searchInput').addEventListener('keyup', filterTable);</script>
+                        <div class="card-header">
+                            <h4 class="card-title">Liste des clients</h4>
+                            <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+
+                            <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+                            <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+                            <a href="{{ path('app_user_newclient')}}" class="btn btn-outline-success btn-rounded fs-16">+ Nouveau Client</a>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-responsive-md">
+                                    <thead>
+                                    <tr>
+{#                                        <th><strong>id</strong></th>#}
+                                        <th><strong>nom</strong></th>
+                                        <th><strong>Photo</strong></th>
+                                        <th><strong>Email</strong></th>
+                                        <th><strong>date_naissance</strong></th>
+                                        <th><strong>tel</strong></th>
+                                        <th><strong>adresse</strong></th>
+{#                                        <th><strong>revenues mensuels</strong></th>#}
+                                        <th><strong>profession</strong></th>
+                                        <th><strong>action</strong></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+{#                                            <td>{{user.id}}</td>#}
+                                            <td>{{user.name}}</td>
+                                            <td style="height: 10;width: 10;"><img src="{{ asset('uploads_directory/' ~ user.Photo) }}" style="height:40px;width:40px;">
+                                            </td>
+                                            <td>{{user.email}}</td>
+                                            <td>{{user.DateNaissance }}</td>
+                                            <td>{{user.tel}}</td>
+                                            <td>{{user.adresse}}</td>
+{#                                            <td>{{user.salaire}}</td>#}
+                                            <td>{{user.profession}}</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn-primary shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_editClient', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>&nbsp;
+
+                                                    <button type="button" class="btn btn-danger shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_showclient', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-eye"></i>
+                                                    </button>&nbsp;
+
+                                                    <button type="button" class="btn btn-success shadow btn-xs sharp" onclick="window.location.href='{{ path('app_user_unblock', { 'id': user.id }) }}'">
+                                                        <i class="bi bi-shield-check"></i>
+                                                    </button>&nbsp;
+
+
+
+
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+
+            <div class="pagination">
+{#                {{ knp_pagination_render(users) }}#}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends 'baseclient.html.twig' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        <style>
+            ul li {
+                color: red;
+            }
+            /* Change form color to pistachio green */
+            .form-control {
+                border-color: #93C572;
+                transition: border-color 0.3s ease;
+            }
+    
+            .form-control:focus {
+                border-color: #5cb85c; /* Change border color on focus */
+            }
+    
+            /* Change background color of the entire page to light gray with very slight opacity */
+            body {
+                background-color: rgba(211, 211, 211, 0.95); /* Adjust opacity as needed */
+            }
+    
+            /* Add hover effect to buttons */
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+    
+            /* Add space between form and top of the page */
+            .form-container {
+                padding-top: 50px; /* Adjust the value as needed */
+            }
+    
+            .cover-image {
+                position: relative;
+                width: 100%;
+                height: 200px; /* Adjust height as needed */
+                overflow: hidden;
+            }
+    
+            .cover-image img {
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+    
+            .cover-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+                z-index: 0;
+            }
+    
+            .card {
+                position: relative; /* Ensure the card content overlays the cover properly */
+                z-index: 1;
+            }
+        </style>
+    {% endblock %}
+    
+    {% block body %}
+        <script>
+            // Function to calculate the fees and interest rate automatically
+            window.onload = function() {
+                function calculateFeesAndInterest() {
+                    var amount = parseFloat(document.getElementById("montant").value);
+                    var duration = parseInt(document.getElementById("duree").value);
+                    var monthlyPayment = parseFloat(document.getElementById("mensualite").value);
+    
+                    // Calculate late fees (example: 1% of the amount)
+                    var lateFees = amount * 0.01;
+                    document.getElementById("fraisretard").value = lateFees.toFixed(2);
+    
+                    var interestRate = (((monthlyPayment * duration - amount) / amount) * 12) / duration;
+                    document.getElementById("taux").value = interestRate.toFixed(2);
+                }
+    
+                document.getElementById("montant").addEventListener("input", calculateFeesAndInterest);
+                document.getElementById("mensualite").addEventListener("input", calculateFeesAndInterest);
+                document.getElementById("duree").addEventListener("input", calculateFeesAndInterest);
+            }
+        </script>
+        {% block nompage %}ajouter credit{% endblock %}
+    
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="cover-image">
+                                <img src="{{ asset('images/imagebanq.webp') }}" alt="Cover Image">
+                                <div class="cover-overlay"></div>
+                            </div>
+    
+                            <div style="margin-bottom: 60px;"></div>
+    
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    
+                            <h5 class="card-title text-center mb-4">Formulaire pour ajouter une demande de crédit</h5>
+    
+                            <div class="mb-3">
+                                {{ form_row(form.id_client, {'attr': {'class': 'form-control'}, 'id': 'id_client'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.montant, {'attr': {'class': 'form-control'}, 'id': 'montant'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.statusclient, {'attr': {'class': 'form-control'}, 'id': 'statusclient'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.mensualite, {'attr': {'class': 'form-control'}, 'id': 'mensualite'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.datedebut, {'attr': {'class': 'form-control'}, 'id': 'datedebut'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.duree, {'attr': {'class': 'form-control'}, 'id': 'duree'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.taux, {'attr': {'class': 'form-control'}, 'id': 'taux', 'readonly': 'readonly'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.status, {'attr': {'class': 'form-control'}, 'id': 'status'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.fraisretard, {'attr': {'class': 'form-control'}, 'id': 'fraisretard', 'readonly': 'readonly'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.fichesalire, {'attr': {'class': 'form-control'}, 'id': 'datedebut'}) }}
+                            </div>
+    
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    {% endblock %}
+    

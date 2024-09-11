@@ -1,0 +1,65 @@
+{% extends 'yesser.html.twig' %}
+{% block title %} Recrutement {% endblock %}
+{% block body %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <body class="body" style=" background: linear-gradient(90deg, rgba(61, 66, 66, 0.9) 0%, rgb(66, 70, 68) 15%, rgb(75,100,88) 50%,rgb(86,162,124) 75%);">
+             <div  style="background: #d4e3da; margin: 160px 300px 50px;border-radius: 30px">
+                        <h4 class="text-center" style="padding-top: 20px;text-align: center;">{{ offre.title }}</h4>
+                        <table border="2" style="margin-top: 50px;margin-left: 200px;table-layout: fixed;
+                                      width: 70%;
+                                      font-style: italic;
+                                      border: 1px solid #000000;">
+                            <tr>
+                                <td >
+                                  <div style="margin-left: 10px;margin-bottom: 10px;"> <div style="margin-top: 5px;margin-bottom: 5px"> Postes vacantes:</div> <div style="margin-top: 5px"> {{ offre.postePropose }} </div></div>
+                                </td>
+                                <td>
+                                    <div style="margin-left: 10px;margin-bottom: 10px;"> <div style="margin-top: 5px;margin-bottom: 5px">Type d'offre: </div> <div style="margin-top: 5px"> {{ offre.typeOffre }}</div></div>
+                                </td>
+                                <td>
+                                    <div style="margin-left: 10px;margin-bottom: 10px;">  <div style="margin-top: 5px;margin-bottom: 5px"> Experience:</div> <div style="margin-top: 5px"> {{ offre.experience }}</div></div>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    <div style="margin-left: 10px;margin-bottom: 10px;">  <div  style="margin-top: 5px;margin-bottom: 5px"> Niveau:</div> <div style="margin-top: 5px">
+                                            {% for i in offre.niveau %}
+                                            {{ i }}
+                                            {% endfor %}
+                                        </div></div>
+                                </td>
+                                <td>
+                                    <div style="margin-left: 10px;margin-bottom: 10px;">  <div style="margin-top: 5px;margin-bottom: 5px">Language: </div> <div style="margin-top: 5px"> {% for i in  offre.language %} {{ i }} {% endfor %}</div></div>
+                                </td>
+
+                             </tr>
+
+
+
+                        </table>
+                                    <div class="mb-3" style="padding: 20px">
+
+                                        <h6 class="card-subtitle mb-2 text-body-secondary ">Description :</h6>
+                                        <p class="card-text font-italic">{{ offre.description }}</p>
+                                        <br>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">Exigences :</h6>
+                                        <p class="card-text" style="margin-top: 5px">{{ offre.exigenceOffre }}</p>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary " style="margin-top: 20px">mots clés :</h6>
+{#                                        <p class="card-text" style="margin-top: 5px">#}
+                                            {% for i in offre.motsCles %}
+                                            <div>{{'-' ~ ' ' ~ i }}</div>
+
+                                        {% endfor %}
+                                        <h6 class="card-subtitle mb-2 text-body-secondary" style="margin-top: 20px">Date de postulation :</h6>
+                                        <p class="card-text" style="margin-top: 5px">{{ offre.datePostu | date('d F Y')}}</p>
+                                    </div>
+               <a href="{{ path('demandeStageOffre',{'id': offre.id}) }}">  <button type="submit" class="btn btn-primary btn-lg btn-block" style="">Postuler maintenant </button> </a>
+
+
+             </div>
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+{% endblock %}

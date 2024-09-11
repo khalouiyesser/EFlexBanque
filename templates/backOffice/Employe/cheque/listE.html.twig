@@ -1,0 +1,88 @@
+{% extends 'baseEmploye.html.twig' %}
+
+{% block body %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>Hotel Dashboard Template</title>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="assets/css/style.css"> </head>
+
+    <div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row">
+            <br class="col-sm-12">
+                <br> <br>
+                <div class="card card-table">
+                    <br> <br>
+                    <h1 class="text-center" style="font-size: 24px;"> les Demande de Chéque Bancaire</h1>
+                    <div class="card-body booking_card">
+                        <div class="table-responsive">
+                            <table class="datatable table table-stripped table table-hover table-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th>RIB</th>
+                                    <th>Cin</th>
+                                    <th>photo Cin</th>
+                                    <th>Nom et Prenom</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Beneficiaire</th>
+                                    <th>Numéro de téléphone</th>
+                                    <th>Montant</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in cheques  %}
+                                <tr>
+                                    <td>{{ i.compte}}</td>
+                                    <td>
+                                        <h2 class="table-avatar">
+                                            <a>{{ i.Cin }}</a>
+                                        </h2>
+                                    </td>
+                                    <td>{{ i.photoCin }}</td>
+                                    <td>{{ i.NomPrenom }}</td>
+                                    <td>{{i.Email}}</td>
+                                    <td>{{i.date | date('d F Y')}}</td>
+                                    <td>{{ i.Beneficiaire}}</td>
+                                    <td>{{ i.telephone }}</td>
+                                    <td>{{ i.Montant }}</td>
+
+                                    <td>
+                                        <div class="actions"> <a href="#" class="btn btn-sm bg-success-light mr-2">Choisir</a> </div>
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action"> <a href="" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="{{ path('ApprouverChequeE',{'id':i.id}) }}"><i class="fas fa-pencil-alt m-r-5"></i> Approuvé</a>
+                                                <a  class="dropdown-item" href="{{ path('deleteDemandeChequeEmp',{'id':i.id}) }}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');"><i
+                                                            class="fa fa-trash"></i>Réfuser </a>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

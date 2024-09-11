@@ -1,0 +1,232 @@
+{#{% extends 'baseclient.html.twig' %}
+
+
+
+{% block body %}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+
+    <div class="card-header pb-0">
+    <div class="row">
+        <div class="col-6">
+            <h6>Liste des réclamations</h6>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn bg-gradient-success mb-0" href="{{ path('app_reclamation_new')}}">&nbsp;&nbsp;Ajouter une nouvelle réclamation</a>
+        </div>
+    </div>
+</div>
+
+
+
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0" >
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 15%;">Dép concerné</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 15%;">Date Rec</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 15%;">Objet</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 20%;">Contenu</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 15%;">Pièce jointe</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Statut</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 5%;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reclamation in app.user.reclamation %}
+                                <tr>
+                                    <td style="width: 5%;">{{ reclamation.depRec }}</td>
+                                    <td style="width: 5%;">{{ reclamation.dateRec ? reclamation.dateRec|date('Y-m-d') : '' }}</td>
+                                    <td style="width: 5%;">{{ reclamation.objetRec }}</td>
+                                    <td style="width: 5%;">{{ reclamation.contenuRec }}</td>
+  <td class="align-middle text-center text-sm" style="width: 5%;">
+    <a href="{{ asset('uploads_directory_rec/' ~ reclamation.pieceJRec) }}" target="_blank">
+        <button class="badge badge-success" style="background-color: #DAA520; border: none; border-radius: 5px;">Ouvrir PDF</button>
+    </a>
+    <a href="{{ asset('uploads_directory_rec/' ~ reclamation.pieceJRec) }}" download="{{ reclamation.pieceJRec ~ '_' ~ '.pdf' }}">
+        <button class="btn-rounded btn-warning" style="background-color: #FFD700; border: none; border-radius: 5px;">Télécharger</span></button>
+    </a>
+</td>
+
+
+
+
+                                       <td class="align-middle text-center text-sm" style="width: 5%;">
+                                        {% if reclamation.statutRec == 'En cours de traitement' %}
+                                            <span class="badge badge-sm bg-gradient-warning">{{ reclamation.statutRec }}</span>
+                                        {% else %}
+                                            <span class="badge badge-sm bg-gradient-success">{{ reclamation.statutRec }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td style="width: 5%;">
+                                        <a href="{{ path('app_reponseClient_showId', {'id': reclamation.id , 'var': reclamation.depRec}) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Afficher</a>
+                                        <a href="{{ path('app_reclamationclient_delete', {'id': reclamation.id}) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+#}
+{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+
+                    <div class="card-header pb-0">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Liste des réclamations</h6>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <button class="btn btn-outline-success text-center" onclick="toggleColumns()">Afficher/Masquerles colonnes</button>
+                            </div>
+                            <div class="col-md-3">
+
+
+                                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a class="btn bg-gradient-success mb-0" href="{{ path('app_reclamation_new')}}">&nbsp;&nbsp;Ajouter une nouvelle réclamation</a>
+                            </div>
+
+                            <script>
+                                function filterTable() {
+                                    const filter = document.getElementById('searchInput').value.toUpperCase();
+                                    const rows = document.querySelectorAll('table tr');
+                                    for (let i = 1; i < rows.length; i++) {
+                                        const cols = rows[i].querySelectorAll('td');
+                                        let visible = false;
+                                        for (let j = 0; j < cols.length; j++) {
+                                            const cell = cols[j];
+                                            if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                                visible = true;
+                                                break;
+                                            }
+                                        }
+                                        rows[i].style.display = visible ? '' : 'none';
+                                    }
+                                }
+                                document.getElementById('searchInput').addEventListener('keyup', filterTable);
+                            </script>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable" style="width: 15%;">Objet</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable additional-column" style="width: 20%;">Contenu</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable additional-column" style="width: 15%;">Dép concerné</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable additional-column" style="width: 15%;">Date Rec</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable" style="width: 15%;">Pièce jointe</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable" style="width: 10%;">Statut</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center sortable" style="width: 5%;">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for reclamation in app.user.reclamation %}
+                                    <tr>
+                                        <td style="width: 5%;" class="text-center sortable">{{ reclamation.objetRec }}</td>
+                                        <td style="width: 5%;" class="text-center sortable additional-column">{{ reclamation.contenuRec }}</td>
+                                        <td style="width: 5%;" class="text-center sortable additional-column">{{ reclamation.depRec }}</td>
+                                        <td style="width: 5%;" class="text-center sortable additional-column">{{ reclamation.dateRec ? reclamation.dateRec|date('d-m-Y') : '' }}</td>
+
+                                        <td class="align-middle text-center text-sm sortable" style="width: 5%;">
+                                            <a href="{{ asset('uploads_directory/' ~ reclamation.pieceJRec) }}" target="_blank">
+                                                <button class="badge badge-success" style="background: linear-gradient(to right, #DAA520, #8B4513); border: none; border-radius: 5px;">Ouvrir</button>
+                                            </a>
+                                            <a href="{{ asset('uploads_directory/' ~ reclamation.pieceJRec) }}" download="{{ reclamation.pieceJRec ~ '_' ~ '.pdf' }}">
+                                                <button class="btn-rounded btn-warning" style="background: linear-gradient(to right, #FFD700, #FFA500); border: none; border-radius: 5px;">Télécharger</button>
+                                            </a>
+                                        </td>
+
+
+                                        <td class="align-middle text-center text-sm sortable" style="width: 5%;">
+                                            {% if reclamation.statutRec == 'En cours de traitement' %}
+                                                <span class="badge badge-sm bg-gradient-warning">{{ reclamation.statutRec }}</span>
+                                            {% else %}
+                                                <span class="badge badge-sm bg-gradient-success">{{ reclamation.statutRec }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td class="sortable"style="width: 5%;">
+                                            <a href="{{ path('app_reponseClient_showId', {'id': reclamation.id , 'var': reclamation.depRec}) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Afficher</a>
+                                            <a href="{{ path('app_reclamationclient_delete', {'id': reclamation.id}) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user" onclick="return confirm('Etes-vous sur de vouloir supprimer cet élément ?');">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var headers = document.querySelectorAll('th.sortable');
+
+        headers.forEach(function (header) {
+            header.addEventListener('click', function () { // Obtient le numéro de colonne à trier
+                var columnIndex = Array.prototype.indexOf.call(header.parentNode.children, header);
+
+// Obtient toutes les lignes du tableau, sauf la première (en-tête)
+                var rows = Array.from(document.querySelectorAll('tbody tr')).slice(1);
+
+// Trie les lignes en fonction du contenu de la colonne cliquée
+                rows.sort(function (a, b) {
+                    var aValue = a.cells[columnIndex].innerText;
+                    var bValue = b.cells[columnIndex].innerText;
+
+                    return aValue - bValue;
+                });
+
+// Met à jour le tableau avec les lignes triées
+                rows.forEach(function (row) {
+                    row.parentNode.appendChild(row);
+                });
+            });
+        });
+        var hidden = false;
+
+        function toggleColumns() {
+            var additionalColumns = document.querySelectorAll('.additional-column');
+            var rows = document.querySelectorAll('tbody tr');
+
+            if (hidden) { // Affiche les colonnes supplémentaires
+                additionalColumns.forEach(function (column) {
+                    column.style.display = 'table-cell';
+                });
+                hidden = false;
+            } else { // Masque les colonnes supplémentaires
+                additionalColumns.forEach(function (column) {
+                    column.style.display = 'none';
+                });
+                hidden = true;
+            }
+        }
+    </script>
+
+
+{% endblock %}

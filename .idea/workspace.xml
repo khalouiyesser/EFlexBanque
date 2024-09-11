@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a9cba383-0b0f-412f-b74f-bef7508b49d7" name="Changes" comment="Fix work.">
+      <change afterPath="$PROJECT_DIR$/public/uploads_directory/282337420_5120971904658220_1095248458978225684_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads_directory/Economie-circulaire-developpement-durable-et-finance-verte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads_directory/admin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Innovatix.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Innovatix.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/user.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/custom.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dashboard/dashboard-1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/demo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dlabnav-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/bs-daterange-picker-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/calendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/chartist-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/chartjs-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/clock-picker-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/datatables.init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/flot-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/fullcalendar-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/jquery-asColorPicker.init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/jquery.validate-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/jqvmap-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/material-date-picker-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/morris-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/nestable-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/nouislider-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/pickadate-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/piety-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/select2-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/sparkline-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/sweetalert.init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/toastr-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins-init/widgets-script-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/styleSwitcher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/animate/animate.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/aos/css/aos.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/apexchart/apexchart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-daterangepicker/daterangepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-daterangepicker/daterangepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/chart.js/Chart.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/chartist/css/chartist.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/chartist/js/chartist.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/ckeditor/ckeditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/clockpicker/css/bootstrap-clockpicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/clockpicker/js/bootstrap-clockpicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/css/jquery.dataTables.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/datatables/js/jquery.dataTables.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/draggable/draggable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/dropzone/dist/dropzone.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/dropzone/dist/dropzone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/flot-spline/jquery.flot.spline.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/flot/jquery.flot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/flot/jquery.flot.pie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/flot/jquery.flot.resize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/fullcalendar/css/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/fullcalendar/js/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/global/global.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/highlightjs/highlight.pack.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColor/jquery-asColor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/css/asColorPicker.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/images/alpha.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/images/hue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/images/saturation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/images/transparent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-asGradient/jquery-asGradient.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-nice-select/css/nice-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-nice-select/js/jquery.nice-select.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-sparkline/jquery.sparkline.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-steps/build/jquery.steps.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jquery-validation/jquery.validate.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jqvmap/css/jqvmap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jqvmap/js/jquery.vmap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jqvmap/js/jquery.vmap.usa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/jqvmap/js/jquery.vmap.world.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/css/lightgallery.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/fonts/lg-1.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/fonts/lg.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/fonts/lg.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/fonts/lg.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/fonts/lg.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/img/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/img/video-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/img/vimeo-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/img/youtube-play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/lightgallery/js/lightgallery-all.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/metismenu/css/metisMenu.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/moment/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/morris/morris.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/nestable2/css/jquery.nestable.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/nestable2/js/jquery.nestable.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/nouislider/nouislider.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/nouislider/nouislider.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/owl-carousel/owl.carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/owl-carousel/owl.carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/peity/jquery.peity.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/perfect-scrollbar/css/perfect-scrollbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/pickadate/picker.date.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/pickadate/picker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/pickadate/picker.time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/pickadate/themes/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/pickadate/themes/default.date.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/raphael/raphael.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/select2/css/select2.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/select2/js/select2.full.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/star-rating/jquery.star-rating-svg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/star-rating/star-rating-svg.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/svganimation/svg.animation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/svganimation/vivus.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/sweetalert2/dist/sweetalert2.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/sweetalert2/dist/sweetalert2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/toastr/css/toastr.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/toastr/js/toastr.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vendor/wnumb/wNumb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ActualiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ActualiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OffreStagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreStagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articleH/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articleH/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/backOffice/offre_stage/afficheOffreStages.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/backOffice/offre_stage/afficheOffreStages.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseadmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseadmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/afficherRecRep.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/client/afficherRecRep.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/credit/listecredit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/credit/listecredit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/credit/listecreditv.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/credit/listecreditv.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/credit/listecreditvv.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/credit/listecreditvv.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashbordAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashbordAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/listeArticles.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/listeArticles.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/show.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="8a6fc8126e66a572c185b8eda26399e1d614d93d" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;khalouiyesser&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2fa3bc88-9032-4e55-b4e1-c04d16a5724c" />
+        <option name="url" value="https://github.com/khalouiyesser/InnovatixPiDevWeb.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/riverline/multipart-parser" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/victor-prdh/recaptcha-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/openai/openai" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/google/gax" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-pack" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/vendor/stella-maris/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mercure" />
+      <path value="$PROJECT_DIR$/vendor/google/longrunning" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-typed" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-storage" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mercure-bundle" />
+      <path value="$PROJECT_DIR$/vendor/openai-php/client" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/google/common-protos" />
+      <path value="$PROJECT_DIR$/vendor/symfony/sendgrid-mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/google/cloud-core" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stimulus-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/kreait/clock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-php" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/kreait/firebase-tokens" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-chartjs" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/vendor/google/grpc-gcp" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/grpc/grpc" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/rize/uri-template" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/google/protobuf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2cHEZtAhP3bTHMW7u8s0FtoR1Xl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Yesser/PI/InnovatixYesser/public/uploads_directory",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\public\uploads_directory" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\templates\credit" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\public\images" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\templates\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\public\uploads_directory" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\public" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\public\images" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\src\Form" />
+      <recent name="C:\Users\Yesser\PI\InnovatixYesser\templates\registration" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14015.96" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9cba383-0b0f-412f-b74f-bef7508b49d7" name="Changes" comment="" />
+      <created>1707760162908</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707760162908</updated>
+      <workItem from="1707760164041" duration="1962000" />
+      <workItem from="1707762213178" duration="533000" />
+      <workItem from="1707772908483" duration="903000" />
+      <workItem from="1707778425326" duration="41000" />
+      <workItem from="1707842564865" duration="1316000" />
+      <workItem from="1707852696194" duration="403000" />
+      <workItem from="1707854682279" duration="803000" />
+      <workItem from="1707906133558" duration="2030000" />
+      <workItem from="1707919388997" duration="2229000" />
+      <workItem from="1707929739402" duration="575000" />
+      <workItem from="1707932209983" duration="3231000" />
+      <workItem from="1707937737347" duration="2563000" />
+      <workItem from="1707984749537" duration="3826000" />
+      <workItem from="1707997854990" duration="3873000" />
+      <workItem from="1708002783720" duration="2339000" />
+      <workItem from="1708005177817" duration="1507000" />
+      <workItem from="1708007358693" duration="662000" />
+      <workItem from="1708010966947" duration="3366000" />
+      <workItem from="1708019145840" duration="4911000" />
+      <workItem from="1708029806267" duration="1080000" />
+      <workItem from="1708041488013" duration="603000" />
+      <workItem from="1708073610902" duration="3619000" />
+      <workItem from="1708078472275" duration="1097000" />
+      <workItem from="1708087993258" duration="2027000" />
+      <workItem from="1708090065589" duration="5244000" />
+      <workItem from="1708097792151" duration="399000" />
+      <workItem from="1708103409361" duration="640000" />
+      <workItem from="1708106092582" duration="1784000" />
+      <workItem from="1708168463211" duration="11878000" />
+      <workItem from="1708187311196" duration="2128000" />
+      <workItem from="1708245306539" duration="9032000" />
+      <workItem from="1708255549203" duration="6671000" />
+      <workItem from="1708266916760" duration="14000" />
+      <workItem from="1708268532064" duration="5972000" />
+      <workItem from="1708284362390" duration="10738000" />
+      <workItem from="1708302015703" duration="1136000" />
+      <workItem from="1708332046978" duration="8671000" />
+      <workItem from="1708349699476" duration="4025000" />
+      <workItem from="1708356886534" duration="4753000" />
+      <workItem from="1708361995703" duration="3999000" />
+      <workItem from="1708382268356" duration="7993000" />
+      <workItem from="1708417079079" duration="32000" />
+      <workItem from="1708417597766" duration="2894000" />
+      <workItem from="1708428340347" duration="12376000" />
+      <workItem from="1708471833495" duration="66000" />
+      <workItem from="1708502367423" duration="22257000" />
+      <workItem from="1708546034404" duration="2648000" />
+      <workItem from="1708556038569" duration="5005000" />
+      <workItem from="1708561647543" duration="1974000" />
+      <workItem from="1708588508691" duration="7476000" />
+      <workItem from="1708607831256" duration="3799000" />
+      <workItem from="1708616941191" duration="742000" />
+      <workItem from="1708618055733" duration="710000" />
+      <workItem from="1708623875622" duration="3793000" />
+      <workItem from="1708635542320" duration="1337000" />
+      <workItem from="1708640381322" duration="7000" />
+      <workItem from="1708680923917" duration="453000" />
+      <workItem from="1708684422018" duration="6031000" />
+      <workItem from="1708695973417" duration="10539000" />
+      <workItem from="1708729261588" duration="2963000" />
+      <workItem from="1708733558838" duration="2045000" />
+      <workItem from="1708769455073" duration="141000" />
+      <workItem from="1708769607902" duration="1461000" />
+      <workItem from="1708773072219" duration="1359000" />
+      <workItem from="1709471131466" duration="26000" />
+      <workItem from="1709471160007" duration="1078000" />
+      <workItem from="1709472291924" duration="3274000" />
+      <workItem from="1709490209389" duration="681000" />
+      <workItem from="1709496709170" duration="608000" />
+      <workItem from="1709506912427" duration="146000" />
+      <workItem from="1709507063641" duration="2057000" />
+      <workItem from="1709544985103" duration="2411000" />
+      <workItem from="1709555883570" duration="4032000" />
+      <workItem from="1709562071814" duration="4781000" />
+      <workItem from="1709587097135" duration="4816000" />
+      <workItem from="1709593432722" duration="12000" />
+      <workItem from="1709595153284" duration="985000" />
+      <workItem from="1709596294679" duration="281000" />
+      <workItem from="1709637985708" duration="228000" />
+      <workItem from="1709648593365" duration="460000" />
+      <workItem from="1709681975920" duration="3585000" />
+      <workItem from="1709685828076" duration="367000" />
+      <workItem from="1709686206119" duration="1521000" />
+      <workItem from="1709687808901" duration="1091000" />
+      <workItem from="1709731092276" duration="1657000" />
+      <workItem from="1709753527653" duration="3869000" />
+      <workItem from="1709842788344" duration="3360000" />
+      <workItem from="1709849281939" duration="27731000" />
+      <workItem from="1709881631823" duration="12140000" />
+      <workItem from="1709894346440" duration="1783000" />
+      <workItem from="1709896278563" duration="7041000" />
+      <workItem from="1709904872854" duration="9434000" />
+      <workItem from="1710020411796" duration="873000" />
+      <workItem from="1710066489731" duration="3058000" />
+      <workItem from="1711211034344" duration="618000" />
+      <workItem from="1711237879312" duration="713000" />
+      <workItem from="1711467608493" duration="5018000" />
+      <workItem from="1711726615361" duration="1149000" />
+      <workItem from="1712929391921" duration="482000" />
+      <workItem from="1713138970803" duration="172000" />
+      <workItem from="1713181364125" duration="345000" />
+      <workItem from="1713267556368" duration="146000" />
+      <workItem from="1713515516370" duration="58000" />
+      <workItem from="1713517372907" duration="20000" />
+      <workItem from="1713517419008" duration="829000" />
+      <workItem from="1713521357782" duration="1407000" />
+      <workItem from="1713647872078" duration="1784000" />
+      <workItem from="1713657630041" duration="2298000" />
+      <workItem from="1713690710966" duration="349000" />
+      <workItem from="1713701362833" duration="734000" />
+      <workItem from="1713787526778" duration="626000" />
+      <workItem from="1713949446753" duration="76000" />
+      <workItem from="1714042184409" duration="446000" />
+      <workItem from="1714044966503" duration="115000" />
+      <workItem from="1714049497334" duration="70000" />
+      <workItem from="1714083239791" duration="601000" />
+      <workItem from="1714090149782" duration="240000" />
+      <workItem from="1714122997583" duration="866000" />
+      <workItem from="1714126798224" duration="74000" />
+      <workItem from="1714158832435" duration="617000" />
+      <workItem from="1714416986816" duration="1286000" />
+      <workItem from="1714514799259" duration="2153000" />
+      <workItem from="1714661857220" duration="1501000" />
+      <workItem from="1714900787139" duration="623000" />
+      <workItem from="1714906814387" duration="2239000" />
+      <workItem from="1714909201282" duration="3479000" />
+      <workItem from="1715081465017" duration="2655000" />
+      <workItem from="1715099404178" duration="1000" />
+      <workItem from="1715101016077" duration="3445000" />
+      <workItem from="1715304049501" duration="2909000" />
+      <workItem from="1715336336261" duration="2615000" />
+      <workItem from="1715425606595" duration="2092000" />
+      <workItem from="1715462538276" duration="3279000" />
+      <workItem from="1715471293957" duration="927000" />
+      <workItem from="1715505944750" duration="837000" />
+      <workItem from="1715511649241" duration="25945000" />
+      <workItem from="1715556109833" duration="16888000" />
+      <workItem from="1715599641130" duration="5524000" />
+      <workItem from="1715678579880" duration="1821000" />
+      <workItem from="1715690566383" duration="93000" />
+      <workItem from="1715690663202" duration="47000" />
+      <workItem from="1715690719112" duration="1416000" />
+      <workItem from="1715692182871" duration="900000" />
+      <workItem from="1715693310666" duration="43000" />
+      <workItem from="1715696302091" duration="1274000" />
+      <workItem from="1715713699789" duration="2834000" />
+      <workItem from="1715764113675" duration="61000" />
+      <workItem from="1715772149580" duration="2391000" />
+      <workItem from="1715788151383" duration="677000" />
+      <workItem from="1715794430971" duration="1413000" />
+      <workItem from="1715820640464" duration="4535000" />
+      <workItem from="1715847729739" duration="996000" />
+      <workItem from="1715852127630" duration="6512000" />
+      <workItem from="1715939464496" duration="164000" />
+      <workItem from="1715939786522" duration="354000" />
+      <workItem from="1715979138439" duration="619000" />
+      <workItem from="1716667191730" duration="3704000" />
+      <workItem from="1716671162701" duration="1381000" />
+      <workItem from="1716672771579" duration="167000" />
+      <workItem from="1716683035561" duration="904000" />
+      <workItem from="1716712034263" duration="2836000" />
+      <workItem from="1716715099285" duration="6921000" />
+      <workItem from="1716746208743" duration="776000" />
+      <workItem from="1718149564000" duration="610000" />
+      <workItem from="1718182291142" duration="838000" />
+      <workItem from="1720686950425" duration="17000" />
+      <workItem from="1722274910213" duration="539000" />
+      <workItem from="1726087324184" duration="82000" />
+    </task>
+    <task id="LOCAL-00029" summary="CRUD offres de stages.">
+      <option name="closed" value="true" />
+      <created>1708288381601</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708288381601</updated>
+    </task>
+    <task id="LOCAL-00030" summary="some update">
+      <option name="closed" value="true" />
+      <created>1708299523416</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708299523416</updated>
+    </task>
+    <task id="LOCAL-00031" summary="some update">
+      <option name="closed" value="true" />
+      <created>1708300301310</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708300301310</updated>
+    </task>
+    <task id="LOCAL-00032" summary="some update">
+      <option name="closed" value="true" />
+      <created>1708300473390</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1708300473390</updated>
+    </task>
+    <task id="LOCAL-00033" summary="template frontOffice Les offres de stages">
+      <option name="closed" value="true" />
+      <created>1708301618883</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1708301618883</updated>
+    </task>
+    <task id="LOCAL-00034" summary="update dans recrutement template">
+      <option name="closed" value="true" />
+      <created>1708303158950</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1708303158950</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add template affiche offre backOffice.">
+      <option name="closed" value="true" />
+      <created>1708344077118</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1708344077118</updated>
+    </task>
+    <task id="LOCAL-00036" summary="ajout du formulaire de recherche et la template de Details vide + correction du controlleur de l'offre de stage.">
+      <option name="closed" value="true" />
+      <created>1708350716882</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708350716882</updated>
+    </task>
+    <task id="LOCAL-00037" summary="mettre à jour le controlleur offre de stage">
+      <option name="closed" value="true" />
+      <created>1708358073516</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708358073516</updated>
+    </task>
+    <task id="LOCAL-00038" summary="mettre à jour le controlleur offre de stage">
+      <option name="closed" value="true" />
+      <created>1708358217695</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708358217695</updated>
+    </task>
+    <task id="LOCAL-00039" summary="correction de template de reccrutement et il y'a une erreur au niveau de recherche par le numero">
+      <option name="closed" value="true" />
+      <created>1708360954804</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708360954804</updated>
+    </task>
+    <task id="LOCAL-00040" summary="recruttement marche sans recherche">
+      <option name="closed" value="true" />
+      <created>1708361349261</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708361349261</updated>
+    </task>
+    <task id="LOCAL-00041" summary="correction de template recrutement.">
+      <option name="closed" value="true" />
+      <created>1708361739725</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1708361739725</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Recherche des demandes.">
+      <option name="closed" value="true" />
+      <created>1708385854612</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1708385854612</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Début de coding de details.">
+      <option name="closed" value="true" />
+      <created>1708387562660</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1708387562660</updated>
+    </task>
+    <task id="LOCAL-00044" summary="mettre en place la card.">
+      <option name="closed" value="true" />
+      <created>1708390832603</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1708390832603</updated>
+    </task>
+    <task id="LOCAL-00045" summary="modification dans Details des offres.">
+      <option name="closed" value="true" />
+      <created>1708419781022</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1708419781022</updated>
+    </task>
+    <task id="LOCAL-00046" summary="modification dans Details des offres.">
+      <option name="closed" value="true" />
+      <created>1708420527715</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1708420527715</updated>
+    </task>
+    <task id="LOCAL-00047" summary="template ajout et modifier offre.">
+      <option name="closed" value="true" />
+      <created>1708463157371</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1708463157371</updated>
+    </task>
+    <task id="LOCAL-00048" summary="mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage.">
+      <option name="closed" value="true" />
+      <created>1708528705102</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1708528705102</updated>
+    </task>
+    <task id="LOCAL-00049" summary="mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage.">
+      <option name="closed" value="true" />
+      <created>1708528764699</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1708528764699</updated>
+    </task>
+    <task id="LOCAL-00050" summary="l'ajout des méthodes de approuver demande et supprimer + ajout des controles de saisie pour tout les entités.">
+      <option name="closed" value="true" />
+      <created>1708561558812</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1708561558812</updated>
+    </task>
+    <task id="LOCAL-00051" summary=".">
+      <option name="closed" value="true" />
+      <created>1708562590666</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1708562590666</updated>
+    </task>
+    <task id="LOCAL-00052" summary="ajout de filtrage des offres.">
+      <option name="closed" value="true" />
+      <created>1708595555404</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1708595555404</updated>
+    </task>
+    <task id="LOCAL-00053" summary="update templates.">
+      <option name="closed" value="true" />
+      <created>1708611427157</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1708611427164</updated>
+    </task>
+    <task id="LOCAL-00054" summary="error">
+      <option name="closed" value="true" />
+      <created>1708618071451</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1708618071451</updated>
+    </task>
+    <task id="LOCAL-00055" summary="add entity user">
+      <option name="closed" value="true" />
+      <created>1708636085094</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1708636085094</updated>
+    </task>
+    <task id="LOCAL-00056" summary="add entity user">
+      <option name="closed" value="true" />
+      <created>1708636485609</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1708636485609</updated>
+    </task>
+    <task id="LOCAL-00057" summary="update templates.">
+      <option name="closed" value="true" />
+      <created>1708689972939</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1708689972939</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Corrections des erreurs + complétaion de la validation numéro 1.">
+      <option name="closed" value="true" />
+      <created>1708733610160</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1708733610160</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Intégration de l'analyseur des CVs.">
+      <option name="closed" value="true" />
+      <created>1708771052760</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1708771052760</updated>
+    </task>
+    <task id="LOCAL-00060" summary="integration de mon travail">
+      <option name="closed" value="true" />
+      <created>1709473491992</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1709473491992</updated>
+    </task>
+    <task id="LOCAL-00061" summary="fix the project">
+      <option name="closed" value="true" />
+      <created>1709474809561</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1709474809561</updated>
+    </task>
+    <task id="LOCAL-00062" summary="add mercure bundle.">
+      <option name="closed" value="true" />
+      <created>1709509098729</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1709509098729</updated>
+    </task>
+    <task id="LOCAL-00063" summary="fix the project.">
+      <option name="closed" value="true" />
+      <created>1709683266851</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1709683266851</updated>
+    </task>
+    <task id="LOCAL-00064" summary="fix the project.">
+      <option name="closed" value="true" />
+      <created>1709733728466</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1709733728466</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fix the project.">
+      <option name="closed" value="true" />
+      <created>1709733804866</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1709733804866</updated>
+    </task>
+    <task id="LOCAL-00066" summary="fix the project.">
+      <option name="closed" value="true" />
+      <created>1709755262415</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1709755262415</updated>
+    </task>
+    <task id="LOCAL-00067" summary="commit yesser.">
+      <option name="closed" value="true" />
+      <created>1709842907161</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1709842907161</updated>
+    </task>
+    <task id="LOCAL-00068" summary="fix the project 1.">
+      <option name="closed" value="true" />
+      <created>1709867123094</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1709867123094</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix the project 2.">
+      <option name="closed" value="true" />
+      <created>1709890729735</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1709890729735</updated>
+    </task>
+    <task id="LOCAL-00070" summary="fix the project 3.">
+      <option name="closed" value="true" />
+      <created>1709914744053</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1709914744053</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fix the project 3.">
+      <option name="closed" value="true" />
+      <created>1709914752137</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1709914752137</updated>
+    </task>
+    <task id="LOCAL-00072" summary="add Api for JavaProject">
+      <option name="closed" value="true" />
+      <created>1713690958023</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1713690958023</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fix the project,add the Rib to user and fix cheque with idUser.">
+      <option name="closed" value="true" />
+      <created>1715081689768</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1715081689768</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Fix shayma's work.">
+      <option name="closed" value="true" />
+      <created>1715465811983</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1715465811983</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Fix work maryem">
+      <option name="closed" value="true" />
+      <created>1715520951149</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1715520951149</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Fix work.">
+      <option name="closed" value="true" />
+      <created>1715847870257</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1715847870257</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Fix work.">
+      <option name="closed" value="true" />
+      <created>1716672197044</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1716672197044</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modification dans Details des offres." />
+    <MESSAGE value="template ajout et modifier offre." />
+    <MESSAGE value="mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage." />
+    <MESSAGE value="loginClient" />
+    <MESSAGE value="l'ajout des méthodes de approuver demande et supprimer + ajout des controles de saisie pour tout les entités." />
+    <MESSAGE value="." />
+    <MESSAGE value="ajout de filtrage des offres." />
+    <MESSAGE value="error" />
+    <MESSAGE value="add entity user" />
+    <MESSAGE value="update templates." />
+    <MESSAGE value="Corrections des erreurs + complétaion de la validation numéro 1." />
+    <MESSAGE value="Intégration de l'analyseur des CVs." />
+    <MESSAGE value="integration de mon travail" />
+    <MESSAGE value="fix the project" />
+    <MESSAGE value="add mercure bundle." />
+    <MESSAGE value="fix the project." />
+    <MESSAGE value="commit yesser." />
+    <MESSAGE value="fix the project 1." />
+    <MESSAGE value="fix the project 2." />
+    <MESSAGE value="fix the project 3." />
+    <MESSAGE value="add Api for JavaProject" />
+    <MESSAGE value="Fix the project,add the Rib to user and fix cheque with idUser." />
+    <MESSAGE value="Fix shayma's work." />
+    <MESSAGE value="Fix work maryem" />
+    <MESSAGE value="Fix work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix work." />
+  </component>
+</project>

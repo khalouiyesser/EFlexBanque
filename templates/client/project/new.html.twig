@@ -1,0 +1,208 @@
+{% extends 'baseclient.html.twig' %}
+
+{% block title %}New Project{% endblock %}
+
+{% block body %}
+<h1 style="font-size: 2em; /* Set font size */
+            text-align: center; /* Center align text */
+           text-transform: uppercase; /* Uppercase text */
+           margin-bottom: 20px; /* Add some bottom margin */
+           padding: 10px; /* Add padding */
+           background-color: #f9f9f9; /* Set background color */
+           border-radius: 5px; /* Add border radius */
+           box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add box shadow */
+           ">
+
+    Create new Project
+</h1>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GevStack - File upload Dropzone</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <style>
+    
+  
+
+:root {
+  --primary: #a80038;
+  --white: #fff;
+  --background: #f8f8ff;
+  --gray: #d3d3d3;
+}
+
+ 
+.dropzone-box {
+  color: var(--primary);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 36rem;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.dropzone-box h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.dropzone-area {
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  min-height: 16rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px dashed var(--primary);
+  border-radius: 1rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.dropzone-area [type="file"] {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dropzone-area .file-upload-icon svg {
+  height: 5rem;
+  width: 5rem;
+  margin-bottom: 0.5rem;
+  stroke: var(--primary);
+}
+
+.dropzone--over {
+  border-style: solid;
+  background-color: var(--background);
+}
+
+.dropzone-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dropzone-actions button {
+  flex-grow: 1;
+  min-height: 3rem;
+  font-size: 1.2rem;
+}
+
+.dropzone-actions button:hover {
+  text-decoration: underline;
+}
+
+.dropzone-actions button[type="reset"] {
+  background-color: transparent;
+  border: 1px solid var(--gray);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.dropzone-actions button[type="submit"] {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4" style="color: #333; font-weight: bold;">Formulaire pour ajouter un projet</h5>
+                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        <div class="mb-3">
+                            {{ form_row(form.nomprojet, {'attr': {'class': 'form-control', 'placeholder': 'Nom du projet'}, 'id': 'nom_projet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.categorie, {'attr': {'class': 'form-control', 'placeholder': 'Catégorie du projet'}, 'id': 'categorie'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.descriptionprojet, {'attr': {'class': 'form-control', 'placeholder': 'Description du projet'}, 'id': 'descriptionprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.budgetprojet, {'attr': {'class': 'form-control', 'placeholder': 'Budget du projet'}, 'id': 'budgetprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.datecreation, {'attr': {'class': 'form-control', 'placeholder': 'Date de création du projet'}, 'id': 'datecreation'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.dureeprojet, {'attr': {'class': 'form-control', 'placeholder': 'Durée du projet'}, 'id': 'dureeprojet'}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.statutprojet, {'attr': {'class': 'form-control', 'placeholder': 'Statut du projet'}, 'id': 'statutprojet'}) }}
+                        </div>
+                        <div class="dropzone-box">
+                            <h2>Upload and attach files</h2>
+                            <p>
+                                Attach files to this project
+                            </p>
+                            <div class="dropzone-area">
+                                <div class="file-upload-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                    </svg>
+                                </div>
+                                <p>Click to upload or drag and drop</p>
+                                <input type="file" required id="my_image" name="my_image">
+                                <p class="message">No Files Selected</p>
+                            </div>
+                        </div>
+                       
+                        <br><br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" style="background-color: #333; border-color: #333;">Submit</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+ 
+
+
+
+{% endblock %}

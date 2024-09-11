@@ -1,0 +1,83 @@
+{% extends 'baseEmploye.html.twig' %}
+
+{% block body %}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>les Demandes de creation de compte bancaire</title>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
+        <link rel="stylesheet" href="assets/css/feathericon.min.css">
+        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link rel="stylesheet" href="assets/css/style.css"> </head>
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="row">
+                <br class="col-sm-12">
+                <br> <br>
+                <div class="card card-table">
+                    <br> <br>
+                    <h1 class="text-center" style="font-size: 24px;">les Demande de création de compte bancaire</h1>
+                    <div class="card-body booking_card">
+                        <div class="table-responsive">
+                            <table class="datatable table table-stripped table table-hover table-center mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Cin</th>
+                                    <th>Type de Cin</th>
+                                    <th>Date Delivrance Cin</th>
+                                    <th>nom</th>
+                                    <th>prenom</th>
+                                    <th>sexe</th>
+                                    <th>Date de Naissance</th>
+                                    <th>Statut Marital</th>
+                                    <th>Proffesion</th>
+                                    <th>Nationalité</th>
+                                    <th>type de Compte</th>
+                                    <th>Montant de depot initial</th>
+                                    <th>Numéro de telephone</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for comptes in comptes %}
+                                    <tr>
+                                        <td>{{comptes.Email }}</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a>{{comptes.Cin }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{comptes.TypeCin }}</td>
+                                        <td>{{comptes.DateDelivranceCin | date('d F Y')}}</td>
+                                        <td>{{comptes.nom }}</td>
+                                        <td>{{comptes.prenom}}</td>
+                                        <td>{{comptes.sexe}}</td>
+                                        <td>{{comptes.DateNaissance | date('d F Y')}}</td>
+                                        <td>{{comptes.StatutMarital}}</td>
+                                        <td>{{comptes.proffesion}}</td>
+                                        <td>{{comptes.Nationalite}}</td>
+                                        <td>{{comptes.typeCompte}}</td>
+                                        <td>{{comptes.Montant}}</td>
+                                        <td>{{comptes.NumeroTelephone}}</td>
+
+
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

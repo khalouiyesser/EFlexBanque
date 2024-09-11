@@ -1,0 +1,55 @@
+Index: templates/frontOffice/offre_stages/recrutement.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n\r\n    <!-- custom css file link  -->\r\n{#    <link rel=\"stylesheet\" href=\"css/style.css\">#}\r\n    <style>\r\n        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');\r\n\r\n        *{\r\n            font-family: 'Poppins', sans-serif;\r\n            margin:0; padding:0;\r\n            box-sizing: border-box;\r\n            outline: none; border:none;\r\n            text-decoration: none;\r\n            text-transform: capitalize;\r\n            transition: .2s linear;\r\n        }\r\n\r\n        .container{\r\n            /*background:linear-gradient(45deg, blueviolet, lightgreen);*/\r\n            padding: 15px 9% 100px;\r\n            position: relative;\r\n        }\r\n\r\n        .container .heading{\r\n            text-align: center;\r\n            padding-bottom: 15px;\r\n            color:#fff;\r\n            text-shadow: 0 5px 10px rgba(0,0,0,.2);\r\n            font-size: 50px;\r\n        }\r\n\r\n        .container .box-container{\r\n            display: grid;\r\n            /*grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));*/\r\n            gap:15px;\r\n            flex-direction: column;\r\n            align-items: center;\r\n        }\r\n\r\n        .container .box-container .box{\r\n            box-shadow: 0 5px 10px rgba(0,0,0,.2);\r\n            border-radius: 5px;\r\n            background: #fff;\r\n            text-align: center;\r\n            padding:30px 20px;\r\n        }\r\n\r\n        .container .box-container .box img{\r\n            height: 80px;\r\n        }\r\n\r\n        .container .box-container .box h3{\r\n            color:#444;\r\n            font-size: 22px;\r\n            padding:10px 0;\r\n        }\r\n\r\n        .container .box-container .box p{\r\n            color:#777;\r\n            font-size: 15px;\r\n            line-height: 1.8;\r\n        }\r\n\r\n        .container .box-container .box .btn{\r\n            margin-top: 10px;\r\n            display: inline-block;\r\n            background:#333;\r\n            color:#fff;\r\n            font-size: 17px;\r\n            border-radius: 5px;\r\n            padding: 8px 25px;\r\n        }\r\n\r\n        .container .box-container .box .btn:hover{\r\n            letter-spacing: 1px;\r\n        }\r\n\r\n        .container .box-container .box:hover{\r\n            box-shadow: 0 10px 15px rgba(0,0,0,.3);\r\n            transform: scale(1.03);\r\n        }\r\n\r\n        @media (max-width:768px){\r\n            .container{\r\n                padding:20px;\r\n            }\r\n        }\r\n    </style>\r\n\r\n</head>\r\n<body style=\"background:linear-gradient(45deg, blueviolet, lightgreen);\">\r\n\r\n<div class=\"container\">\r\n\r\n    <h1 class=\"heading\">our services</h1>\r\n\r\n    <div class=\"box-container\">\r\n\r\n        <div class=\"box\">\r\n            <img src=\"image/icon-1.png\" alt=\"\">\r\n            <h3>HTML 5</h3>\r\n            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>\r\n            <a href=\"#\" class=\"btn\">read more</a>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n\r\n</body>\r\n</html>
+===================================================================
+diff --git a/templates/frontOffice/offre_stages/recrutement.html.twig b/templates/frontOffice/offre_stages/recrutement.html.twig
+--- a/templates/frontOffice/offre_stages/recrutement.html.twig	
++++ b/templates/frontOffice/offre_stages/recrutement.html.twig	
+@@ -1,10 +1,11 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
++    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-
++    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     <!-- custom css file link  -->
+ {#    <link rel="stylesheet" href="css/style.css">#}
+     <style>
+@@ -91,7 +92,13 @@
+             }
+         }
+     </style>
+-
++{#    <form class="form-inline my-2 my-lg-0">#}
++{#        <input class="DocSearch-Button-Placeholder" style="margin-top: 20px; border-radius: 5px;#}
++{#            background: #fff;#}
++{#            text-align: center;#}
++{#            padding:30px 20px; " type="search" placeholder="Search" aria-label="Search">#}
++{#        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
++{#    </form>#}
+ </head>
+ <body style="background:linear-gradient(45deg, blueviolet, lightgreen);">
+ 
+@@ -100,13 +107,14 @@
+     <h1 class="heading">our services</h1>
+ 
+     <div class="box-container">
+-
++        {% for i in offres %}
+         <div class="box">
+             <img src="image/icon-1.png" alt="">
+-            <h3>HTML 5</h3>
+-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+-            <a href="#" class="btn">read more</a>
++            <h3>{{ i.title }}</h3>
++            <p>{{ i.description }}</p>
++            <a href="#" class="btn">Voir plus</a>
+         </div>
++        {% endfor %}
+     </div>
+ 
+ </div>

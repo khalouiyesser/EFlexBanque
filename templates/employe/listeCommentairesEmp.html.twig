@@ -1,0 +1,53 @@
+{% extends 'baseEmploye.html.twig' %}
+{% block body %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="mt-5">
+                        <h4 class="card-title float-left mt-2">Commentaires</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body booking_card">
+                        <div class="table-responsive">
+                            <table class="datatable table table-stripped table table-hover table-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Date de création</th>
+                                        <th>Contenu</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for commentaire in commentaires %}
+                                    <tr>
+                                        <td>{{ commentaire.nomAutCom }}</td>
+                                        <td>{{ commentaire.dateCreation ? commentaire.dateCreation|date('Y-m-d') : '' }}</td>
+                                        <td>{{ commentaire.contenu }}</td>
+                                        <td>
+                                            <a href="{{ path('reponseCommentaireAdd', {'id': commentaire.id}) }}" class="btn btn-sm bg-primary-light mr-2">Repondre</a>
+                                            <a href="{{ path('app_commentaire_delete', {'id': commentaire.id}) }}" class="btn btn-sm bg-danger-light" onclick="return confirm('Are you sure you want to delete this item?');">Supprimer</a>
+                                        </td>
+                                    </tr>
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="4">Aucun commentaire</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

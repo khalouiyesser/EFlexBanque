@@ -1,0 +1,71 @@
+{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+
+
+     <h1>Evenement  </h1>
+
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+        <tr>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom</th>
+           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Debut</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Date Fin</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Lieu</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Prix</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+
+        <tr>
+          <td>
+            <div class="d-flex px-2">
+              <div>
+                <img src="https://demos.creative-tim.com/soft-ui-design-system-pro/assets/img/logos/small-logos/logo-spotify.svg" class="avatar avatar-sm rounded-circle me-2">
+              </div>
+              <div class="my-auto">
+                <h6 class="mb-0 text-xs">{{ evenement.nom }}</h6>
+              </div>
+            </div>
+          </td>
+
+
+          <td>
+            <span class="badge badge-dot me-4">
+              <i class="bg-info"></i>
+              <span class="text-dark text-xs">{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d H:i:s') : '' }}</span>
+            </span>
+          </td>
+          <td>
+            <span class="badge badge-dot me-4">
+              <i class="bg-info"></i>
+              <span class="text-dark text-xs">{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d H:i:s') : '' }}</span>
+            </span>
+          </td>
+          <td>{{ evenement.lieu }}</td>
+          <td>
+            <p class="text-xs font-weight-bold mb-0">{{ evenement.description }}</p>
+          </td>
+           <td> <p class="text-xs font-weight-bold mb-0">{{ evenement.prix }}$</p></td>
+          <td class="align-middle">
+            <a class="btn btn-link text-secondary mb-0" href="{{ path('app_evenement_showA', {'id': evenement.id}) }}">
+              <i class="ni ni-badge"></i>
+            </a>
+          </td>
+        </tr>
+        {% else %}
+          <tr>
+            <td colspan="9">no records found</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

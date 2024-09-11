@@ -1,0 +1,55 @@
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Modifier la réponse
+{% endblock %}
+
+{% block body %}
+    <!--**********************************
+            Content body start
+    ***********************************-->
+    <div class="content-body">
+        <div
+                class="container-fluid">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="email-left-box px-0 mb-3">
+                                <div class="p-0">
+                                    <a href="{{ path('app_reponse_index') }}" class="btn btn-primary btn-block">Liste des réponses</a>
+                                </div>
+                                <div class="mail-list rounded mt-4">
+                                    <a href="{{ path('app_reponse_delete', {'id': reponse.id}) }}" class="list-group-item" onclick="if (!confirm('Voulez-vous supprimer cet élément ?')) { return false; }">
+                                        <i class="fa fa-trash font-18 align-middle me-2"></i>Supprimer</a>
+                                </div>
+                            </div>
+                            <div class="email-right-box ms-0 ms-sm-4 ms-sm-0">
+                                <div class="toolbar mb-4" role="toolbar">
+                                    <div class="compose-content">
+                                        {{ form_start(form) }}
+
+                                        <div class="mb-3">
+                                            {{ form_row(form.contenuRep, { 'label': 'Contenu de la réponse :' }) }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form_row(form.pieceJRep, { 'label': 'Pièce jointe :' }) }}
+                                        </div>
+                                        <div class="text-start mt-4 mb-3">
+                                            <button type="submit" class="btn btn-primary btn-sl-sm me-2">
+                                                <i class="fa fa-paper-plane"></i>
+                                                Envoyer</button>
+                                        </div>
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Content body end
+    ***********************************-->
+{% endblock %}

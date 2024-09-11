@@ -1,0 +1,20 @@
+{% extends 'front/detailArticle.html.twig' %}
+{% block ok %}
+{% endblock  %}
+
+{% block ajouter%}
+           <form role="form text-left" action="{{ path('app_CommentaireAddFront' , {'id': article.id}) }}" method="post">
+    <div class="mb-3">
+        <input name="nomAutCom" type="text" class="form-control" placeholder="Nom" aria-label="Name" aria-describedby="email-addon">
+    </div>
+    <div class="mb-3">
+        <textarea name="contenu" class="form-control" id="message" rows="3" placeholder="Écrivez un commentaire ...."></textarea>
+    </div>
+   
+   
+
+    <div class="text-center">
+        <button type="submit" class="btn bg-gradient-primary mt-4">Envoyer un commentaire</button>
+    </div>
+</form> 
+{% endblock %}

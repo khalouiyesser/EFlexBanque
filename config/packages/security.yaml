@@ -1,0 +1,97 @@
+security:
+    enable_authenticator_manager: true
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        admin_area:
+            pattern: ^/admin
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                default_target_path: /admin/dashboard # Page de redirection après la connexion réussie
+            # Autres configurations...
+            
+        client_area:
+            pattern: ^/client
+            form_login:
+                login_path: app_loginClient
+                check_path: app_loginClient
+                default_target_path: /client/dashboard # Page de redirection après la connexion réussie pour les clients
+            # Autres configurations...
+            
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|image)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticator: App\Security\LoginAuthenticator
+            logout:
+                path: app_logout
+                target: app_actualite 
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                always_remember_me: true
+
+    access_control:
+#         - { path: ^/admin, roles: ROLE_ADMIN }
+#         - { path: ^/listecredit, roles: ROLE_ADMIN }
+#         - { path: ^/article/dashbord, roles: ROLE_ADMIN }
+#         - { path: ^/user/employes, roles: ROLE_ADMIN }
+#         - { path: ^/user/clients, roles: ROLE_ADMIN }
+#         - { path: ^/afficheCompte, roles: ROLE_ADMIN }
+#         - { path: ^/AfficherDemande, roles: ROLE_ADMIN }
+#         - { path: ^/showDemande, roles: ROLE_ADMIN }
+#         - { path: ^/showHistorique, roles: ROLE_ADMIN }
+#         - { path: ^/showListeCheque, roles: ROLE_ADMIN }
+#         - { path: ^/showHistoriqueV, roles: ROLE_ADMIN }
+#         - { path: ^/listerdv, roles: ROLE_ADMIN }
+#         - { path: ^/rdvcalendrier, roles: ROLE_ADMIN }
+#         - { path: ^/evenement/admin/events, roles: ROLE_ADMIN }
+#         - { path: ^/AffichageDesDemandes, roles: ROLE_ADMIN }
+#         - { path: ^/AffichageDesContrats, roles: ROLE_ADMIN }
+#         - { path: ^/AfficheStage, roles: ROLE_ADMIN }
+#         - { path: ^/afficheOffreStages, roles: ROLE_ADMIN }
+#         - { path: ^/article/, roles: ROLE_ADMIN }
+#         - { path: ^/commentaireHadhemi/, roles: ROLE_ADMIN }
+##         - { path: ^/reclamation, roles: ROLE_ADMIN }
+#         - { path: ^/reponse/, roles: ROLE_ADMIN }
+##           Client
+#         - { path: ^/dashbordClient/, roles: ROLE_CLIENT }
+#         -  { path: ^/historique/, roles: ROLE_CLIENT }
+#         -  { path: ^/addcheques/, roles: ROLE_CLIENT }
+#         -  { path: ^/historiqueV/, roles: ROLE_CLIENT }
+#         -  { path: ^/addvirement/, roles: ROLE_CLIENT }
+#         - { path: ^/project/client/list/, roles: ROLE_CLIENT }
+#         - { path: ^/project/client/create/, roles: ROLE_CLIENT }
+#         - { path: ^/user/client/list/, roles: ROLE_CLIENT }
+#         - { path: ^/evenement/client/list/, roles: ROLE_CLIENT }
+#         - { path: ^/ajoutercredit/, roles: ROLE_CLIENT }
+#         - { path: ^/suivrecredit/, roles: ROLE_CLIENT }
+#         - { path: ^/ajouterrdv/, roles: ROLE_CLIENT }
+#         - { path: ^/reclamation/new/, roles: ROLE_CLIENT }
+#         - { path: ^/reclamation/reclamationClient/, roles: ROLE_CLIENT }
+
+      #         - { path: ^/login, roles: ROLE_USER }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+
+when@test:
+  security:
+    password_hashers:
+      # By default, password hashers are resource intensive and take time. This is
+      # important to generate secure password hashes. In tests however, secure hashes
+      # are not important, waste resources and increase test times. The following
+      # reduces the work factor to the lowest possible values.
+      Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+        algorithm: auto
+        cost: 4 # Lowest possible value for bcrypt
+        time_cost: 3 # Lowest possible value for argon
+        memory_cost: 10 # Lowest possible value for argon

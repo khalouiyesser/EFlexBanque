@@ -1,0 +1,228 @@
+{#{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-10 mt-4">
+        <div class="card h-150 mb-4">
+            <div class="card-header pb-0 px-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="mb-0">Mes réclamations</h6>
+                    </div>
+                    <div class="col-6 text-end">
+                 <a class="btn bg-gradient-success mb-0" href="{{ path('app_reclamation_showId', {'id':reponses[0].user.id}) }}">&nbsp;&nbsp;liste des réclamations</a>
+</div>
+                </div>
+            </div>
+
+            <div class="card-body pt-4 p-3">
+                {% if reponses|length > 0 %}
+
+
+
+
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Réclamation</h6>
+
+                <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                        <div class="d-flex align-items-center">
+<button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
+                            <div class="d-flex flex-column">
+                                <h6 class="mb-1 text-dark text-sm">Objet : {{ reponses[0].reclamation.objetRec }}</h6>
+                                <span class="text-xs">Contenu : {{ reponses[0].reclamation.contenuRec }}</span>
+
+
+                                   <div>
+        <i class="far fa-calendar-alt me-2"></i>
+        <small>{{ reponses[0].reclamation.dateRec ? reponses[0].reclamation.dateRec|date('d-m-Y') : '' }}</small>
+    </div>
+                                    <span class="text-xs">Votre réclamation a été {{ reponses[0].reclamation.statutRec }}</span>
+
+                            </div>
+                        </div>
+            <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between">
+    <span class="text-xs">
+        <div class="ms-2">
+            <a href="{{ asset('uploads_directory_rec/' ~ reponses[0].reclamation.pieceJRec) }}" target="_blank" class="me-2">
+                <button class="btn btn-outline-success btn-sm" style="border-radius: 5px;" title="Ouvrir">
+                    <i class="fas fa-eye"></i> <!-- Icône pour Ouvrir -->
+                </button>
+            </a>
+            <a href="{{ asset('uploads_directory_rec/' ~ reponses[0].reclamation.pieceJRec) }}" download="{{ reponses[0].reclamation.pieceJRec ~ '_' ~ '.pdf' }}">
+                <button class="btn btn-outline-warning btn-sm" style="border-radius: 5px;" title="Télécharger">
+                    <i class="fas fa-download"></i> <!-- Icône pour Télécharger -->
+                </button>
+            </a>
+        </div>
+    </span>
+
+</div>
+
+
+</div>
+
+                    </li>
+                </ul>
+
+                <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Réponses</h6>
+                <ul class="list-group">
+                    {% for reponse in reponses %}
+                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                                <div class="d-flex align-items-center">
+
+                        <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button>
+
+                            <div class="d-flex flex-column">
+                             <h6 class="mb-1 text-dark text-sm">Notre réponse est accompagnée d'une pièce jointe téléchargeable.
+</h6>
+
+
+                                  <div >
+                            <i class="far fa-calendar-alt me-2"></i>
+                            <small>{{ reponse.dateRep ? reponse.dateRep|date('d-m-Y') : '' }}</small>
+                        </div>
+
+
+                                <span class="text-xs">Cher client,
+
+Nous nous efforçons de répondre à vos demandes le plus rapidement possible. <br>Votre satisfaction est notre priorité absolue.<br> {{ reponse.contenuRep }} <br>
+Nous espérons que notre réponse sera utile et répondra à vos attentes.<br> N'hésitez pas à nous contacter si vous avez besoin de plus d'informations.<br>
+Cordialement,<h6 class="mb-1 text-dark text-sm">{{ reponse.adrRep }}
+</h6></span>
+
+                            </div>
+
+</div>
+<div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between">
+        <span class="text-xs">
+            <div class="ms-2">
+                <a href="{{ asset('uploads_directory_rec/' ~ reponse.pieceJRep) }}" target="_blank" class="me-2">
+                    <button class="btn btn-outline-success btn-sm" style="border-radius: 5px;" title="Ouvrir">
+                        <i class="fas fa-eye"></i> <!-- Icône pour Ouvrir -->
+                    </button>
+                </a>
+                <a href="{{ asset('uploads_directory_rec/' ~ reponse.pieceJRep) }}" download="{{ reponse.pieceJRep ~ '_' ~ '.pdf' }}">
+                    <button class="btn btn-outline-warning btn-sm" style="border-radius: 5px;" title="Télécharger">
+                        <i class="fas fa-download"></i> <!-- Icône pour Télécharger -->
+                    </button>
+                </a>
+            </div>
+        </span>
+    </div>
+
+                        </div>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Aucune réponse disponible pour cette réclamation.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+#}
+{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-10 mt-4">
+            <div class="card h-150 mb-4">
+                <div class="card-header pb-0 px-3">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="mb-0">Mes réclamations</h6>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a class="btn bg-gradient-success mb-0" href="{{ path('app_reclamation_showId', {'id':reclamation.user.id}) }}">&nbsp;&nbsp;liste des réclamations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body pt-4 p-3">
+                    {% if reponses|length > 0 %}
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Réclamation</h6>
+
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
+                                    <div class="d-flex flex-column">
+                                        <h6 class="mb-1 text-dark text-sm">Objet : {{ reclamation.objetRec }}</h6>
+                                        <span class="text-xs">Contenu : {{reclamation.contenuRec }}</span>
+                                        <div>
+                                            <i class="far fa-calendar-alt me-2"></i>
+                                            <small>{{reclamation.dateRec ? reclamation.dateRec|date('d-m-Y') : '' }}</small>
+                                        </div>
+                                        <span class="text-xs">Votre réclamation a été {{ reclamation.statutRec }}</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                <span class="text-xs">
+                                    <div class="ms-2">
+                                        <a href="{{ asset('uploads_directory/' ~ reclamation.pieceJRec) }}" target="_blank" class="me-2">
+                                            <button class="btn btn-outline-success btn-sm" style="border-radius: 5px;" title="Ouvrir">
+                                                <i class="fas fa-eye"></i> <!-- Icône pour Ouvrir -->
+                                            </button>
+                                        </a>
+                                        <a href="{{ asset('uploads_directory/' ~ reclamation.pieceJRec) }}" download="{{ reclamation.pieceJRec ~ '_' ~ '.pdf' }}">
+                                            <button class="btn btn-outline-warning btn-sm" style="border-radius: 5px;" title="Télécharger">
+                                                <i class="fas fa-download"></i> <!-- Icône pour Télécharger -->
+                                            </button>
+                                        </a>
+                                    </div>
+                                </span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">Réponses</h6>
+                        <ul class="list-group">
+                            {% for reponse in reponses %}
+                                <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Notre réponse est accompagnée d'une pièce jointe téléchargeable.</h6>
+                                            <div>
+                                                <i class="far fa-calendar-alt me-2"></i>
+                                                <small>{{ reponse.dateRep ? reponse.dateRep|date('d-m-Y') : '' }}</small>
+                                            </div>
+                                            <span class="text-xs">Cher client,
+
+Nous nous efforçons de répondre à vos demandes le plus rapidement possible. <br>Votre satisfaction est notre priorité absolue.<br> {{ reponse.contenuRep }} <br>
+Nous espérons que notre réponse sera utile et répondra à vos attentes.<br> N'hésitez pas à nous contacter si vous avez besoin de plus d'informations.<br>
+Cordialement,<h6 class="mb-1 text-dark text-sm">{{ reponse.adrRep }}</h6></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                    <span class="text-xs">
+                                        <div class="ms-2">
+                                            <a href="{{ asset('uploads_directory/' ~ reponse.pieceJRep) }}" target="_blank" class="me-2">
+                                                <button class="btn btn-outline-success btn-sm" style="border-radius: 5px;" title="Ouvrir">
+                                                    <i class="fas fa-eye"></i> <!-- Icône pour Ouvrir -->
+                                                </button>
+                                            </a>
+                                            <a href="{{ asset('uploads_directory/' ~ reponse.pieceJRep) }}" download="{{ reponse.pieceJRep ~ '_' ~ '.pdf' }}">
+                                                <button class="btn btn-outline-warning btn-sm" style="border-radius: 5px;" title="Télécharger">
+                                                    <i class="fas fa-download"></i> <!-- Icône pour Télécharger -->
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Aucune réponse disponible pour cette réclamation.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

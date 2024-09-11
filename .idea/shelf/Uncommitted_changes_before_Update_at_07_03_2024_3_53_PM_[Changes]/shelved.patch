@@ -1,0 +1,1545 @@
+Index: templates/baseadmin.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <title>{% block title %}Welcome!{% endblock %}</title>\r\n\r\n        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫\uFE0F</text></svg>\">\r\n        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}\r\n        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css\">\r\n\r\n\r\n\r\n    <link href=\"{{asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}\" rel=\"stylesheet\">\r\n\r\n<link href=\"{{ asset('vendor/owl-carousel/owl.carousel.css') }}\" rel=\"stylesheet\">\r\n<link rel=\"stylesheet\" href=\"{{ asset('vendor/nouislider/nouislider.min.css') }}\">\r\n\r\n  <link rel=\"shortcut icon\" type=\"image/png\" href=\"{{ asset('images/favicon.png') }}\">\r\n    <!-- Custom Stylesheets -->\r\n    <link href=\"{{ asset('vendor/jquery-nice-select/css/nice-select.css') }}\" rel=\"stylesheet\">\r\n    <link href=\"{{ asset('css/style.css') }}\" rel=\"stylesheet\">\r\n\r\n    <link href=\"{{asset('/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}\" rel=\"stylesheet\">\r\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css\" integrity=\"sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=\" crossorigin=\"anonymous\">\r\n\r\n<link href=\"{{ asset('/vendor/owl-carousel/owl.carousel.css') }}\" rel=\"stylesheet\">\r\n<link rel=\"stylesheet\" href=\"{{ asset('/vendor/nouislider/nouislider.min.css') }}\">\r\n\r\n<link rel=\"shortcut icon\" type=\"image/png\" href=\"images/favicon.png\">\r\n    <!-- Custom Stylesheet -->\r\n\t<link href=\"{{asset('/vendor/jquery-nice-select/css/nice-select.css')}}\" rel=\"stylesheet\">\r\n    <link href=\"{{asset('/css/style.css')}}\" rel=\"stylesheet\">\r\n\r\n        {% block stylesheets %}\r\n            {{ encore_entry_link_tags('app') }}\r\n        {% endblock %}\r\n\r\n        {% block javascripts %}\r\n            {{ encore_entry_script_tags('app') }}\r\n        {% endblock %}\r\n    </head>\r\n    <body>\r\n\r\n    <!--**********************************\r\n        Main wrapper start\r\n    ***********************************-->\r\n    <div id=\"main-wrapper\">\r\n\r\n        <!--**********************************\r\n            Nav header start\r\n        ***********************************-->\r\n\t\t<div class=\"nav-header\">\r\n            <a href=\"index.html\" class=\"brand-logo\">\r\n<img src=\"{{ asset('images/2.png') }}\" class=\"rounded-lg me-2\" width=\"70\" alt=\"\">\r\n\r\n\t\t\t\t<div class=\"brand-title\">\r\n\t\t\t\t\t<h2 class=\"\">EFB</h2>\r\n\t\t\t\t\t<span class=\"brand-sub-title\">Admin</span>\r\n\t\t\t\t</div>\r\n            </a>\r\n            <div class=\"nav-control\">\r\n                <div class=\"hamburger\">\r\n                    <span class=\"line\"></span><span class=\"line\"></span><span class=\"line\"></span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <!--**********************************\r\n            Nav header end\r\n        ***********************************-->\r\n\r\n\t\t<!--**********************************\r\n            Chat box start\r\n        ***********************************-->\r\n\r\n\t\t<!--**********************************\r\n            Chat box End\r\n        ***********************************-->\r\n\r\n\r\n\r\n\r\n        <!--**********************************\r\n            Header start\r\n        ***********************************-->\r\n        <div class=\"header\">\r\n            <div class=\"header-content\">\r\n                <nav class=\"navbar navbar-expand\">\r\n                    <div class=\"collapse navbar-collapse justify-content-between\">\r\n                        <div class=\"header-left\">\r\n\t\t\t\t\t\t\t<div class=\"dashboard_bar\">\r\n\t\t\t\t\t\t\t\t{% block nompage %}{% endblock %}\r\n\r\n                            </div>\r\n\r\n                        </div>\r\n                        <ul class=\"navbar-nav header-right\">\r\n\t\t\t\t\t\t\t<li class=\"nav-item d-flex align-items-center\">\r\n\t\t\t\t\t\t\t\t<div class=\"input-group search-area\">\r\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Recherche ...\">\r\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-text\"><a href=\"javascript:void(0)\"><i class=\"flaticon-381-search-2\"></i></a></span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</li>\r\n\r\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-text\"><a href=\"{{path('searchclient')}}\"><i class=\"flaticon-381-search-2\"></i></a></span>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t<li>\r\n                            <div class=\"dropdown\">\r\n                            <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">\r\n                             {% trans %}Langue{% endtrans %}\r\n                             </button>\r\n                            <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\r\n                            <li><a class=\"dropdown-item\" href=\"{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr'})) }}\">Français</a></li>\r\n                            <li><a class=\"dropdown-item\" href=\"{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en'})) }}\">English</a></li>\r\n                            <!-- Ajoutez d'autres langues au besoin -->\r\n                             </ul>\r\n                             </div>\r\n                            </li>\r\n\r\n\r\n\t\t\t\t\t\t\t<li class=\"nav-item dropdown notification_dropdown\">\r\n                                <a class=\"nav-link bell-link \" href=\"javascript:void(0);\">\r\n\t\t\t\t\t\t\t\t<svg width=\"28\" height=\"28\" viewbox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n\t\t\t\t\t\t\t\t\t<path d=\"M27.076 6.24662C26.962 5.48439 26.5787 4.78822 25.9955 4.28434C25.4123 3.78045 24.6679 3.50219 23.8971 3.5H4.10289C3.33217 3.50219 2.58775 3.78045 2.00456 4.28434C1.42137 4.78822 1.03803 5.48439 0.924011 6.24662L14 14.7079L27.076 6.24662Z\" fill=\"#717579\"></path>\r\n\t\t\t\t\t\t\t\t\t<path d=\"M14.4751 16.485C14.3336 16.5765 14.1686 16.6252 14 16.6252C13.8314 16.6252 13.6664 16.5765 13.5249 16.485L0.875 8.30025V21.2721C0.875926 22.1279 1.2163 22.9484 1.82145 23.5536C2.42659 24.1587 3.24707 24.4991 4.10288 24.5H23.8971C24.7529 24.4991 25.5734 24.1587 26.1786 23.5536C26.7837 22.9484 27.1241 22.1279 27.125 21.2721V8.29938L14.4751 16.485Z\" fill=\"#717579\"></path>\r\n\t\t\t\t\t\t\t\t</svg>\r\n\t\t\t\t\t\t\t\t\t<span class=\"badge light text-white bg-danger rounded-circle\">76</span>\r\n                                </a>\r\n\t\t\t\t\t\t\t</li>\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t\t\t<li class=\"nav-item dropdown  header-profile\">\r\n\t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"javascript:void(0);\" role=\"button\" data-bs-toggle=\"dropdown\">\r\n<img src=\"{{ asset('images/user.jpg') }}\" width=\"56\" alt=\"\">\r\n\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t<div class=\"dropdown-menu dropdown-menu-end\">\r\n\t\t\t\t\t\t\t\t\t<a href=\"app-profile.html\" class=\"dropdown-item ai-icon\">\r\n\t\t\t\t\t\t\t\t\t\t<svg id=\"icon-user1\" xmlns=\"http://www.w3.org/2000/svg\" class=\"text-primary\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\"></path><circle cx=\"12\" cy=\"7\" r=\"4\"></circle></svg>\r\n\t\t\t\t\t\t\t\t\t\t<span class=\"ms-2\">Profile </span>\r\n\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t\t<a href=\"email-inbox.html\" class=\"dropdown-item ai-icon\">\r\n\t\t\t\t\t\t\t\t\t\t<svg id=\"icon-inbox\" xmlns=\"http://www.w3.org/2000/svg\" class=\"text-success\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>\r\n\t\t\t\t\t\t\t\t\t\t<span class=\"ms-2\">Inbox </span>\r\n\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t\t<a href=\"page-error-404.html\" class=\"dropdown-item ai-icon\">\r\n\t\t\t\t\t\t\t\t\t\t<svg id=\"icon-logout\" xmlns=\"http://www.w3.org/2000/svg\" class=\"text-danger\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\"></path><polyline points=\"16 17 21 12 16 7\"></polyline><line x1=\"21\" y1=\"12\" x2=\"9\" y2=\"12\"></line></svg>\r\n\t\t\t\t\t\t\t\t\t\t<span class=\"ms-2\">Logout </span>\r\n\t\t\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</li>\r\n                        </ul>\r\n\r\n\t<ul class=\"navbar-nav ml-auto\">\r\n  <li class=\"nav-item dropdown has-arrow\">\r\n    <a href=\"#\" class=\"dropdown-toggle nav-link\" data-toggle=\"dropdown\">\r\n      <span class=\"user-img\">\r\n        <img class=\"rounded-circle\" src=\"{{ asset('Employe/assets/img/logo.png') }}\" width=\"31\" alt=\"Soeng Souy\">\r\n      </span>\r\n    </a>\r\n    <div class=\"dropdown-menu\">\r\n      <a class=\"dropdown-item\" href=\"#\">Profile</a>\r\n      <a class=\"dropdown-item\" href=\"#\">Settings</a>\r\n      <div class=\"dropdown-divider\"></div>\r\n      <a class=\"dropdown-item\" href=\"{{ path('app_logout') }}\">Logout</a>\r\n      <a class=\"dropdown-item\" href=\"#\">Login</a>\r\n    </div>\r\n  </li>\r\n</ul>\r\n    </li>\r\n</ul>\r\n\r\n\r\n\r\n\r\n                    </div>\r\n\t\t\t\t</nav>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\r\n        <!--**********************************\r\n            Header end ti-comment-alt\r\n        ***********************************-->\r\n\r\n        <!--**********************************\r\n            Sidebar start\r\n        ***********************************-->\r\n        <div class=\"dlabnav\">\r\n            <div class=\"dlabnav-scroll\">\r\n\t\t\t\t<ul class=\"metismenu\" id=\"menu\">\r\n\r\n\r\n\r\n\t\t\t\t\t   <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                        <i class=\"fas fa-home\"></i>\r\n                        <span class=\"nav-text\">Dashboard</span>\r\n                    </a>\r\n                    <ul aria-expanded=\"false\">\r\n                        <li><a href=\"{{path('userStates')}}\">Dashboard Light</a></li>\r\n                     </ul>\r\n                     <ul aria-expanded=\"false\">\r\n                        <li><a href=\"{{path('app_user_clients')}}\">Dashboard Dark</a></li>\r\n                     </ul>\r\n\r\n                </li>\r\n\r\n\r\n                    <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                        <i class=\"fas fa-user-check\"></i>\r\n                        <span class=\"nav-text\">Utilisateurs</span>\r\n                    </a>\r\n                    <ul aria-expanded=\"false\">\r\n\r\n                        <li><a href=\"{{path('app_user_employes')}}\">Liste des employés</a></li>\r\n                     </ul>\r\n                     <ul aria-expanded=\"false\">\r\n                        <li><a href=\"{{path('app_user_clients')}}\">Liste des clients</a></li>\r\n                     </ul>\r\n\r\n                </li>\r\n\r\n\r\n\r\n             <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                <i class=\"bi bi-person-vcard-fill\"></i>\r\n                    <span class=\"nav-text\">Comptes</span>\r\n                </a>\r\n                <ul aria-expanded=\"false\">\r\n\r\n\r\n\r\n                    <li><a href=\"{{path('afficheCompte')}}\">Les Demandes de Créations des comptes</a></li>\r\n                    <li><a href=\"{{path('AfficherDemande')}}\">Les Demandes de chèque</a></li>\r\n                    <li><a href=\"{{path('showDemande')}}\">Les Demandes de virement</a></li>\r\n                    <li><a href=\"{{path('showHistorique')}}\">Liste des Compte</a></li>\r\n                    <li><a href=\"{{path('showListeCheque')}}\">Liste des Chéques</a></li>\r\n                    <li><a href=\"{{path('showHistoriqueV')}}\">Liste des Virements</a></li>\r\n                </ul>\r\n            </li>\r\n            <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                <i class=\"fas fa-file-alt\"></i>\r\n                <span class=\"nav-text\">Crédits</span>\r\n\r\n            </a>\r\n            <ul aria-expanded=\"false\">\r\n\r\n                <li><a href=\"{{path('app_listecredit')}}\">Liste des crédits</a></li>\r\n                <li><a href=\"{{path('app_listerdv')}}\">Liste des rdv</a></li>\r\n                <li><a href=\"{{path('sortedlist')}}\">Liste des credit ordonne</a></li>\r\n                <li><a href=\"{{path('app_graphique')}}\">stats</a></li>\r\n                <li><a href=\"{{path('app_rdv')}}\">CALANDER</a></li>\r\n                <li><a href=\"{{path('app_home')}}\">reminder RDV</a></li>\r\n\r\n\r\n\r\n\r\n            </ul>\r\n        </li>\r\n\r\n\r\n\r\n                                      <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                <i class=\"fas fa-file-alt\"></i>\r\n                <span class=\"nav-text\">Crédits</span>\r\n\r\n            </a>\r\n            <ul aria-expanded=\"false\">\r\n\r\n            </ul>\r\n        </li>\r\n\r\n                <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                    <i class=\"fas fa-chart-line\"></i>\r\n                    <span class=\"nav-text\">Investissement</span>\r\n                </a>\r\n                <ul aria-expanded=\"false\">\r\n\r\n                    <li><a  href=\"{{ path('app_investissement_listA') }}\">Liste des investissements</a></li>\r\n                    <li><a  href=\"{{ path('app_evenement_index') }}\">Liste des événements</a></li>\r\n\r\n\r\n                </ul>\r\n\r\n             </li>\r\n\r\n              <li><a class=\"has-arrow \" href=\"javascript:void()\"aria-expanded=\"false\">\r\n                  <i class=\"bi bi-clipboard-data-fill\"></i>\r\n                    <span class=\"nav-text\">Projet</span>\r\n                </a>\r\n                <ul aria-expanded=\"false\">\r\n\r\n                    <li><a  href=\" \">Liste des projets</a></li>\r\n\r\n                </ul>\r\n\r\n             </li>\r\n\r\n\r\n             <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n                <i class=\"bi bi-person-down\"></i>\r\n                <span class=\"nav-text\">Recrutement</span>\r\n            </a>\r\n\r\n                <ul aria-expanded=\"false\">\r\n                    <li><a href=\"{{ path('AffichageDesDemandes')}}\">Les demandes </a></li>\r\n                    <li><a href=\"{{ path('AffichageDesContrats') }}\">Liste des Contrats</a></li>\r\n                    <li><a href=\"{{ path('AfficheStage') }}\">Liste des stages</a></li>\r\n                    <li><a href=\"{{ path('afficheOffreStages') }}\">Liste des offres</a></li>\r\n                </ul>\r\n\r\n        </li>\r\n\r\n\r\n\r\n\r\n\r\n\r\n        <li><a class=\"has-arrow \" href=\"javascript:void()\" aria-expanded=\"false\">\r\n            <i class=\"bi bi-newspaper\"></i>\r\n            <span class=\"nav-text\">Actualités</span>\r\n        </a>\r\n        <ul aria-expanded=\"false\">\r\n            <li><a href=\"listeArticle.html\">Liste des articles</a></li>\r\n         </ul>\r\n\r\n        </li>\r\n\r\n        <li>\r\n      <a class=\"has-arrow\" href=\"{{ path('app_logout') }}\">\r\n      <i class=\"bi bi-box-arrow-left\"></i>\r\n      <span class=\"nav-text\">Logout</span> </a>\r\n      </li>\r\n\r\n        </li>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n                </ul>\r\n\r\n\r\n\r\n\t\t\t</div>\r\n        </div>\r\n        <!--**********************************\r\n            Sidebar end\r\n        ***********************************-->\r\n\r\n\r\n\r\n\r\n        <script src=\"{{ asset('vendor/global/global.min.js') }}\"></script>\r\n<script src=\"{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}\"></script>\r\n<script src=\"{{ asset('js/custom.min.js') }}\"></script>\r\n<script src=\"{{ asset('js/dlabnav-init.js') }}\"></script>\r\n<script src=\"{{ asset('js/demo.js') }}\"></script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js\" integrity=\"sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=\" crossorigin=\"anonymous\"></script>\r\n\r\n\r\n{# Assuming jQuery is already included #}\r\n<script src=\"{{ asset('vendor/global/global.min.js') }}\"></script>\r\n<script src=\"{{ asset('vendor/jquery-steps/build/jquery.steps.min.js') }}\"></script>\r\n<script src=\"{{ asset('vendor/jquery-validation/jquery.validate.min.js') }}\"></script>\r\n<script src=\"{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}\"></script>\r\n<script src=\"{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}\"></script>\r\n\r\n\r\n<script src=\"{{ asset('js/plugins-init/jquery.validate-init.js') }}\"></script>\r\n<script src=\"{{ asset('js/custom.min.js') }}\"></script>\r\n<script src=\"{{ asset('js/dlabnav-init.js') }}\"></script>\r\n<script src=\"{{ asset('js/demo.js') }}\"></script>\r\n\r\n\t<script>\r\n\t\t$(document).ready(function(){\r\n\t\t\t// SmartWizard initialize\r\n\t\t\t$('#smartwizard').smartWizard();\r\n\t\t});\r\n\r\n  // Get reference to the button element\r\n  var myButton = document.getElementById(\"myButton\");\r\n\r\n  // Add click event listener\r\n  myButton.addEventListener(\"click\", function() {\r\n    // Show the alert\r\n    alert(\"Article ajouté avec succés\");\r\n  });\r\n\t</script>\r\n\r\n        {% block body %}\r\n\r\n\r\n        {% endblock %}\r\n\r\n    </div>\r\n    </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/baseadmin.html.twig b/templates/baseadmin.html.twig
+--- a/templates/baseadmin.html.twig	
++++ b/templates/baseadmin.html.twig	
+@@ -3,13 +3,11 @@
+     <head>
+         <meta charset="UTF-8">
+         <title>{% block title %}Welcome!{% endblock %}</title>
+-
+         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+-
++    
+ 
+-
+     <link href="{{asset('vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}" rel="stylesheet">
+ 
+ <link href="{{ asset('vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+@@ -20,17 +18,6 @@
+     <link href="{{ asset('vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+ 
+-    <link href="{{asset('/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}" rel="stylesheet">
+-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+-
+-<link href="{{ asset('/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
+-<link rel="stylesheet" href="{{ asset('/vendor/nouislider/nouislider.min.css') }}">
+-
+-<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+-    <!-- Custom Stylesheet -->
+-	<link href="{{asset('/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+-    <link href="{{asset('/css/style.css')}}" rel="stylesheet">
+-
+         {% block stylesheets %}
+             {{ encore_entry_link_tags('app') }}
+         {% endblock %}
+@@ -40,7 +27,7 @@
+         {% endblock %}
+     </head>
+     <body>
+-
++        
+     <!--**********************************
+         Main wrapper start
+     ***********************************-->
+@@ -52,7 +39,6 @@
+ 		<div class="nav-header">
+             <a href="index.html" class="brand-logo">
+ <img src="{{ asset('images/2.png') }}" class="rounded-lg me-2" width="70" alt="">
+-
+ 				<div class="brand-title">
+ 					<h2 class="">EFB</h2>
+ 					<span class="brand-sub-title">Admin</span>
+@@ -67,18 +53,18 @@
+         <!--**********************************
+             Nav header end
+         ***********************************-->
+-
++		
+ 		<!--**********************************
+             Chat box start
+         ***********************************-->
+-
++		
+ 		<!--**********************************
+             Chat box End
+         ***********************************-->
+ 
+ 
+-
+-
++		
++		
+         <!--**********************************
+             Header start
+         ***********************************-->
+@@ -89,9 +75,8 @@
+                         <div class="header-left">
+ 							<div class="dashboard_bar">
+ 								{% block nompage %}{% endblock %}
+-
+                             </div>
+-
++							
+                         </div>
+                         <ul class="navbar-nav header-right">
+ 							<li class="nav-item d-flex align-items-center">
+@@ -100,24 +85,8 @@
+ 									<span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+ 								</div>
+ 							</li>
+-
+-									<span class="input-group-text"><a href="{{path('searchclient')}}"><i class="flaticon-381-search-2"></i></a></span>
+-								</div>
+-							</li>
+-							<li>
+-                            <div class="dropdown">
+-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+-                             {% trans %}Langue{% endtrans %}
+-                             </button>
+-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+-                            <li><a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'fr'})) }}">Français</a></li>
+-                            <li><a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'_locale': 'en'})) }}">English</a></li>
+-                            <!-- Ajoutez d'autres langues au besoin -->
+-                             </ul>
+-                             </div>
+-                            </li>
+-
+-
++								
++					
+ 							<li class="nav-item dropdown notification_dropdown">
+                                 <a class="nav-link bell-link " href="javascript:void(0);">
+ 								<svg width="28" height="28" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+@@ -126,11 +95,10 @@
+ 								</svg>
+ 									<span class="badge light text-white bg-danger rounded-circle">76</span>
+                                 </a>
+-							</li>
+-
+-
+-
+-
++							</li>	
++							
++						
++							
+ 							<li class="nav-item dropdown  header-profile">
+ 								<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+ <img src="{{ asset('images/user.jpg') }}" width="56" alt="">
+@@ -151,34 +119,11 @@
+ 								</div>
+ 							</li>
+                         </ul>
+-
+-	<ul class="navbar-nav ml-auto">
+-  <li class="nav-item dropdown has-arrow">
+-    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+-      <span class="user-img">
+-        <img class="rounded-circle" src="{{ asset('Employe/assets/img/logo.png') }}" width="31" alt="Soeng Souy">
+-      </span>
+-    </a>
+-    <div class="dropdown-menu">
+-      <a class="dropdown-item" href="#">Profile</a>
+-      <a class="dropdown-item" href="#">Settings</a>
+-      <div class="dropdown-divider"></div>
+-      <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+-      <a class="dropdown-item" href="#">Login</a>
+-    </div>
+-  </li>
+-</ul>
+-    </li>
+-</ul>
+-
+-
+-
+-
+                     </div>
+ 				</nav>
+ 			</div>
+ 		</div>
+-
++                    
+         <!--**********************************
+             Header end ti-comment-alt
+         ***********************************-->
+@@ -189,39 +134,23 @@
+         <div class="dlabnav">
+             <div class="dlabnav-scroll">
+ 				<ul class="metismenu" id="menu">
+-
+-
+-
+-					   <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+-                        <i class="fas fa-home"></i>
+-                        <span class="nav-text">Dashboard</span>
+-                    </a>
+-                    <ul aria-expanded="false">
+-                        <li><a href="{{path('userStates')}}">Dashboard Light</a></li>
+-                     </ul>
+-                     <ul aria-expanded="false">
+-                        <li><a href="{{path('app_user_clients')}}">Dashboard Dark</a></li>
+-                     </ul>
+-
+-                </li>
+-
+-
++                    
++					
+                     <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                         <i class="fas fa-user-check"></i>
+                         <span class="nav-text">Utilisateurs</span>
+                     </a>
+                     <ul aria-expanded="false">
+-
+-                        <li><a href="{{path('app_user_employes')}}">Liste des employés</a></li>
++                        <li><a href="table-bootstrap-basic.html">Liste des employés</a></li>
+                      </ul>
+                      <ul aria-expanded="false">
+-                        <li><a href="{{path('app_user_clients')}}">Liste des clients</a></li>
++                        <li><a href="table-bootstrap-basic.html">Liste des clients</a></li>
+                      </ul>
+-
++        
+                 </li>
+ 
+-
+-
++                
++             
+              <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                 <i class="bi bi-person-vcard-fill"></i>
+                     <span class="nav-text">Comptes</span>
+@@ -229,93 +158,67 @@
+                 <ul aria-expanded="false">
+ 
+ 
+-
+-                    <li><a href="{{path('afficheCompte')}}">Les Demandes de Créations des comptes</a></li>
+-                    <li><a href="{{path('AfficherDemande')}}">Les Demandes de chèque</a></li>
+-                    <li><a href="{{path('showDemande')}}">Les Demandes de virement</a></li>
+-                    <li><a href="{{path('showHistorique')}}">Liste des Compte</a></li>
+-                    <li><a href="{{path('showListeCheque')}}">Liste des Chéques</a></li>
+-                    <li><a href="{{path('showHistoriqueV')}}">Liste des Virements</a></li>
++                    <li><a href="ListeCompte.html">Liste des comptes</a></li>
++                    <li><a href="Virement.html">Les Demandes de virement</a></li>
++                    <li><a href="demandeChèque.html">Les Demandes de chèque</a></li>
+                 </ul>
+             </li>
+-            <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+-                <i class="fas fa-file-alt"></i>
+-                <span class="nav-text">Crédits</span>
+-
+-            </a>
+-            <ul aria-expanded="false">
+-
+-                <li><a href="{{path('app_listecredit')}}">Liste des crédits</a></li>
+-                <li><a href="{{path('app_listerdv')}}">Liste des rdv</a></li>
+-                <li><a href="{{path('sortedlist')}}">Liste des credit ordonne</a></li>
+-                <li><a href="{{path('app_graphique')}}">stats</a></li>
+-                <li><a href="{{path('app_rdv')}}">CALANDER</a></li>
+-                <li><a href="{{path('app_home')}}">reminder RDV</a></li>
+-
+-
+-
+-
+-            </ul>
+-        </li>
+-
+-
++             
++         
+ 
+-                                      <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+-                <i class="fas fa-file-alt"></i>
++                <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
++                 <i class="fas fa-file-alt"></i>
+                 <span class="nav-text">Crédits</span>
+-
+             </a>
+-            <ul aria-expanded="false">
++            
++                <ul aria-expanded="false">
++                 
++                  <li><a href="1.html">Liste des crédits</a></li>
++                    <li><a href="2.html">Liste des rdv</a></li>
++                    <li><a href="3.html">Demande de credit</a></li>
++                    <li><a href="4.html">suivre mon demande</a></li>
+ 
+-            </ul>
+-        </li>
+-
++                </ul>
++        
++            </li>
+                 <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                     <i class="fas fa-chart-line"></i>
+                     <span class="nav-text">Investissement</span>
+                 </a>
+                 <ul aria-expanded="false">
+-
++                    
+                     <li><a  href="{{ path('app_investissement_listA') }}">Liste des investissements</a></li>
+                     <li><a  href="{{ path('app_evenement_index') }}">Liste des événements</a></li>
+ 
+-
+                 </ul>
+ 
+              </li>
+-
+-              <li><a class="has-arrow " href="javascript:void()"aria-expanded="false">
++                 <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                   <i class="bi bi-clipboard-data-fill"></i>
+-                    <span class="nav-text">Projet</span>
+-                </a>
+-                <ul aria-expanded="false">
+-
+-                    <li><a  href=" ">Liste des projets</a></li>
+-
+-                </ul>
++            <span class="nav-text">Projet</span>
++        </a>
++        <ul aria-expanded="false">
++            <li><a href="{{ path('app_project_admin') }}">Liste des projets</a></li>
++         </ul>
+ 
+-             </li>
+-
+-
++        </li>
++           
+              <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+                 <i class="bi bi-person-down"></i>
+-                <span class="nav-text">Recrutement</span>
++                <span class="nav-text">Stages</span>
+             </a>
+-
++            
+                 <ul aria-expanded="false">
+-                    <li><a href="{{ path('AffichageDesDemandes')}}">Les demandes </a></li>
+-                    <li><a href="{{ path('AffichageDesContrats') }}">Liste des Contrats</a></li>
+-                    <li><a href="{{ path('AfficheStage') }}">Liste des stages</a></li>
+-                    <li><a href="{{ path('afficheOffreStages') }}">Liste des offres</a></li>
++                    <li><a href="lesDemandes.html">Les demandes </a></li>
++                    <li><a href="ListeDesStagiares.html">Liste des stagiaires</a></li>
+                 </ul>
+-
+-        </li>
++        
++            </li>
+ 
+ 
+ 
+-
++         
+ 
+-
+         <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+             <i class="bi bi-newspaper"></i>
+             <span class="nav-text">Actualités</span>
+@@ -325,44 +228,19 @@
+          </ul>
+ 
+         </li>
+-
+-        <li>
+-      <a class="has-arrow" href="{{ path('app_logout') }}">
+-      <i class="bi bi-box-arrow-left"></i>
+-      <span class="nav-text">Logout</span> </a>
+-      </li>
+-
+-        </li>
+-
+-
+-
+-
+-
+-
+-
+-
+-
+                 </ul>
+-
+-
+-
++				
++				
++				 
+ 			</div>
+         </div>
+         <!--**********************************
+             Sidebar end
+         ***********************************-->
+ 
+-
+-
+-
+-        <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+-<script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+-<script src="{{ asset('js/custom.min.js') }}"></script>
+-<script src="{{ asset('js/dlabnav-init.js') }}"></script>
+-<script src="{{ asset('js/demo.js') }}"></script>
+-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+-
+-
++        
++        
++ <script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+ {# Assuming jQuery is already included #}
+ <script src="{{ asset('vendor/global/global.min.js') }}"></script>
+ <script src="{{ asset('vendor/jquery-steps/build/jquery.steps.min.js') }}"></script>
+@@ -370,7 +248,6 @@
+ <script src="{{ asset('vendor/jquery-smartwizard/dist/js/jquery.smartWizard.js') }}"></script>
+ <script src="{{ asset('vendor/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+ 
+-
+ <script src="{{ asset('js/plugins-init/jquery.validate-init.js') }}"></script>
+ <script src="{{ asset('js/custom.min.js') }}"></script>
+ <script src="{{ asset('js/dlabnav-init.js') }}"></script>
+@@ -379,9 +256,9 @@
+ 	<script>
+ 		$(document).ready(function(){
+ 			// SmartWizard initialize
+-			$('#smartwizard').smartWizard();
++			$('#smartwizard').smartWizard(); 
+ 		});
+-
++    
+   // Get reference to the button element
+   var myButton = document.getElementById("myButton");
+ 
+@@ -391,12 +268,9 @@
+     alert("Article ajouté avec succés");
+   });
+ 	</script>
+-
+         {% block body %}
+-
++        
+ 
+         {% endblock %}
+-
+-    </div>
+     </body>
+ </html>
+Index: templates/main/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n  <head>\r\n\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <meta name=\"description\" content=\"\">\r\n    <meta name=\"author\" content=\"TemplateMo\">\r\n    <link href=\"https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap\" rel=\"stylesheet\">\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css\">\r\n  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>\r\n<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>\r\n    <title>E-Flex Bank</title>\r\n\r\n    <!-- Bootstrap core CSS -->\r\n    <link href=\"{{asset('web/vendor/bootstrap/css/bootstrap.min.css')}}\" rel=\"stylesheet\">\r\n\r\n    <!-- Additional CSS Files -->\r\n    <link rel=\"stylesheet\" href=\"{{asset('web/assets/css/fontawesome.css')}}\">\r\n    <link rel=\"stylesheet\" href=\"{{asset('web/assets/css/templatemo-finance-business.css')}}\">\r\n    <link rel=\"stylesheet\" href=\"{{asset('web/assets/css/owl.css')}}\">\r\n     <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\" rel=\"stylesheet\" />\r\n    <script src=\"https://kit.fontawesome.com/42d5adcbca.js\" crossorigin=\"anonymous\"></script>\r\n    <link href=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-icons.css\" rel=\"stylesheet\" />\r\n    <link href=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-svg.css\" rel=\"stylesheet\" />\r\n <link rel=\"stylesheet\" href=\"{{ asset('event/assets/css/theme.css') }}\">\r\n <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css\">\r\n<link rel=\"stylesheet\" href=\"{{ asset('event/assets/css/loopple/loopple.css') }}\">\r\n<link rel=\"stylesheet\" href=\"{{ asset('front/temp/style.css') }}\">\r\n\r\n<!--\r\n\r\nFinance Business TemplateMo\r\n\r\nhttps://templatemo.com/tm-545-finance-business\r\n\r\n-->\r\n<style>\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');\r\n \r\n\r\n \r\n\r\n \r\n \r\n.card{\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: 450ms;\r\n}\r\n\r\n.front, .back{\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n    backface-visibility: hidden;\r\n}\r\n\r\n.front{\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-position: center;\r\n    background-size: cover;\r\n    background-repeat: no-repeat;\r\n    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,\r\n     rgba(0, 0, 0, 0.22) 0px 10px 10px;\r\n}\r\n\r\n.image{\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 250px;\r\n    clip-path: polygon(0 0, 100% 0, 100% 71%, 0 100%);\r\n    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #fa5f64bb) , url('https://cdn.pixabay.com/photo/2020/10/09/11/53/mask-5640359_1280.jpg');\r\n    background-position:center;\r\n    background-size: cover;\r\n}\r\n.image-1{\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 250px;\r\n    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 71%, 81% 81%, 26% 81%, 0 71%, 0% 20%);\r\n    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #ffd166bb) , url('https://wallpapersmug.com/large/ba48dd/colorful-smoke-man-in-mask.jpg');\r\n    background-position: center;\r\n    background-size: cover;\r\n}\r\n\r\n.ham{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    padding: 10px 20px;\r\n}\r\n\r\n.ham i{\r\n    font-size: 25px;\r\n    color: #323031;\r\n}\r\n\r\n.plus{\r\n    position: absolute;\r\n    top: 34.5%;\r\n    right: 20%;\r\n    z-index: 5;\r\n    width: 60px;\r\n    height: 60px;\r\n    background: #e8cbc0;\r\n    border-radius: 50%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;\r\n}\r\n\r\n.plus i{\r\n    font-size: 30px;\r\n    color: #323031;\r\n}\r\n.plus-2{\r\n    position: absolute;\r\n    top: 34.5%;\r\n    left: 20%;\r\n    z-index: 5;\r\n    width: 50px;\r\n    height: 50px;\r\n    background: #e8cbc0;\r\n    border-radius: 50%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;\r\n}\r\n\r\n\r\n.content h1{\r\n    font-size: 40px;\r\n    letter-spacing: 0.05em;\r\n    text-align: center;\r\n    line-height: 1;\r\n    font-weight: 900;\r\n    text-transform: uppercase;\r\n    padding: 0 10px;\r\n    color: #323031;\r\n}\r\n\r\n.content h2{\r\n    font-size: 30px;\r\n    text-align: center;\r\n    line-height: 1.2;\r\n    font-weight: 500;\r\n    margin-bottom: 15px;\r\n    padding: 0 10px;\r\n    color: #177e89;\r\n}\r\n\r\n.content p{\r\n    font-size: 16px;\r\n    text-align: center;\r\n    line-height: 1.2;\r\n    font-weight: 500;\r\n    margin-bottom: 15px;\r\n    padding: 0 10px;\r\n    color: #463d41;\r\n}\r\n\r\n.social{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 20px;\r\n    margin-bottom: 20px;\r\n    color: #084c61;\r\n}\r\n\r\n\r\n.social i{\r\n    font-size: 30px;\r\n}\r\n\r\n.follow{\r\n    border-top: 3px solid black;\r\n}\r\n\r\n.top{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 5px;\r\n    gap: 110px;\r\n    color: #323031;\r\n}\r\n.bottom{\r\n    display: inline-block;\r\n    display: flex;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    /* margin-left: 10px; */\r\n    color: #db3a34;\r\n}\r\n\r\n.top span{\r\n    text-align: center;\r\n    font-size: 20px;\r\n    font-weight: 500;\r\n}\r\n\r\n.bottom span{\r\n    text-align: center;\r\n    font-size: 16px;\r\n    font-weight: 400;\r\n}\r\n\r\n\r\n\r\n</style>\r\n  </head>\r\n\r\n  <body>\r\n\r\n    <!-- ***** Preloader Start ***** -->\r\n    <div id=\"preloader\">\r\n        <div class=\"jumper\">\r\n            <div></div>\r\n            <div></div>\r\n            <div></div>\r\n        </div>\r\n    </div>  \r\n    <!-- ***** Preloader End ***** -->\r\n\r\n    <!-- Header -->\r\n    <div class=\"sub-header\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-8 col-xs-12\">\r\n            <ul class=\"left-info\">\r\n             <li><a href=\"#top\" class=\"logo\"> <img src=\"{{asset('web/assets/images/logo.png')}}\" width=\"50\" height=\"40\" alt=\"logo\">  </a></li>\r\n\r\n              <li><a href=\"#\"><i class=\"fa fa-clock-o\"></i>01-02-2024</a></li>\r\n              <li><a href=\"#\"><i class=\"fa fa-phone\"></i>71171717</a></li>\r\n            </ul>\r\n          </div>\r\n          <div class=\"col-md-4\">\r\n\r\n            <ul class=\"right-icons\">\r\n              <li><a href=\"https://www.facebook.com/profile.php?id=100087894651684\"><i class=\"fa fa-facebook\"></i></a></li>\r\n              <li><a href=\"https://www.instagram.com/e_flex_bank/\"><i class=\"fa fa-instagram\"></i></a></li>\r\n              <li><a href=\"mailto:eflexbank@gmail.com\"><i class=\"fas fa-envelope\"></i></a></li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <header class=\"\">\r\n      <nav class=\"navbar navbar-expand-lg\">\r\n        <div class=\"container\">\r\n           \r\n          <a class=\"navbar-brand\" href=\"index.html\"><h2>E-FlexBank</h2></a>\r\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n            <span class=\"navbar-toggler-icon\"></span>\r\n          </button>\r\n          <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\r\n            <ul class=\"navbar-nav ml-auto\">\r\n              <li class=\"nav-item active\">\r\n                <a class=\"nav-link\" href=\"#top\">Acceuil\r\n                  <span class=\"sr-only\">(current)</span>\r\n                </a>\r\n              </li>\r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#actualite\">Actualités</a>\r\n              </li> \r\n               <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#stage\">Stages</a>\r\n              </li> \r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#evenement\">Investissement</a>\r\n              </li>                          \r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#contact\">Réclamations</a>\r\n              </li>\r\n              \r\n              <li class=\"nav-item\">\r\n                <a class=\"nav-link\" href=\"#\">Se connecter</a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n      </nav>\r\n    </header>\r\n\r\n    <!-- Page Content -->\r\n    <!-- Banner Starts Here -->\r\n    <div class=\"main-banner header-text\" id=\"top\">\r\n        <div class=\"Modern-Slider\">\r\n          <!-- Item -->\r\n          <div class=\"item item-1\">\r\n            <div class=\"img-fill\">\r\n            </div>\r\n          </div>\r\n          <!-- // Item -->\r\n          <!-- Item -->\r\n          <div class=\"item item-2\">\r\n            <div class=\"img-fill\">\r\n                <div class=\"text-content\">\r\n                  <h6></h6>\r\n                  <h4></h4>\r\n                  <p></p>\r\n                </div>\r\n            </div>\r\n          </div>\r\n          <!-- // Item -->\r\n          <!-- Item -->\r\n          <div class=\"item item-3\">\r\n            <div class=\"img-fill\">\r\n                <div class=\"text-content\">\r\n                  <h6></h6>\r\n                  <h4></h4>\r\n                  <p></p>\r\n                </div>\r\n            </div>\r\n          </div>\r\n          <!-- // Item -->\r\n        </div>\r\n    </div>\r\n    <!-- Banner Ends Here -->\r\n\r\n    <div class=\"request-form\"id=\"compte\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-8\" >\r\n            <h4>Vous n'avez pas un compte bancaire ?</h4>\r\n            <span>Profitez d’une relation bancaire de proximité et des services personnalisés pour réaliser tous vos projets répondant à vos besoins et exigences d'engagement et d'efficacité.</span>\r\n           \r\n\r\n          </div>\r\n          <div class=\"col-md-4\">\r\n                      <a href=\"#\" class=\"border-button\">Créer un compte</a>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n    <div class=\"services\" id=\"actualite\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n            <div class=\"section-heading\">\r\n              <h2>Actualités</h2>\r\n              <span>Soyez au top de l'info, sans faire le pied de grue </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-4\">\r\n            <div class=\"service-item\">\r\n              <img src=\"{{asset('web/assets/images/credit.jpg')}}\" alt=\"\">\r\n              <div class=\"down-content\">\r\n                <h4>Titre</h4>\r\n                <p>Contenu</p>\r\n                <a href=\"\" class=\"filled-button\">Plus</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-4\">\r\n            <div class=\"service-item\">\r\n              <img src=\"{{('web/assets/images/actu3.png')}}\" alt=\"\">\r\n              <div class=\"down-content\">\r\n                <h4>Titre</h4>\r\n                <p>Contenu</p>\r\n                <a href=\"\" class=\"filled-button\">Plus</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-4\">\r\n            <div class=\"service-item\">\r\n              <img src=\"{{asset('web/assets/images/credit.jpg')}}\" alt=\"\">\r\n              <div class=\"down-content\">\r\n                <h4>Titre</h4>\r\n                <p>Contenu</p>\r\n                <a href=\"\" class=\"filled-button\">Plus</a>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"fun-facts\" id=\"stage\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-6\">\r\n            <div class=\"left-content\">\r\n              <span>Lorem ipsum dolor sit amet</span>\r\n              <h2>Trouver vos Stages par un <em>simple clic</em> </h2>\r\n              <p> Grâce à notre plateforme conviviale, les étudiants peuvent explorer une variété d'opportunités.\r\n              <br><br>Recevoir des recommandations personnalisées et accéder à des ressources pour maximiser leurs chances de succès dans leur recherche de stage...</p>\r\n              <a href=\"\" class=\"filled-button\">Plus</a>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-6 align-self-center\">\r\n            <div class=\"row\">\r\n              <div class=\"col-md-6\">\r\n                <div class=\"count-area-content\">\r\n                  <div class=\"count-digit\">94</div>\r\n                  <div class=\"count-title\">Offres de stages</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <div class=\"count-area-content\">\r\n                  <div class=\"count-digit\">94</div>\r\n                  <div class=\"count-title\">Stagiaires</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <div class=\"count-area-content\">\r\n                  <div class=\"count-digit\">30</div>\r\n                  <div class=\"count-title\">Encadrant</div>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-md-6\">\r\n                <div class=\"count-area-content\">\r\n                  <div class=\"count-digit\">26</div>\r\n                  <div class=\"count-title\">Recrutés</div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div id=\"evenement\">\r\n\r\n\r\n\r\n\r\n\r\n<main>\r\n  <div class=\"content\">\r\n    <h2>Welcome to Online Book Store</h2>\r\n    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quam magnam obcaecati error consequatur repellat fugiat, deleniti nisi eum voluptates.</p>\r\n    <ul class=\"counter\">\r\n      <li>\r\n        <h3><i class=\"fa-solid fa-book\"></i>68+k</h3>\r\n        <span>book collections</span>\r\n      </li>\r\n      <li>\r\n        <h3><i class=\"fa-solid fa-user\"></i>25,634</h3>\r\n        <span>customers</span>\r\n      </li>\r\n    </ul>\r\n    <button class=\"btn\">Go to Collections <i class=\"fa-solid fa-arrow-right\"></i></button>\r\n  </div>\r\n\r\n  <div class=\"swiper-container\">\r\n    <div class=\"swiper\">\r\n      <div class=\"swiper-wrapper\">\r\n        <div class=\"swiper-slide swiper-slide--one\">\r\n\r\n          <span>bestseller</span>\r\n          <div class=\"slide-content\">\r\n            <h3>The Raven</h3>\r\n\r\n          </div>\r\n        </div>\r\n        <div class=\"swiper-slide swiper-slide--two\">\r\n          <span>bestseller</span>\r\n          <div class=\"slide-content\">\r\n            <h3>Mademoiselle</h3>\r\n            <p>epic drama</p>\r\n\r\n          </div>\r\n\r\n        </div>\r\n        <div class=\"swiper-slide swiper-slide--three\">\r\n          <span>bestseller</span>\r\n\r\n        </div>\r\n        <div class=\"swiper-slide swiper-slide--four\">\r\n          <span>bestseller</span>\r\n\r\n        </div>\r\n        <div class=\"swiper-slide swiper-slide--five\">\r\n          <span>bestseller</span>\r\n\r\n        </div>\r\n        <div class=\"swiper-slide swiper-slide--six\">\r\n          <span>bestseller</span>\r\n          <div class=\"slide-content\">\r\n            <h3>Woman in the dark</h3>\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n    <div class=\"swiper-pagination\"></div>\r\n  </div>\r\n  <div class=\"circle\"></div>\r\n</main>\r\n   <section class=\"py-5 bg-gray-100\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-8 mx-auto text-center\">\r\n                <div class=\"card-body px-0 pt-4\">\r\n                            <p class=\"text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase\">NEXGENTECH</p>\r\n                            <a href=\"javascript:;\">\r\n                                <h4>\r\n            \r\n                                </h4>\r\n                            </a>\r\n                            <p>\r\n                                Explorez les coulisses de notre projet pour comprendre son impact profond.\r\n                            </p>\r\n                         </div>\r\n                    <div class=\"card\">\r\n                  <div class=\"front\">\r\n                    <div class=\"image-1\">\r\n                        <div class=\"ham\">\r\n                            <i class=\"fa-solid fa-bars\"></i>\r\n                            <i class=\"fa-regular fa-comment\"></i>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"plus\">\r\n                        <i class=\"fa-solid fa-plus\"></i>\r\n                    </div>\r\n                    <div class=\"content\">\r\n                        <h1>NexGenTech</h1>\r\n                        <h2>Web Developer</h2>\r\n                        <p>\"Explorez notre vision pour l'avenir avec notre nouveau projet excitant.\"</p>\r\n                        <div class=\"social\">\r\n                            <i class=\"fa-brands fa-instagram\"></i>\r\n                            <i class=\"fa-brands fa-telegram\"></i>\r\n                            <i class=\"fa-brands fa-github\"></i>\r\n                            <i class=\"fa-brands fa-twitter\"></i>\r\n                        </div> \r\n                        <div class=\"follow\">\r\n                            <div class=\"top\">\r\n                                 <span>Suiveurs</span>\r\n                             </div>\r\n                            <div class=\"bottom\">\r\n                                 <span>15.3k</span>\r\n                             </div>\r\n                        </div>\r\n                        \r\n                    </div><br>\r\n                            <a href=\"{{ path('app_event')}}\" class=\"btn btn-sm btn-round mb-0 me-1 bg-gradient-dark\"> Voir plus</a>\r\n\r\n                </div>\r\n            </div>\r\n                </div>\r\n               \r\n            </div>\r\n        </div>\r\n    </section>\r\n    </div>\r\n  \r\n\r\n    <div class=\"callback-form\" id=\"contact\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n            <div class=\"section-heading\">\r\n              <h2>Espace des <em>Réclamations</em></h2>\r\n              <span>Vos réclamations nous aide à optimiser la qualité de nos articles publiés ainsi que nos services bancaires.</span>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-md-12\">\r\n            <div class=\"contact-form\">\r\n              <form  action=\"\" method=\"post\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-lg-4 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"name\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Nom\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-4 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"email\" type=\"text\" class=\"form-control\" id=\"email\" pattern=\"[^ @]*@[^ @]*\" placeholder=\"Addresse\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-4 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"subject\" type=\"text\" class=\"form-control\" id=\"subject\" placeholder=\"Objet\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-12\">\r\n                    <fieldset>\r\n                      <textarea name=\"message\" rows=\"6\" class=\"form-control\" id=\"message\" placeholder=\"Contenu\" required=\"\"></textarea>\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-12\">\r\n                    <fieldset>\r\n                      <button type=\"submit\" id=\"form-submit\" class=\"border-button\">Envoyer</button>\r\n                    </fieldset>\r\n                  </div>\r\n                </div>\r\n              </form>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"partners\">\r\n      \r\n    </div>\r\n\r\n\r\n    <!-- Footer Starts Here -->\r\n    <footer>\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-3 footer-item\">\r\n            <h4>EFB</h4>\r\n            <p>Gérer vos comptes en ligne tout en adoptant une approche écoresponsable sur le plan financier            <br><br> EFB vous garantie une expérience utilisateur transparente et sécurisée.\r\n\r\n\r\n\r\n\r\n              </p>\r\n            <ul class=\"social-icons\">\r\n              <li><a rel=\"nofollow\" href=\"https://www.facebook.com/profile.php?id=100087894651684\" target=\"_blank\"><i class=\"fa fa-facebook\"></i></a></li>\r\n              <li><a href=\"https://www.instagram.com/e_flex_bank/\"><i class=\"fa fa-instagram\"></i></a></li>\r\n              <li><a href=\"mailto:eflexbank@gmail.com\"><i class=\"fas fa-envelope\"></i></a></li>\r\n              \r\n            </ul>\r\n          </div>\r\n          <div class=\"col-md-3 footer-item\">\r\n            <h4>Liens utiles</h4>\r\n            <ul class=\"menu-list\">\r\n             <li><a href=\"#compte\">Compte</a></li>\r\n              <li><a href=\"#actualite\">Actualités</a></li>\r\n              <li><a href=\"#stage\">Stages</a></li>\r\n              <li><a href=\"#evenement\">Évènements</a></li>\r\n              <li><a href=\"#contact\">Réclamations</a></li>\r\n             \r\n            </ul>\r\n          </div>\r\n          <div class=\"col-md-3 footer-item\">\r\n            <h4>Découvrir nos</h4>\r\n            <ul class=\"menu-list\">\r\n              <li><a href=\"#about\">Articles</a></li>\r\n              <li><a href=\"#\">Évènements</a></li>\r\n              <li><a href=\"#\">Offres de stages</a></li>\r\n              <li><a href=\"#\">Réclamations</a></li>\r\n            </ul>\r\n          </div>\r\n          <div class=\"col-md-3 footer-item last-item\">\r\n            <h4>Nous contacter</h4>\r\n            <div class=\"contact-form\">\r\n              <form id=\"contact footer-contact\" action=\"\" method=\"post\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-lg-12 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"name\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Nom\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                  \r\n                  <div class=\"col-lg-12 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"email\" type=\"text\" class=\"form-control\" id=\"email\" pattern=\"[^ @]*@[^ @]*\" placeholder=\"Adresse\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                    <div class=\"col-lg-12 col-md-12 col-sm-12\">\r\n                    <fieldset>\r\n                      <input name=\"name\" type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Objet\" required=\"\">\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-12\">\r\n                    <fieldset>\r\n                      <textarea name=\"message\" rows=\"6\" class=\"form-control\" id=\"message\" placeholder=\"Contenu\" required=\"\"></textarea>\r\n                    </fieldset>\r\n                  </div>\r\n                  <div class=\"col-lg-12\">\r\n                    <fieldset>\r\n                      <button type=\"submit\" id=\"form-submit\" class=\"filled-button\">Envoyer</button>\r\n                    </fieldset>\r\n                  </div>\r\n                </div>\r\n              </form>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n    \r\n    <div class=\"sub-footer\">\r\n      <div class=\"container\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n            <p>Copyright &copy; 2024 E-Flex Bank\r\n            \r\n            - Design: <a rel=\"nofollow noopener\" href=\"#\" target=\"_blank\">Innovatix</a></p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Bootstrap core JavaScript -->\r\n    <script src=\"web/vendor/jquery/jquery.min.js\"></script>\r\n    <script src=\"web/vendor/bootstrap/js/bootstrap.bundle.min.js\"></script>\r\n\r\n    <!-- Additional Scripts -->\r\n    <script src=\"web/assets/js/custom.js\"></script>\r\n    <script src=\"web/assets/js/owl.js\"></script>\r\n    <script src=\"web/assets/js/slick.js\"></script>\r\n    <script src=\"web/assets/js/accordions.js\"></script>\r\n\r\n    <script language = \"text/Javascript\"> \r\n      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field\r\n      function clearField(t){                   //declaring the array outside of the\r\n      if(! cleared[t.id]){                      // function makes it static and global\r\n          cleared[t.id] = 1;  // you could use true and false, but that's more typing\r\n          t.value='';         // with more chance of typos\r\n          t.style.color='#fff';\r\n          }\r\n      }\r\n    </script>\r\n <script src=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/core/bootstrap.min.js\" type=\"text/javascript\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/soft-design-system.js\" type=\"text/javascript\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/countup.min.js\" type=\"text/javascript\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/flatpickr.min.js\"></script>\r\n    <script src=\"https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/typedjs.js\"></script>\r\n    <script>\r\n        if (document.getElementById(\"state1\")) {\r\n                    const countUp = new CountUp(\"state1\", document.getElementById(\"state1\").getAttribute(\"countTo\"));\r\n                    if (!countUp.error) {\r\n                      countUp.start();\r\n                    } else {\r\n                      console.error(countUp.error);\r\n                    }\r\n                  }\r\n                  if (document.getElementById(\"state2\")) {\r\n                    const countUp1 = new CountUp(\"state2\", document.getElementById(\"state2\").getAttribute(\"countTo\"));\r\n                    if (!countUp1.error) {\r\n                      countUp1.start();\r\n                    } else {\r\n                      console.error(countUp1.error);\r\n                    }\r\n                  }\r\n                  if (document.getElementById(\"state3\")) {\r\n                    const countUp2 = new CountUp(\"state3\", document.getElementById(\"state3\").getAttribute(\"countTo\"));\r\n                    if (!countUp2.error) {\r\n                      countUp2.start();\r\n                    } else {\r\n                      console.error(countUp2.error);\r\n                    };\r\n                  }\r\n        \r\n         if (document.querySelector('.datepicker-1')) {\r\n              flatpickr('.datepicker-1', {\r\n              }); // flatpickr\r\n            } \r\n        \r\n         if (document.querySelector('.datepicker-2')) {\r\n              flatpickr('.datepicker-2', {\r\n              }); // flatpickr\r\n            }\r\n        if (document.getElementById(\"typed\")) {\r\n            var typed = new Typed(\"#typed\", {\r\n              stringsElement: \"#typed-strings\",\r\n              typeSpeed: 70,\r\n              backSpeed: 50,\r\n              backDelay: 200,\r\n              startDelay: 500,\r\n              loop: true\r\n            });\r\n          }\r\n    </script>\r\n    <script src=\"{{asset('event/assets/js/loopple/loopple.js')}}\"></script>\r\n      <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>\r\n<script src=\"{{ asset('front/temp/script.js') }}\"></script>\r\n\r\n  </body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/main/index.html.twig b/templates/main/index.html.twig
+--- a/templates/main/index.html.twig	
++++ b/templates/main/index.html.twig	
+@@ -39,12 +39,12 @@
+ <style>
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+- 
++
+ 
+- 
++
+ 
+- 
+- 
++
++
+ .card{
+     position: relative;
+     width: 100%;
+@@ -230,7 +230,7 @@
+             <div></div>
+             <div></div>
+         </div>
+-    </div>  
++    </div>
+     <!-- ***** Preloader End ***** -->
+ 
+     <!-- Header -->
+@@ -260,7 +260,7 @@
+     <header class="">
+       <nav class="navbar navbar-expand-lg">
+         <div class="container">
+-           
++
+           <a class="navbar-brand" href="index.html"><h2>E-FlexBank</h2></a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+@@ -274,17 +274,17 @@
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#actualite">Actualités</a>
+-              </li> 
++              </li>
+                <li class="nav-item">
+                 <a class="nav-link" href="#stage">Stages</a>
+-              </li> 
++              </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#evenement">Investissement</a>
+-              </li>                          
++              </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#contact">Réclamations</a>
+               </li>
+-              
++
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Se connecter</a>
+               </li>
+@@ -336,7 +336,7 @@
+           <div class="col-md-8" >
+             <h4>Vous n'avez pas un compte bancaire ?</h4>
+             <span>Profitez d’une relation bancaire de proximité et des services personnalisés pour réaliser tous vos projets répondant à vos besoins et exigences d'engagement et d'efficacité.</span>
+-           
++
+ 
+           </div>
+           <div class="col-md-4">
+@@ -516,7 +516,7 @@
+                             <p class="text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase">NEXGENTECH</p>
+                             <a href="javascript:;">
+                                 <h4>
+-            
++
+                                 </h4>
+                             </a>
+                             <p>
+@@ -543,7 +543,7 @@
+                             <i class="fa-brands fa-telegram"></i>
+                             <i class="fa-brands fa-github"></i>
+                             <i class="fa-brands fa-twitter"></i>
+-                        </div> 
++                        </div>
+                         <div class="follow">
+                             <div class="top">
+                                  <span>Suiveurs</span>
+@@ -552,19 +552,19 @@
+                                  <span>15.3k</span>
+                              </div>
+                         </div>
+-                        
++
+                     </div><br>
+                             <a href="{{ path('app_event')}}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark"> Voir plus</a>
+ 
+                 </div>
+             </div>
+                 </div>
+-               
++
+             </div>
+         </div>
+     </section>
+     </div>
+-  
++
+ 
+     <div class="callback-form" id="contact">
+       <div class="container">
+@@ -613,7 +613,7 @@
+     </div>
+ 
+     <div class="partners">
+-      
++
+     </div>
+ 
+ 
+@@ -633,7 +633,7 @@
+               <li><a rel="nofollow" href="https://www.facebook.com/profile.php?id=100087894651684" target="_blank"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="https://www.instagram.com/e_flex_bank/"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="mailto:eflexbank@gmail.com"><i class="fas fa-envelope"></i></a></li>
+-              
++
+             </ul>
+           </div>
+           <div class="col-md-3 footer-item">
+@@ -644,7 +644,7 @@
+               <li><a href="#stage">Stages</a></li>
+               <li><a href="#evenement">Évènements</a></li>
+               <li><a href="#contact">Réclamations</a></li>
+-             
++
+             </ul>
+           </div>
+           <div class="col-md-3 footer-item">
+@@ -666,7 +666,7 @@
+                       <input name="name" type="text" class="form-control" id="name" placeholder="Nom" required="">
+                     </fieldset>
+                   </div>
+-                  
++
+                   <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                       <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="Adresse" required="">
+@@ -694,13 +694,13 @@
+         </div>
+       </div>
+     </footer>
+-    
++
+     <div class="sub-footer">
+       <div class="container">
+         <div class="row">
+           <div class="col-md-12">
+             <p>Copyright &copy; 2024 E-Flex Bank
+-            
++
+             - Design: <a rel="nofollow noopener" href="#" target="_blank">Innovatix</a></p>
+           </div>
+         </div>
+@@ -717,7 +717,7 @@
+     <script src="web/assets/js/slick.js"></script>
+     <script src="web/assets/js/accordions.js"></script>
+ 
+-    <script language = "text/Javascript"> 
++    <script language = "text/Javascript">
+       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+       function clearField(t){                   //declaring the array outside of the
+       if(! cleared[t.id]){                      // function makes it static and global
+@@ -757,12 +757,12 @@
+                       console.error(countUp2.error);
+                     };
+                   }
+-        
++
+          if (document.querySelector('.datepicker-1')) {
+               flatpickr('.datepicker-1', {
+               }); // flatpickr
+-            } 
+-        
++            }
++
+          if (document.querySelector('.datepicker-2')) {
+               flatpickr('.datepicker-2', {
+               }); // flatpickr
+@@ -783,4 +783,790 @@
+ <script src="{{ asset('front/temp/script.js') }}"></script>
+ 
+   </body>
+-</html>
+\ No newline at end of file
++</html>
++<!DOCTYPE html>
++<html lang="en">
++
++  <head>
++
++    <meta charset="utf-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
++    <meta name="description" content="">
++    <meta name="author" content="TemplateMo">
++    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
++  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
++<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
++    <title>E-Flex Bank</title>
++
++    <!-- Bootstrap core CSS -->
++    <link href="{{asset('web/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
++
++    <!-- Additional CSS Files -->
++    <link rel="stylesheet" href="{{asset('web/assets/css/fontawesome.css')}}">
++    <link rel="stylesheet" href="{{asset('web/assets/css/templatemo-finance-business.css')}}">
++    <link rel="stylesheet" href="{{asset('web/assets/css/owl.css')}}">
++     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
++    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
++    <link href="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-icons.css" rel="stylesheet" />
++    <link href="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-svg.css" rel="stylesheet" />
++ <link rel="stylesheet" href="{{ asset('event/assets/css/theme.css') }}">
++ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
++<link rel="stylesheet" href="{{ asset('event/assets/css/loopple/loopple.css') }}">
++<link rel="stylesheet" href="{{ asset('front/temp/style.css') }}">
++
++<!--
++
++Finance Business TemplateMo
++
++https://templatemo.com/tm-545-finance-business
++
++-->
++<style>
++
++@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
++
++
++
++
++
++
++.card{
++    position: relative;
++    width: 100%;
++    height: 100%;
++    transition: 450ms;
++}
++
++.front, .back{
++    width: 100%;
++    height: 100%;
++    position: absolute;
++    backface-visibility: hidden;
++}
++
++.front{
++    position: relative;
++    width: 100%;
++    height: 100%;
++    background-position: center;
++    background-size: cover;
++    background-repeat: no-repeat;
++    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
++     rgba(0, 0, 0, 0.22) 0px 10px 10px;
++}
++
++.image{
++    top: 0;
++    left: 0;
++    width: 100%;
++    height: 250px;
++    clip-path: polygon(0 0, 100% 0, 100% 71%, 0 100%);
++    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #fa5f64bb) , url('https://cdn.pixabay.com/photo/2020/10/09/11/53/mask-5640359_1280.jpg');
++    background-position:center;
++    background-size: cover;
++}
++.image-1{
++    top: 0;
++    left: 0;
++    width: 100%;
++    height: 250px;
++    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 71%, 81% 81%, 26% 81%, 0 71%, 0% 20%);
++    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(60, 90, 136, 0.151), #ffd166bb) , url('https://wallpapersmug.com/large/ba48dd/colorful-smoke-man-in-mask.jpg');
++    background-position: center;
++    background-size: cover;
++}
++
++.ham{
++    display: flex;
++    justify-content: space-between;
++    align-items: center;
++    padding: 10px 20px;
++}
++
++.ham i{
++    font-size: 25px;
++    color: #323031;
++}
++
++.plus{
++    position: absolute;
++    top: 34.5%;
++    right: 20%;
++    z-index: 5;
++    width: 60px;
++    height: 60px;
++    background: #e8cbc0;
++    border-radius: 50%;
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
++}
++
++.plus i{
++    font-size: 30px;
++    color: #323031;
++}
++.plus-2{
++    position: absolute;
++    top: 34.5%;
++    left: 20%;
++    z-index: 5;
++    width: 50px;
++    height: 50px;
++    background: #e8cbc0;
++    border-radius: 50%;
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
++}
++
++
++.content h1{
++    font-size: 40px;
++    letter-spacing: 0.05em;
++    text-align: center;
++    line-height: 1;
++    font-weight: 900;
++    text-transform: uppercase;
++    padding: 0 10px;
++    color: #323031;
++}
++
++.content h2{
++    font-size: 30px;
++    text-align: center;
++    line-height: 1.2;
++    font-weight: 500;
++    margin-bottom: 15px;
++    padding: 0 10px;
++    color: #177e89;
++}
++
++.content p{
++    font-size: 16px;
++    text-align: center;
++    line-height: 1.2;
++    font-weight: 500;
++    margin-bottom: 15px;
++    padding: 0 10px;
++    color: #463d41;
++}
++
++.social{
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    gap: 20px;
++    margin-bottom: 20px;
++    color: #084c61;
++}
++
++
++.social i{
++    font-size: 30px;
++}
++
++.follow{
++    border-top: 3px solid black;
++}
++
++.top{
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    margin: 5px;
++    gap: 110px;
++    color: #323031;
++}
++.bottom{
++    display: inline-block;
++    display: flex;
++    justify-content: space-around;
++    align-items: center;
++    /* margin-left: 10px; */
++    color: #db3a34;
++}
++
++.top span{
++    text-align: center;
++    font-size: 20px;
++    font-weight: 500;
++}
++
++.bottom span{
++    text-align: center;
++    font-size: 16px;
++    font-weight: 400;
++}
++
++
++
++</style>
++  </head>
++
++  <body>
++
++    <!-- ***** Preloader Start ***** -->
++    <div id="preloader">
++        <div class="jumper">
++            <div></div>
++            <div></div>
++            <div></div>
++        </div>
++    </div>
++    <!-- ***** Preloader End ***** -->
++
++    <!-- Header -->
++    <div class="sub-header">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-8 col-xs-12">
++            <ul class="left-info">
++             <li><a href="#top" class="logo"> <img src="{{asset('web/assets/images/logo.png')}}" width="50" height="40" alt="logo">  </a></li>
++
++              <li><a href="#"><i class="fa fa-clock-o"></i>01-02-2024</a></li>
++              <li><a href="#"><i class="fa fa-phone"></i>71171717</a></li>
++            </ul>
++          </div>
++          <div class="col-md-4">
++
++            <ul class="right-icons">
++              <li><a href="https://www.facebook.com/profile.php?id=100087894651684"><i class="fa fa-facebook"></i></a></li>
++              <li><a href="https://www.instagram.com/e_flex_bank/"><i class="fa fa-instagram"></i></a></li>
++              <li><a href="mailto:eflexbank@gmail.com"><i class="fas fa-envelope"></i></a></li>
++            </ul>
++          </div>
++        </div>
++      </div>
++    </div>
++
++    <header class="">
++      <nav class="navbar navbar-expand-lg">
++        <div class="container">
++
++          <a class="navbar-brand" href="index.html"><h2>E-FlexBank</h2></a>
++          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
++            <span class="navbar-toggler-icon"></span>
++          </button>
++          <div class="collapse navbar-collapse" id="navbarResponsive">
++            <ul class="navbar-nav ml-auto">
++              <li class="nav-item active">
++                <a class="nav-link" href="#top">Acceuil
++                  <span class="sr-only">(current)</span>
++                </a>
++              </li>
++              <li class="nav-item">
++                <a class="nav-link" href="#actualite">Actualités</a>
++              </li>
++               <li class="nav-item">
++                <a class="nav-link" href="#stage">Stages</a>
++              </li>
++              <li class="nav-item">
++                <a class="nav-link" href="#evenement">Investissement</a>
++              </li>
++              <li class="nav-item">
++                <a class="nav-link" href="#contact">Réclamations</a>
++              </li>
++
++              <li class="nav-item">
++                <a class="nav-link" href="#">Se connecter</a>
++              </li>
++            </ul>
++          </div>
++        </div>
++      </nav>
++    </header>
++
++    <!-- Page Content -->
++    <!-- Banner Starts Here -->
++    <div class="main-banner header-text" id="top">
++        <div class="Modern-Slider">
++          <!-- Item -->
++          <div class="item item-1">
++            <div class="img-fill">
++            </div>
++          </div>
++          <!-- // Item -->
++          <!-- Item -->
++          <div class="item item-2">
++            <div class="img-fill">
++                <div class="text-content">
++                  <h6></h6>
++                  <h4></h4>
++                  <p></p>
++                </div>
++            </div>
++          </div>
++          <!-- // Item -->
++          <!-- Item -->
++          <div class="item item-3">
++            <div class="img-fill">
++                <div class="text-content">
++                  <h6></h6>
++                  <h4></h4>
++                  <p></p>
++                </div>
++            </div>
++          </div>
++          <!-- // Item -->
++        </div>
++    </div>
++    <!-- Banner Ends Here -->
++
++    <div class="request-form"id="compte">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-8" >
++            <h4>Vous n'avez pas un compte bancaire ?</h4>
++            <span>Profitez d’une relation bancaire de proximité et des services personnalisés pour réaliser tous vos projets répondant à vos besoins et exigences d'engagement et d'efficacité.</span>
++
++
++          </div>
++          <div class="col-md-4">
++                      <a href="#" class="border-button">Créer un compte</a>
++
++          </div>
++        </div>
++      </div>
++    </div>
++
++
++
++
++
++    <div class="services" id="actualite">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-12">
++            <div class="section-heading">
++              <h2>Actualités</h2>
++              <span>Soyez au top de l'info, sans faire le pied de grue </span>
++            </div>
++          </div>
++          <div class="col-md-4">
++            <div class="service-item">
++              <img src="{{asset('web/assets/images/credit.jpg')}}" alt="">
++              <div class="down-content">
++                <h4>Titre</h4>
++                <p>Contenu</p>
++                <a href="" class="filled-button">Plus</a>
++              </div>
++            </div>
++          </div>
++          <div class="col-md-4">
++            <div class="service-item">
++              <img src="{{('web/assets/images/actu3.png')}}" alt="">
++              <div class="down-content">
++                <h4>Titre</h4>
++                <p>Contenu</p>
++                <a href="" class="filled-button">Plus</a>
++              </div>
++            </div>
++          </div>
++          <div class="col-md-4">
++            <div class="service-item">
++              <img src="{{asset('web/assets/images/credit.jpg')}}" alt="">
++              <div class="down-content">
++                <h4>Titre</h4>
++                <p>Contenu</p>
++                <a href="" class="filled-button">Plus</a>
++              </div>
++            </div>
++          </div>
++        </div>
++      </div>
++    </div>
++
++    <div class="fun-facts" id="stage">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-6">
++            <div class="left-content">
++              <span>Lorem ipsum dolor sit amet</span>
++              <h2>Trouver vos Stages par un <em>simple clic</em> </h2>
++              <p> Grâce à notre plateforme conviviale, les étudiants peuvent explorer une variété d'opportunités.
++              <br><br>Recevoir des recommandations personnalisées et accéder à des ressources pour maximiser leurs chances de succès dans leur recherche de stage...</p>
++              <a href="" class="filled-button">Plus</a>
++            </div>
++          </div>
++          <div class="col-md-6 align-self-center">
++            <div class="row">
++              <div class="col-md-6">
++                <div class="count-area-content">
++                  <div class="count-digit">94</div>
++                  <div class="count-title">Offres de stages</div>
++                </div>
++              </div>
++              <div class="col-md-6">
++                <div class="count-area-content">
++                  <div class="count-digit">94</div>
++                  <div class="count-title">Stagiaires</div>
++                </div>
++              </div>
++              <div class="col-md-6">
++                <div class="count-area-content">
++                  <div class="count-digit">30</div>
++                  <div class="count-title">Encadrant</div>
++                </div>
++              </div>
++              <div class="col-md-6">
++                <div class="count-area-content">
++                  <div class="count-digit">26</div>
++                  <div class="count-title">Recrutés</div>
++                </div>
++              </div>
++            </div>
++          </div>
++        </div>
++      </div>
++    </div>
++    <div id="evenement">
++
++
++
++
++
++<main>
++  <div class="content">
++    <h2>Welcome to Online Book Store</h2>
++    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quam magnam obcaecati error consequatur repellat fugiat, deleniti nisi eum voluptates.</p>
++    <ul class="counter">
++      <li>
++        <h3><i class="fa-solid fa-book"></i>68+k</h3>
++        <span>book collections</span>
++      </li>
++      <li>
++        <h3><i class="fa-solid fa-user"></i>25,634</h3>
++        <span>customers</span>
++      </li>
++    </ul>
++    <button class="btn">Go to Collections <i class="fa-solid fa-arrow-right"></i></button>
++  </div>
++
++  <div class="swiper-container">
++    <div class="swiper">
++      <div class="swiper-wrapper">
++        <div class="swiper-slide swiper-slide--one">
++
++          <span>bestseller</span>
++          <div class="slide-content">
++            <h3>The Raven</h3>
++
++          </div>
++        </div>
++        <div class="swiper-slide swiper-slide--two">
++          <span>bestseller</span>
++          <div class="slide-content">
++            <h3>Mademoiselle</h3>
++            <p>epic drama</p>
++
++          </div>
++
++        </div>
++        <div class="swiper-slide swiper-slide--three">
++          <span>bestseller</span>
++
++        </div>
++        <div class="swiper-slide swiper-slide--four">
++          <span>bestseller</span>
++
++        </div>
++        <div class="swiper-slide swiper-slide--five">
++          <span>bestseller</span>
++
++        </div>
++        <div class="swiper-slide swiper-slide--six">
++          <span>bestseller</span>
++          <div class="slide-content">
++            <h3>Woman in the dark</h3>
++          </div>
++
++        </div>
++
++      </div>
++
++    </div>
++
++    <div class="swiper-pagination"></div>
++  </div>
++  <div class="circle"></div>
++</main>
++   <section class="py-5 bg-gray-100">
++        <div class="container">
++            <div class="row">
++                <div class="col-lg-8 mx-auto text-center">
++                <div class="card-body px-0 pt-4">
++                            <p class="text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase">NEXGENTECH</p>
++                            <a href="javascript:;">
++                                <h4>
++
++                                </h4>
++                            </a>
++                            <p>
++                                Explorez les coulisses de notre projet pour comprendre son impact profond.
++                            </p>
++                         </div>
++                    <div class="card">
++                  <div class="front">
++                    <div class="image-1">
++                        <div class="ham">
++                            <i class="fa-solid fa-bars"></i>
++                            <i class="fa-regular fa-comment"></i>
++                        </div>
++                    </div>
++                    <div class="plus">
++                        <i class="fa-solid fa-plus"></i>
++                    </div>
++                    <div class="content">
++                        <h1>NexGenTech</h1>
++                        <h2>Web Developer</h2>
++                        <p>"Explorez notre vision pour l'avenir avec notre nouveau projet excitant."</p>
++                        <div class="social">
++                            <i class="fa-brands fa-instagram"></i>
++                            <i class="fa-brands fa-telegram"></i>
++                            <i class="fa-brands fa-github"></i>
++                            <i class="fa-brands fa-twitter"></i>
++                        </div>
++                        <div class="follow">
++                            <div class="top">
++                                 <span>Suiveurs</span>
++                             </div>
++                            <div class="bottom">
++                                 <span>15.3k</span>
++                             </div>
++                        </div>
++
++                    </div><br>
++                            <a href="{{ path('app_event')}}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark"> Voir plus</a>
++
++                </div>
++            </div>
++                </div>
++
++            </div>
++        </div>
++    </section>
++    </div>
++
++
++    <div class="callback-form" id="contact">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-12">
++            <div class="section-heading">
++              <h2>Espace des <em>Réclamations</em></h2>
++              <span>Vos réclamations nous aide à optimiser la qualité de nos articles publiés ainsi que nos services bancaires.</span>
++            </div>
++          </div>
++          <div class="col-md-12">
++            <div class="contact-form">
++              <form  action="" method="post">
++                <div class="row">
++                  <div class="col-lg-4 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="name" type="text" class="form-control" id="name" placeholder="Nom" required="">
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-4 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="Addresse" required="">
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-4 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="subject" type="text" class="form-control" id="subject" placeholder="Objet" required="">
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-12">
++                    <fieldset>
++                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Contenu" required=""></textarea>
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-12">
++                    <fieldset>
++                      <button type="submit" id="form-submit" class="border-button">Envoyer</button>
++                    </fieldset>
++                  </div>
++                </div>
++              </form>
++            </div>
++          </div>
++        </div>
++      </div>
++    </div>
++
++    <div class="partners">
++
++    </div>
++
++
++    <!-- Footer Starts Here -->
++    <footer>
++      <div class="container">
++        <div class="row">
++          <div class="col-md-3 footer-item">
++            <h4>EFB</h4>
++            <p>Gérer vos comptes en ligne tout en adoptant une approche écoresponsable sur le plan financier            <br><br> EFB vous garantie une expérience utilisateur transparente et sécurisée.
++
++
++
++
++              </p>
++            <ul class="social-icons">
++              <li><a rel="nofollow" href="https://www.facebook.com/profile.php?id=100087894651684" target="_blank"><i class="fa fa-facebook"></i></a></li>
++              <li><a href="https://www.instagram.com/e_flex_bank/"><i class="fa fa-instagram"></i></a></li>
++              <li><a href="mailto:eflexbank@gmail.com"><i class="fas fa-envelope"></i></a></li>
++
++            </ul>
++          </div>
++          <div class="col-md-3 footer-item">
++            <h4>Liens utiles</h4>
++            <ul class="menu-list">
++             <li><a href="#compte">Compte</a></li>
++              <li><a href="#actualite">Actualités</a></li>
++              <li><a href="#stage">Stages</a></li>
++              <li><a href="#evenement">Évènements</a></li>
++              <li><a href="#contact">Réclamations</a></li>
++
++            </ul>
++          </div>
++          <div class="col-md-3 footer-item">
++            <h4>Découvrir nos</h4>
++            <ul class="menu-list">
++              <li><a href="#about">Articles</a></li>
++              <li><a href="#">Évènements</a></li>
++              <li><a href="#">Offres de stages</a></li>
++              <li><a href="#">Réclamations</a></li>
++            </ul>
++          </div>
++          <div class="col-md-3 footer-item last-item">
++            <h4>Nous contacter</h4>
++            <div class="contact-form">
++              <form id="contact footer-contact" action="" method="post">
++                <div class="row">
++                  <div class="col-lg-12 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="name" type="text" class="form-control" id="name" placeholder="Nom" required="">
++                    </fieldset>
++                  </div>
++
++                  <div class="col-lg-12 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="Adresse" required="">
++                    </fieldset>
++                  </div>
++                    <div class="col-lg-12 col-md-12 col-sm-12">
++                    <fieldset>
++                      <input name="name" type="text" class="form-control" id="name" placeholder="Objet" required="">
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-12">
++                    <fieldset>
++                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Contenu" required=""></textarea>
++                    </fieldset>
++                  </div>
++                  <div class="col-lg-12">
++                    <fieldset>
++                      <button type="submit" id="form-submit" class="filled-button">Envoyer</button>
++                    </fieldset>
++                  </div>
++                </div>
++              </form>
++            </div>
++          </div>
++        </div>
++      </div>
++    </footer>
++
++    <div class="sub-footer">
++      <div class="container">
++        <div class="row">
++          <div class="col-md-12">
++            <p>Copyright &copy; 2024 E-Flex Bank
++
++            - Design: <a rel="nofollow noopener" href="#" target="_blank">Innovatix</a></p>
++          </div>
++        </div>
++      </div>
++    </div>
++
++    <!-- Bootstrap core JavaScript -->
++    <script src="web/vendor/jquery/jquery.min.js"></script>
++    <script src="web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
++
++    <!-- Additional Scripts -->
++    <script src="web/assets/js/custom.js"></script>
++    <script src="web/assets/js/owl.js"></script>
++    <script src="web/assets/js/slick.js"></script>
++    <script src="web/assets/js/accordions.js"></script>
++
++    <script language = "text/Javascript">
++      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
++      function clearField(t){                   //declaring the array outside of the
++      if(! cleared[t.id]){                      // function makes it static and global
++          cleared[t.id] = 1;  // you could use true and false, but that's more typing
++          t.value='';         // with more chance of typos
++          t.style.color='#fff';
++          }
++      }
++    </script>
++ <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
++    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/soft-design-system.js" type="text/javascript"></script>
++    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/countup.min.js" type="text/javascript"></script>
++    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/flatpickr.min.js"></script>
++    <script src="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/js/plugins/typedjs.js"></script>
++    <script>
++        if (document.getElementById("state1")) {
++                    const countUp = new CountUp("state1", document.getElementById("state1").getAttribute("countTo"));
++                    if (!countUp.error) {
++                      countUp.start();
++                    } else {
++                      console.error(countUp.error);
++                    }
++                  }
++                  if (document.getElementById("state2")) {
++                    const countUp1 = new CountUp("state2", document.getElementById("state2").getAttribute("countTo"));
++                    if (!countUp1.error) {
++                      countUp1.start();
++                    } else {
++                      console.error(countUp1.error);
++                    }
++                  }
++                  if (document.getElementById("state3")) {
++                    const countUp2 = new CountUp("state3", document.getElementById("state3").getAttribute("countTo"));
++                    if (!countUp2.error) {
++                      countUp2.start();
++                    } else {
++                      console.error(countUp2.error);
++                    };
++                  }
++
++         if (document.querySelector('.datepicker-1')) {
++              flatpickr('.datepicker-1', {
++              }); // flatpickr
++            }
++
++         if (document.querySelector('.datepicker-2')) {
++              flatpickr('.datepicker-2', {
++              }); // flatpickr
++            }
++        if (document.getElementById("typed")) {
++            var typed = new Typed("#typed", {
++              stringsElement: "#typed-strings",
++              typeSpeed: 70,
++              backSpeed: 50,
++              backDelay: 200,
++              startDelay: 500,
++              loop: true
++            });
++          }
++    </script>
++    <script src="{{asset('event/assets/js/loopple/loopple.js')}}"></script>
++      <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
++<script src="{{ asset('front/temp/script.js') }}"></script>
++
++  </body>
++</html>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a9cba383-0b0f-412f-b74f-bef7508b49d7\" name=\"Changes\" comment=\"ayoub2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/main/eventsweb.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/main/eventsweb.html.twig\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/main/index.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/main/index.html.twig\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution>\r\n      <executable path=\"composer\" />\r\n    </execution>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"f19279d76287dd9b065d55330dccc108b5bf08f0\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"C:\\xampp\\php\\php.exe\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-invoker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpstan/phpdoc-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/lines-of-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/complexity\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/cli-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/deprecations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/runtime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php81\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/password-hasher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/messenger\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-messenger\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/redis-messenger\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/amqp-messenger\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/google-mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-factory\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/data-fixtures\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mercure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mercure-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/jwt\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/clock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/stella-maris/clock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpmailer/phpmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/clock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/sendgrid-mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twilio/sdk\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cHEZtAhP3bTHMW7u8s0FtoR1Xl\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yesser/PI/InnovatixYesser/config/packages&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;ChangesTree.GroupingKeys&quot;: [\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\config\\packages\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\templates\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\src\\Repository\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\templates\\registration\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\public\\images\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\templates\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\src\\Controller\" />\r\n      <recent name=\"C:\\Users\\Yesser\\PI\\InnovatixYesser\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"PHPUnitRunConfigurationType\" factoryName=\"PHPUnit\">\r\n      <TestRunner configuration_file=\"$PROJECT_DIR$/phpunit.xml.dist\" scope=\"XML\" use_alternative_configuration_file=\"true\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a9cba383-0b0f-412f-b74f-bef7508b49d7\" name=\"Changes\" comment=\"\" />\r\n      <created>1707760162908</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1707760162908</updated>\r\n      <workItem from=\"1707760164041\" duration=\"1962000\" />\r\n      <workItem from=\"1707762213178\" duration=\"533000\" />\r\n      <workItem from=\"1707772908483\" duration=\"903000\" />\r\n      <workItem from=\"1707778425326\" duration=\"41000\" />\r\n      <workItem from=\"1707842564865\" duration=\"1316000\" />\r\n      <workItem from=\"1707852696194\" duration=\"403000\" />\r\n      <workItem from=\"1707854682279\" duration=\"803000\" />\r\n      <workItem from=\"1707906133558\" duration=\"2030000\" />\r\n      <workItem from=\"1707919388997\" duration=\"2229000\" />\r\n      <workItem from=\"1707929739402\" duration=\"575000\" />\r\n      <workItem from=\"1707932209983\" duration=\"3231000\" />\r\n      <workItem from=\"1707937737347\" duration=\"2563000\" />\r\n      <workItem from=\"1707984749537\" duration=\"3826000\" />\r\n      <workItem from=\"1707997854990\" duration=\"3873000\" />\r\n      <workItem from=\"1708002783720\" duration=\"2339000\" />\r\n      <workItem from=\"1708005177817\" duration=\"1507000\" />\r\n      <workItem from=\"1708007358693\" duration=\"662000\" />\r\n      <workItem from=\"1708010966947\" duration=\"3366000\" />\r\n      <workItem from=\"1708019145840\" duration=\"4911000\" />\r\n      <workItem from=\"1708029806267\" duration=\"1080000\" />\r\n      <workItem from=\"1708041488013\" duration=\"603000\" />\r\n      <workItem from=\"1708073610902\" duration=\"3619000\" />\r\n      <workItem from=\"1708078472275\" duration=\"1097000\" />\r\n      <workItem from=\"1708087993258\" duration=\"2027000\" />\r\n      <workItem from=\"1708090065589\" duration=\"5244000\" />\r\n      <workItem from=\"1708097792151\" duration=\"399000\" />\r\n      <workItem from=\"1708103409361\" duration=\"640000\" />\r\n      <workItem from=\"1708106092582\" duration=\"1784000\" />\r\n      <workItem from=\"1708168463211\" duration=\"11878000\" />\r\n      <workItem from=\"1708187311196\" duration=\"2128000\" />\r\n      <workItem from=\"1708245306539\" duration=\"9032000\" />\r\n      <workItem from=\"1708255549203\" duration=\"6671000\" />\r\n      <workItem from=\"1708266916760\" duration=\"14000\" />\r\n      <workItem from=\"1708268532064\" duration=\"5972000\" />\r\n      <workItem from=\"1708284362390\" duration=\"10738000\" />\r\n      <workItem from=\"1708302015703\" duration=\"1136000\" />\r\n      <workItem from=\"1708332046978\" duration=\"8671000\" />\r\n      <workItem from=\"1708349699476\" duration=\"4025000\" />\r\n      <workItem from=\"1708356886534\" duration=\"4753000\" />\r\n      <workItem from=\"1708361995703\" duration=\"3999000\" />\r\n      <workItem from=\"1708382268356\" duration=\"7993000\" />\r\n      <workItem from=\"1708417079079\" duration=\"32000\" />\r\n      <workItem from=\"1708417597766\" duration=\"2894000\" />\r\n      <workItem from=\"1708428340347\" duration=\"12376000\" />\r\n      <workItem from=\"1708471833495\" duration=\"66000\" />\r\n      <workItem from=\"1708502367423\" duration=\"22257000\" />\r\n      <workItem from=\"1708546034404\" duration=\"2648000\" />\r\n      <workItem from=\"1708556038569\" duration=\"5005000\" />\r\n      <workItem from=\"1708561647543\" duration=\"1974000\" />\r\n      <workItem from=\"1708588508691\" duration=\"7476000\" />\r\n      <workItem from=\"1708607831256\" duration=\"3799000\" />\r\n      <workItem from=\"1708616941191\" duration=\"742000\" />\r\n      <workItem from=\"1708618055733\" duration=\"710000\" />\r\n      <workItem from=\"1708623875622\" duration=\"3793000\" />\r\n      <workItem from=\"1708635542320\" duration=\"1337000\" />\r\n      <workItem from=\"1708640381322\" duration=\"7000\" />\r\n      <workItem from=\"1708680923917\" duration=\"453000\" />\r\n      <workItem from=\"1708684422018\" duration=\"6031000\" />\r\n      <workItem from=\"1708695973417\" duration=\"10539000\" />\r\n      <workItem from=\"1708729261588\" duration=\"2963000\" />\r\n      <workItem from=\"1708733558838\" duration=\"2045000\" />\r\n      <workItem from=\"1708769455073\" duration=\"141000\" />\r\n      <workItem from=\"1708769607902\" duration=\"1461000\" />\r\n      <workItem from=\"1708773072219\" duration=\"1359000\" />\r\n      <workItem from=\"1709471131466\" duration=\"26000\" />\r\n      <workItem from=\"1709471160007\" duration=\"1078000\" />\r\n      <workItem from=\"1709472291924\" duration=\"3274000\" />\r\n      <workItem from=\"1709490209389\" duration=\"681000\" />\r\n      <workItem from=\"1709496709170\" duration=\"608000\" />\r\n      <workItem from=\"1709506912427\" duration=\"146000\" />\r\n      <workItem from=\"1709507063641\" duration=\"2057000\" />\r\n      <workItem from=\"1709544985103\" duration=\"2411000\" />\r\n      <workItem from=\"1709555883570\" duration=\"4032000\" />\r\n      <workItem from=\"1709562071814\" duration=\"4781000\" />\r\n      <workItem from=\"1709587097135\" duration=\"4816000\" />\r\n      <workItem from=\"1709593432722\" duration=\"12000\" />\r\n      <workItem from=\"1709595153284\" duration=\"985000\" />\r\n      <workItem from=\"1709596294679\" duration=\"281000\" />\r\n      <workItem from=\"1709637985708\" duration=\"228000\" />\r\n      <workItem from=\"1709648593365\" duration=\"460000\" />\r\n      <workItem from=\"1709681975920\" duration=\"3585000\" />\r\n      <workItem from=\"1709685828076\" duration=\"367000\" />\r\n      <workItem from=\"1709686206119\" duration=\"1521000\" />\r\n      <workItem from=\"1709687808901\" duration=\"1091000\" />\r\n      <workItem from=\"1709731092276\" duration=\"1657000\" />\r\n      <workItem from=\"1709753527653\" duration=\"3869000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"add l'entité de l'offre de stage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708171736121</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708171736121</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"ajout du service mailing + service upload file + integration de template actualité.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708182362344</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708182362344</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"coerrection edit DemandeStage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708189429321</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708189429321</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"coerrection edit DemandeStage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708247701197</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708247701197</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"ajout de template offre de stage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708256984378</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708256984378</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"création de formulaire d'offre avec la template de l'ajout et la template de frontOffice des offres.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708262144421</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708262144421</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"h\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708268907816</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708268907816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"h\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708268915013</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708268915013</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"integration de template FrontOffice.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708269644687</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708269644687</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708274477732</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708274477732</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"CRUD offres de stages.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708288381601</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708288381601</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"some update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708299523416</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708299523416</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"some update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708300301310</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708300301310</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"some update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708300473390</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708300473390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"template frontOffice Les offres de stages\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708301618883</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708301618883</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"update dans recrutement template\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708303158950</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708303158950</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"add template affiche offre backOffice.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708344077118</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708344077118</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"ajout du formulaire de recherche et la template de Details vide + correction du controlleur de l'offre de stage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708350716882</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708350716882</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"mettre à jour le controlleur offre de stage\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708358073516</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708358073516</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"mettre à jour le controlleur offre de stage\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708358217695</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708358217695</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"correction de template de reccrutement et il y'a une erreur au niveau de recherche par le numero\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708360954804</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708360954804</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"recruttement marche sans recherche\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708361349261</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708361349261</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"correction de template recrutement.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708361739725</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708361739725</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00042\" summary=\"Recherche des demandes.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708385854612</created>\r\n      <option name=\"number\" value=\"00042\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708385854612</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00043\" summary=\"Début de coding de details.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708387562660</created>\r\n      <option name=\"number\" value=\"00043\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708387562660</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00044\" summary=\"mettre en place la card.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708390832603</created>\r\n      <option name=\"number\" value=\"00044\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708390832603</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00045\" summary=\"modification dans Details des offres.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708419781022</created>\r\n      <option name=\"number\" value=\"00045\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708419781022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"modification dans Details des offres.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708420527715</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708420527715</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"template ajout et modifier offre.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708463157371</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708463157371</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00048\" summary=\"mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708528705102</created>\r\n      <option name=\"number\" value=\"00048\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00048\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708528705102</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00049\" summary=\"mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708528764699</created>\r\n      <option name=\"number\" value=\"00049\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00049\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708528764699</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"l'ajout des méthodes de approuver demande et supprimer + ajout des controles de saisie pour tout les entités.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708561558812</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708561558812</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\".\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708562590666</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708562590666</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00052\" summary=\"ajout de filtrage des offres.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708595555404</created>\r\n      <option name=\"number\" value=\"00052\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00052\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708595555404</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00053\" summary=\"update templates.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708611427157</created>\r\n      <option name=\"number\" value=\"00053\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00053\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708611427164</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00054\" summary=\"error\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708618071451</created>\r\n      <option name=\"number\" value=\"00054\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00054\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708618071451</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00055\" summary=\"add entity user\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708636085094</created>\r\n      <option name=\"number\" value=\"00055\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00055\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708636085094</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00056\" summary=\"add entity user\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708636485609</created>\r\n      <option name=\"number\" value=\"00056\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00056\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708636485609</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00057\" summary=\"update templates.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708689972939</created>\r\n      <option name=\"number\" value=\"00057\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00057\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708689972939</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00058\" summary=\"Corrections des erreurs + complétaion de la validation numéro 1.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708733610160</created>\r\n      <option name=\"number\" value=\"00058\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00058\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708733610160</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00059\" summary=\"Intégration de l'analyseur des CVs.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708771052760</created>\r\n      <option name=\"number\" value=\"00059\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00059\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708771052760</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00060\" summary=\"integration de mon travail\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709473491992</created>\r\n      <option name=\"number\" value=\"00060\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00060\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709473491992</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00061\" summary=\"fix the project\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709474809561</created>\r\n      <option name=\"number\" value=\"00061\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00061\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709474809561</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00062\" summary=\"add mercure bundle.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709509098729</created>\r\n      <option name=\"number\" value=\"00062\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00062\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709509098729</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00063\" summary=\"fix the project.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709683266851</created>\r\n      <option name=\"number\" value=\"00063\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00063\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709683266851</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00064\" summary=\"fix the project.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709733728466</created>\r\n      <option name=\"number\" value=\"00064\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00064\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709733728466</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00065\" summary=\"fix the project.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709733804866</created>\r\n      <option name=\"number\" value=\"00065\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00065\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709733804866</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00066\" summary=\"fix the project.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709755262415</created>\r\n      <option name=\"number\" value=\"00066\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00066\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709755262415</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00067\" summary=\"ayoub2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709767602106</created>\r\n      <option name=\"number\" value=\"00067\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00067\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709767602107</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"68\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"ajout du formulaire de recherche et la template de Details vide + correction du controlleur de l'offre de stage.\" />\r\n    <MESSAGE value=\"mettre à jour le controlleur offre de stage\" />\r\n    <MESSAGE value=\"correction de template de reccrutement et il y'a une erreur au niveau de recherche par le numero\" />\r\n    <MESSAGE value=\"recruttement marche sans recherche\" />\r\n    <MESSAGE value=\"correction de template recrutement.\" />\r\n    <MESSAGE value=\"Recherche des demandes.\" />\r\n    <MESSAGE value=\"Début de coding de details.\" />\r\n    <MESSAGE value=\"mettre en place la card.\" />\r\n    <MESSAGE value=\"modification dans Details des offres.\" />\r\n    <MESSAGE value=\"template ajout et modifier offre.\" />\r\n    <MESSAGE value=\"mettre à jour toute les templates de backoffice avec les recherches de jointure et la template de demande stage.\" />\r\n    <MESSAGE value=\"loginClient\" />\r\n    <MESSAGE value=\"l'ajout des méthodes de approuver demande et supprimer + ajout des controles de saisie pour tout les entités.\" />\r\n    <MESSAGE value=\".\" />\r\n    <MESSAGE value=\"ajout de filtrage des offres.\" />\r\n    <MESSAGE value=\"error\" />\r\n    <MESSAGE value=\"add entity user\" />\r\n    <MESSAGE value=\"update templates.\" />\r\n    <MESSAGE value=\"Corrections des erreurs + complétaion de la validation numéro 1.\" />\r\n    <MESSAGE value=\"Intégration de l'analyseur des CVs.\" />\r\n    <MESSAGE value=\"integration de mon travail\" />\r\n    <MESSAGE value=\"fix the project\" />\r\n    <MESSAGE value=\"add mercure bundle.\" />\r\n    <MESSAGE value=\"fix the project.\" />\r\n    <MESSAGE value=\"ayoub2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"ayoub2\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,8 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a9cba383-0b0f-412f-b74f-bef7508b49d7" name="Changes" comment="ayoub2">
++    <list default="true" id="a9cba383-0b0f-412f-b74f-bef7508b49d7" name="Changes" comment="ayoub3">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/baseadmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseadmin.html.twig" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/templates/main/eventsweb.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/eventsweb.html.twig" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/templates/main/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/index.html.twig" afterDir="false" />
+     </list>
+@@ -207,34 +209,34 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yesser/PI/InnovatixYesser/config/packages&quot;,
+-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "git-widget-placeholder": "master",
++    "last_opened_file_path": "C:/Users/ayoub/Desktop/Innovatix/Innovatix/templates/main",
++    "list.type.of.created.stylesheet": "CSS",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "php.override.implement.member.chooser.php.doc": "NONE",
++    "vue.rearranger.settings.migration": "true"
+   },
+-  &quot;keyToStringList&quot;: {
+-    &quot;ChangesTree.GroupingKeys&quot;: [
++  "keyToStringList": {
++    "ChangesTree.GroupingKeys": [
+     ]
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\ayoub\Desktop\Innovatix\Innovatix\templates\main" />
+       <recent name="C:\Users\Yesser\PI\InnovatixYesser\config\packages" />
+       <recent name="C:\Users\Yesser\PI\InnovatixYesser\public" />
+       <recent name="C:\Users\Yesser\PI\InnovatixYesser" />
+       <recent name="C:\Users\Yesser\PI\InnovatixYesser\templates" />
+-      <recent name="C:\Users\Yesser\PI\InnovatixYesser\src\Repository" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\Yesser\PI\InnovatixYesser\templates\registration" />
+@@ -344,14 +346,6 @@
+       <workItem from="1709687808901" duration="1091000" />
+       <workItem from="1709731092276" duration="1657000" />
+       <workItem from="1709753527653" duration="3869000" />
+-    </task>
+-    <task id="LOCAL-00019" summary="add l'entité de l'offre de stage.">
+-      <option name="closed" value="true" />
+-      <created>1708171736121</created>
+-      <option name="number" value="00019" />
+-      <option name="presentableId" value="LOCAL-00019" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1708171736121</updated>
+     </task>
+     <task id="LOCAL-00020" summary="ajout du service mailing + service upload file + integration de template actualité.">
+       <option name="closed" value="true" />
+@@ -737,7 +731,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1709767602107</updated>
+     </task>
+-    <option name="localTasksCounter" value="68" />
++    <task id="LOCAL-00068" summary="ayoub3">
++      <option name="closed" value="true" />
++      <created>1709776647768</created>
++      <option name="number" value="00068" />
++      <option name="presentableId" value="LOCAL-00068" />
++      <option name="project" value="LOCAL" />
++      <updated>1709776647780</updated>
++    </task>
++    <option name="localTasksCounter" value="69" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -755,7 +757,6 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="ajout du formulaire de recherche et la template de Details vide + correction du controlleur de l'offre de stage." />
+     <MESSAGE value="mettre à jour le controlleur offre de stage" />
+     <MESSAGE value="correction de template de reccrutement et il y'a une erreur au niveau de recherche par le numero" />
+     <MESSAGE value="recruttement marche sans recherche" />
+@@ -780,6 +781,7 @@
+     <MESSAGE value="add mercure bundle." />
+     <MESSAGE value="fix the project." />
+     <MESSAGE value="ayoub2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="ayoub2" />
++    <MESSAGE value="ayoub3" />
++    <option name="LAST_COMMIT_MESSAGE" value="ayoub3" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -1,0 +1,71 @@
+{% extends 'baseclient.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="profile-card" style="background-color: #e6ffe6;">
+        <div class="profile-header">
+            <img src="{{ asset('images/' ~ app.user.photo) }}" alt="Profile Picture" class="profile-picture">
+            <h1 class="profile-name">{{ app.user.name }}</h1>
+          
+        <div class="profile-details">
+            <div class="profile-detail">
+                <span class="detail-label">Email:</span>
+                <span class="detail-value">{{ app.user.email }}</span>
+            </div>
+            <div class="profile-detail">
+                <span class="detail-label">Téléphone:</span>
+                <span class="detail-value">{{ app.user.tel }}</span>
+            </div>
+            <div class="profile-detail">
+                <span class="detail-label">Adresse:</span>
+                <span class="detail-value">{{ app.user.adresse }}</span>
+            </div>
+              
+            <a href="{{ path('app_profilC', {'id': app.user.id}) }}" class="btn btn-primary">Éditer le profil</a>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .profile-card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 500px;
+        margin: 50px auto;
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+    .profile-name {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .profile-details {
+        display: flex;
+        flex-direction: column;
+    }
+    .profile-detail {
+        margin-bottom: 10px;
+    }
+    .detail-label {
+        font-weight: bold;
+        color: #555;
+    }
+    .detail-value {
+        color: #333;
+    }
+</style>
+{% endblock %}

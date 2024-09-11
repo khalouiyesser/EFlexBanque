@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <h1>Project index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_projet</th>
+                <th>Categorie</th>
+                <th>Description_projet</th>
+                <th>Budget_projet</th>
+                <th>Date_creation</th>
+                <th>Duree_projet</th>
+                <th>Statut_projet</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.nomProjet }}</td>
+                <td>{{ project.categorie }}</td>
+                <td>{{ project.descriptionProjet }}</td>
+                <td>{{ project.budgetProjet }}</td>
+                <td>{{ project.dateCreation ? project.dateCreation|date('Y-m-d') : '' }}</td>
+                <td>{{ project.dureeProjet }}</td>
+                <td>{{ project.statutProjet }}</td>
+                <td>
+                    <a href="{{ path('app_project_show', {'id': project.id}) }}">show</a>
+                    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
+                    A    {{ include('project/_delete_form.html.twig') }}
+                </td>
+            </tr>
+             <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_project_new') }}">Create new</a>
+{% endblock %}

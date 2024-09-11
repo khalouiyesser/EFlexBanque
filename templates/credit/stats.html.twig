@@ -1,0 +1,163 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Statistiques{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous">
+    {% endblock %}
+   
+    {% block body %}
+        <div class="container">
+            <h1>Statistiques</h1>
+            <canvas id="monGraph" width="400" height="100"></canvas>
+            <canvas id="monGraphrdv" width="400" height="100"></canvas>
+            <canvas id="monGraphpi" width="400" height="100"></canvas>
+            {{ dump(employee, nonemployee) }}
+
+
+        </div>
+    {% endblock %}
+   
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+   
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Credit data received from PHP
+                let credittaux = {{ credittaux | raw }};
+                let employee = {{ employee | raw }};
+                let nonemployee = {{ nonemployee | raw }};
+                let creditmontant = {{ creditmontant | raw }};
+                let datedebut = {{ datedebut | raw }};
+                let creditmensualite = {{ creditmensualite | raw }};
+                let creditcount = {{ creditcount | raw }};
+                let formattedDates = datedebut.map(date => {
+                    let d = new Date(date.date);
+                    return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+                });
+                let ctx = document.querySelector("#monGraph");
+                let graph = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: formattedDates,
+                        datasets: [
+                           
+                            {
+                                label: "Montant",
+                                data: creditmontant,
+                                borderColor: "green",
+                                fill: false
+                            },
+                            {
+                                label: "Mensualité",
+                                data: creditmensualite,
+                                borderColor: "red",
+                                fill: false
+                            }
+                           
+                        ]
+                    },
+                    options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0, // Set the minimum value of the y-axis
+                            suggestedMax: 1000, // Set the maximum value of the y-axis
+                            beginAtZero: true
+                        }
+                            }]
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Credit data received from PHP
+                let creditid = {{ creditid | raw }};
+                let creditmontant = {{ creditmontant | raw }};
+                let datedebut = {{ datedebut | raw }};
+                let creditmensualite = {{ creditmensualite | raw }};
+                let creditcount = {{ creditcount | raw }};
+                let formattedDates = datedebut.map(date => {
+                    let d = new Date(date.date);
+                    return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+                });
+                let ctx = document.querySelector("#monGraphrdv");
+                let graph = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: creditid,
+                        datasets: [
+                           
+                           
+                           
+                            {
+                                label: "Nombre de rendez-vous",
+                                data: creditcount,
+                                borderColor: "orange",
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            suggestedMin: 0, // Set the minimum value of the y-axis
+                            suggestedMax: 10, // Set the maximum value of the y-axis
+                            beginAtZero: true
+                        }
+                            }]
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let datedebut = {{ datedebut | raw }}; // Utiliser les dates brutes directement
+        
+                // Formatter les dates au format souhaité (par exemple, 'yyyy-mm-dd')
+                let formattedDates = datedebut.map(date => {
+                    let d = new Date(date.date);
+                    return `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getDate().toString().padStart(2, '0')}`;
+                });
+        
+                let creditmensualite = {{ creditmontant | raw }}; // Montants mensuels de crédit
+        
+                let ctx = document.querySelector("#monGraphpi");
+                let graph = new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: "employee"", // Labels for employee and non-employee
+                        datasets: [{
+                            label: "Répartition des crédits",
+                            data: employee nonemployee // Data for employee and non-employee
+                            backgroundColor: ["blue", "red"], // Colors for each category
+                        }]
+                    }
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let employee = {{ employee | raw }};
+                let nonemployee = {{ nonemployee | raw }};
+                
+                let ctx = document.querySelector("#monGraphpi");
+                let graph = new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: ["Employee", "Non Employee"], // Labels for employee and non-employee
+                        datasets: [{
+                            label: "Répartition des crédits",
+                            data: [employee, nonemployee], // Data for employee and non-employee
+                            backgroundColor: ["blue", "red"], // Colors for each category
+                        }]
+                    }
+                });
+            });
+        </script>
+        
+       
+    {% endblock %}

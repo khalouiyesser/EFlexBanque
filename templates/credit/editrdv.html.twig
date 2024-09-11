@@ -1,0 +1,39 @@
+{% extends 'baseadmin.html.twig' %}
+
+    {% block body %}
+    {% block nompage %}Modifier RDV{% endblock %}
+    
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-4">Formulaire pour modifier une demande de crédit</h5>
+                            {{ form_start(formc, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div class="mb-3">
+                                {{ form_row(formc.idclient, {'attr': {'class': 'formc-control'}, 'id': 'id_client'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(formc.daterdv, {'attr': {'class': 'form-control'}, 'id': 'montant'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(formc.heure, {'attr': {'class': 'form-control'}, 'id': 'statusclient'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(formc.methode, {'attr': {'class': 'form-control'}, 'id': 'mensualite'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(formc.employename, {'attr': {'class': 'form-control'}, 'id': 'datedebut'}) }}
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            {{ form_end(formc) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Investissement index{% endblock %}
+
+{% block body %}
+    <h1>Investissement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Montant</th>
+                <th>DateInvestissement</th>
+                <th>Description</th>
+                <th>TypeInvestissement</th>
+                <th>Duree</th>
+                <th>TauxRendement</th>
+                <th>Statut</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for investissement in investissements %}
+            <tr>
+                <td>{{ investissement.id }}</td>
+                <td>{{ investissement.nom }}</td>
+                <td>{{ investissement.montant }}</td>
+                <td>{{ investissement.dateInvestissement ? investissement.dateInvestissement|date('Y-m-d') : '' }}</td>
+                <td>{{ investissement.description }}</td>
+                <td>{{ investissement.typeInvestissement }}</td>
+                <td>{{ investissement.duree }}</td>
+                <td>{{ investissement.tauxRendement }}</td>
+                <td>{{ investissement.statut }}</td>
+                <td>{{ investissement.createdAt ? investissement.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ investissement.updatedAt ? investissement.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_investissement_show', {'id': investissement.id}) }}">show</a>
+                    <a href="{{ path('app_investissement_edit', {'id': investissement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_investissement_new') }}">Create new</a>
+{% endblock %}

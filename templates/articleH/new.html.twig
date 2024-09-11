@@ -1,0 +1,66 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block nompage %}Ajouter des articles{% endblock %}
+
+{% block body %}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="profile-tab">
+                            <div class="custom-tab-1">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item"><a href="#my-posts" data-bs-toggle="tab" class="nav-link active show">Nouveau article</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="my-posts" class="tab-pane fade active show">
+                                        <div class="my-post-content pt-3">
+                                            <div class="post-input">
+                                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                                <div class="mb-3">
+                                                    {{ form_label(form.titreArt, 'Titre :') }}
+                                                    {{ form_row(form.titreArt, {'attr': {'class': 'form-control bg-transparent'}, 'id':'titreArt', 'label': false, 'placeholder': 'Titre'}) }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ form_label(form.contenuArt, 'Contenu :') }}
+                                                    {{ form_row(form.contenuArt, {'attr': {'class': 'form-control bg-transparent'}, 'id':'contenuArt', 'label': false, 'placeholder': 'Contenu'}) }}
+                                                </div>
+                                                <div class="mb-3">
+                                                    {{ form_label(form.categorieArt, 'Catégorie :') }}
+                                                    {{ form_row(form.categorieArt, {'attr': {'class': 'form-control bg-transparent'}, 'id':'categorieArt', 'label': false, 'placeholder': 'Catégorie'}) }}
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    {{ form_label(form.imageArt, 'Image :') }}
+                                                    {{ form_widget(form.imageArt, {'attr': {'class': 'form-control', 'id': 'imageArt', 'accept': 'image/*'}, 'label': false}) }}
+                                                    <!-- Ajout de l'icône d'upload -->
+
+
+                                                    <div class="mb-3">
+                                                        <a href="javascript:void(0);" class="btn btn-primary light me-1 px-3" data-bs-toggle="modal" data-bs-target="#cameraModal"><i class="fa fa-camera m-0"></i> </a>
+                                                        {{ form_label(form.piecejointeArt, 'Pièce jointe :') }}
+                                                        {{ form_row(form.piecejointeArt, {'attr': {'class': 'form-control bg-transparent'}, 'id':'piecejointeArt' ,'label': false, 'placeholder': 'Pièce jointe'}) }}
+                                                    </div>
+                                                    <div class="text-start mt-4 mb-3">
+                                                        <button class="btn btn-primary btn-sl-sm me-2" type="submit"><span class="me-2"><i class="fa fa-paper-plane"></i></span>Envoyer</button>
+                                                    </div>
+                                                    {{ form_end(form) }}
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}

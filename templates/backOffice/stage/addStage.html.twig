@@ -1,0 +1,110 @@
+
+{% extends 'baseadmin.html.twig'  %}
+{% block title %} Stage {% endblock %}
+{% block nompage %} Stage {% endblock %}
+{% block body %}
+    <style>
+        .yesser{
+            height: 180px;
+            width: 100%;
+            border-radius: 8px;
+            resize: none;
+            outline:none;
+            border:1px solid #aaa;
+        }
+    </style>
+    <title>Demande de stage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <div class="content-body">
+                            <div class="container-fluid">
+                                            <div class="row">
+                                                        <div class="col-lg-12">
+                                                        <!-- Lien pour ajouter un nouveau crédit -->
+                                                        <!-- row -->
+                                                                <div class="row">
+
+                                                                  <div class="col-lg-12">
+                                                                      <div class="card">
+                                                                          <div class="card-header">
+                                                                              <h4 class="card-title">Ajout stage</h4> </a>
+                                                                          </div>
+                                                                                        <div class="card-body" style="background-color: white">
+
+                                                                                            <div class="table-responsive">
+                                                                                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                                                                                {{ form_row(form._token) }}
+                                                                                                <div class="container-fluid"  >
+                                                                                                    <form class="form" >
+                                                                                                        <h4 class="text-center">Ajouter un stage</h4>
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.sujet, 'Sujet ', {'label_attr': {'class': 'form-label'}}) }} </label>
+                                                                                                            <div > {{ form_widget(form.sujet, {'attr': {'class': 'form-control yesser input1', 'placeholder': 'sujet de stage'}}) }}</div>
+                                                                                                            {{ form_errors(form.sujet, {'attr': {'class': 'valid-feedback'}}) }}
+                                                                                                        </div>
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.date, 'saisir Date de début', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                                                                            <div > {{ form_widget(form.date, {'attr': {'class': 'form-control input1', 'placeholder': 'Date de début'}}) }} </div>
+                                                                                                            {{ form_errors(form.date, {'attr': {'class': 'valid-feedback'}}) }}
+                                                                                                        </div>
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label" style="margin-top: 10px">  {{ form_label(form.users, 'entrer le stagiaire', {'label_attr': {'class': 'form-label'}}) }}</label>
+                                                                                                            <div>{{ form_widget(form.users, {'attr': {'class': 'form-control', 'placeholder': 'le stagiaire'}}) }}</div>
+                                                                                                            {{ form_errors(form.users, {'attr': {'class': 'valid-feedback'}}) }}
+                                                                                                        </div>
+
+                                                                                                        <button class="btn btn-primary btn-lg btn-block" type="submit"> {{ button }}</button>
+                                                                                                    </form>
+                                                                                                    {{ form_end(form) }}
+
+                                                                                                </div>
+                                                                                            </div>
+
+
+
+                                                                                        </div>
+                                                                      </div>
+                                                                  </div>
+                                                                </div>
+                                                        </div>
+                                            </div>
+                            </div>
+    </div>
+
+
+
+
+
+
+{#    <div class="form" style="margin-top: 190px;margin-left: 100px;width: 100%; flex-direction: row;#}
+{#    flex-wrap: wrap;">#}
+{#    <div class="container-fluid"  >#}
+
+{#            <form class="form" >#}
+{#                <h4 class="text-center">Stage</h4>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label">  {{ form_label(form.sujet, 'Nom', {'label_attr': {'class': 'form-label'}}) }} </label>#}
+{#                    <div > {{ form_widget(form.sujet, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}</div>#}
+{#                    {{ form_errors(form.sujet, {'attr': {'class': 'form-text text-danger'}}) }}#}
+{#                </div>#}
+{#                <div class="mb-3">#}
+{#                    <label class="form-label" >  {{ form_label(form.date, 'Date de début', {'label_attr': {'class': 'form-label'}}) }}</label>#}
+{#                    <div >   {{ form_widget(form.date, {'attr': {'class': 'form-control', 'placeholder': 'Date'}}) }} </div>#}
+{#                    {{ form_errors(form.date, {'attr': {'class': 'form-text text-danger'}}) }}#}
+{#                </div>#}
+
+{#                <div class="mb-3">#}
+{#                    <label class="form-label" >  {{ form_label(form.idStagiare, 'Date de début', {'label_attr': {'class': 'form-label'}}) }}</label>#}
+{#                    <div >   {{ form_widget(form.idStagiare, {'attr': {'class': 'form-control', 'placeholder': 'Date'}}) }} </div>#}
+{#                    {{ form_errors(form.idStagiare, {'attr': {'class': 'form-text text-danger'}}) }}#}
+{#                </div>#}
+{#                <button type="submit" class="btn btn-success mt-5">Soumettre</button>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>#}
+
+
+
+{% endblock %}

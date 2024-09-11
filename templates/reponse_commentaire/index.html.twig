@@ -1,0 +1,50 @@
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Liste des réponses aux commentaires{% endblock %}
+
+{% block body %}
+<div class="content-body">
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><strong>Id commentaire</strong></th>
+
+                                        <th><strong>Id Réponse</strong></th>
+                                        <th><strong>Nom de l'auteur</strong></th>
+                                        <th><strong>Contenu</strong></th>
+                                        <th><strong>Date de création</strong></th>
+                                        <th><strong>Actions</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reponse in reponsesCom %}
+                                    <tr>
+                                        <td>{{reponse.commentaire.id }}</td>
+
+                                        <td>{{ reponse.id }}</td>
+                                        <td>{{ reponse.nomRepCom }}</td>
+                                        <td>{{ reponse.contenuRepCom }}</td>
+                                        <td>{{ reponse.dateRepCom ? reponse.dateRepCom|date('Y-m-d') : '' }}</td>
+                                        <td>
+
+                                            <a href="{{ path('reponseCommentaireEdit', {'id': reponse.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="bi bi-pencil"></i></a>
+<a href="{{ path('reponseCommentairedelete', {'id': reponse.id}) }}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'baseclient.html.twig' %}
+    {% block stylesheets %}
+        {{ parent() }}
+        <style>
+            /* Change form color to pistachio green */
+            .form-control {
+                border-color: #93C572;
+                transition: border-color 0.3s ease;
+            }
+            
+    
+            .form-control:focus {
+                border-color: #5cb85c; /* Change border color on focus */
+            }
+    
+            /* Change background color of the entire page to light gray with very slight opacity */
+            body {
+                background-color: rgba(211, 211, 211, 0.95); /* Adjust opacity as needed */
+            }
+            .methode-choice {
+    margin-right: 20px; /* Adjust this value to your preference */
+}
+    
+            /* Add hover effect to buttons */
+            .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+    
+            /* Add space between form and top of the page */
+            .form-container {
+                padding-top: 50px; /* Adjust the value as needed */
+            }
+        </style>
+    {% endblock %}
+
+    {% block body %}
+    {% block nompage %}demander rdv{% endblock %}
+
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="margin-bottom: 60px;"></div>
+
+                            <h5 class="card-title text-center mb-4">Formulaire pour prendre un rendez-vous</h5>
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            
+                            <div class="mb-3">
+                                {{ form_row(form.idclient, {'attr': {'class': 'form-control'}, 'id': 'id_client'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.daterdv, {'attr': {'class': 'form-control'}, 'id': 'daterdv'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.heure, {'attr': {'class': 'form-control'}, 'id': 'heure'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.methode, {'attr': {'class': 'form-control'}, 'id': 'methode'}) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.employename, {'attr': {'class': 'form-control'}, 'id': 'int_employee'}) }}
+                            </div>
+                           
+                            
+                            
+                            <div class="mb-3">
+    {{ form_row(form.credit, {'attr': {'class': 'form-control'}, 'id': 'idcredit'}) }}
+</div
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+    

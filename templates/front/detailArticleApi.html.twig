@@ -1,0 +1,430 @@
+
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.7
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('client/assets/img/apple-icon.png') }}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>E-Flex Bank</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+            href="{{asset('front/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{asset('front/assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('front/assets/css/templatemo-finance-business.css')}}">
+    <link rel="stylesheet" href="{{asset('front/assets/css/owl.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/gh/creativetimofficial/public-assets@master/soft-ui-design-system-builder/v1.0.7/assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('event/assets/css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('event/assets/css/loopple/loopple.css') }}">
+
+
+    <style>
+
+        /* CSS pour les commentaires */
+        .list-group-item {
+            display: none; /* Masquer tous les commentaires par défaut */
+        }
+
+        /* CSS pour afficher les deux premiers commentaires */
+        .list-group-item:nth-child(-n + 2) {
+            display: block; /* Afficher les deux premiers commentaires */
+            /* Ajoutez ici vos styles supplémentaires pour les commentaires */
+        }
+
+        /* CSS pour le bouton "Voir plus" */
+        #voir-plus-btn {
+            margin-top: 20px;
+        }
+
+        /* CSS pour afficher les commentaires supplémentaires lorsqu'ils sont activés */
+        .list-group-item.affiche {
+            display: block; /* Afficher les commentaires supplémentaires lorsqu'ils sont activés */
+            /* Ajoutez ici vos styles supplémentaires pour les commentaires */
+        }
+    </style>
+
+
+    <!--
+
+
+
+
+    Finance Business TemplateMo
+
+    https://templatemo.com/tm-545-finance-business
+
+    -->
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <div class="sub-header"> <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <ul class="left-info">
+                        <li>
+                            <a href="#top" class="logo">
+                                <img src="{{asset('front/assets/images/logo.png')}}" width="50" height="40" alt="logo">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-clock-o"></i>01-02-2024</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-phone"></i>71171717</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+
+                    <ul class="right-icons">
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=100087894651684">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/e_flex_bank/">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:eflexbank@gmail.com">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+
+                <a class="navbar-brand" href="index.html">
+                    <h2>E-FlexBank</h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{path('frontVisiteur')}}">Acceuil
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#actualite">Actualités</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#stage">Stages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#evenement">Évènements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Réclamations</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Se connecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% block nom %}
+                        <h1>Détails</h1>
+                    {% endblock %}
+                    <span>Découvrir nos article un par un !</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <title>
+        EFB
+    </title>
+    <!-- Fonts and icons -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
+    <!-- Nucleo Icons -->
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet"/>
+    <link
+            href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link
+            href="{{ asset('client/assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{ asset('client/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet"/>
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. --><script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"> </script>
+</head>
+{% block body %}
+
+    <section class="py-5">
+        <div class="container">
+            <div
+                    class="row align-items-center justify-content-center">
+                <!-- Added justify-content-center -->
+                <div
+                        class="col-lg-4 mx-auto">
+                    <!-- Changed ms-auto to mx-auto -->
+                    <div class="card">
+                        <img alt="image" src="{{ article.image }}" class="w-100 object-fit-cover">
+
+                        <div class="position-relative overflow-hidden" style="height:50px;margin-top:-50px;">
+
+                            <div class="position-absolute w-100 top-0 z-index-1">
+                                <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 40" preserveaspectratio="none" shape-rendering="auto">
+                                    <defs>
+                                        <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                                    </defs>
+                                    <g class="moving-waves">
+                                        <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(255,255,255,0.30"></use>
+                                        <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                                        <use xlink:href="#card-wave" x="48" y="5" fill="rgba(255,255,255,0.25)"></use>
+                                        <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                                        <use xlink:href="#card-wave" x="48" y="13" fill="rgba(255,255,255,0.15)"></use>
+                                        <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+
+
+                        <!-- Bouton d'enregistrement -->
+
+                    </div>
+
+
+                    <h4>Titre :
+                        {{ article.title }}</h4>
+
+                    <p>
+                        <i class="calendar-icon">&#128197;</i>
+                        {{ article.date_published | date('d/m/Y')}}</p>
+                    <!-- Afficher le PDF et fournir un lien pour le télécharger -->
+
+
+                    <p>{{ article.content_text }}</p>
+
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+<!-- Footer Starts Here -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 footer-item">
+                <h4>EFB</h4>
+                <p>Gérer vos comptes en ligne tout en adoptant une approche écoresponsable sur le plan financier
+                    <br><br>
+                    EFB vous garantie une expérience utilisateur transparente et sécurisée.
+
+
+                </p>
+                <ul class="social-icons">
+                    <li>
+                        <a rel="nofollow" href="https://www.facebook.com/profile.php?id=100087894651684" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/e_flex_bank/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:eflexbank@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-md-3 footer-item">
+                <h4>Liens utiles</h4>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#compte">Compte</a>
+                    </li>
+                    <li>
+                        <a href="#actualite">Actualités</a>
+                    </li>
+                    <li>
+                        <a href="#stage">Stages</a>
+                    </li>
+                    <li>
+                        <a href="#evenement">Évènements</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Réclamations</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-md-3 footer-item">
+                <h4>Découvrir nos</h4>
+                <ul class="menu-list">
+                    <li>
+                        <a href="#about">Articles</a>
+                    </li>
+                    <li>
+                        <a href="#">Évènements</a>
+                    </li>
+                    <li>
+                        <a href="#">Offres de stages</a>
+                    </li>
+                    <li>
+                        <a href="#">Réclamations</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 footer-item last-item">
+                <h4>Nous contacter</h4>
+                <div class="contact-form">
+                    <form id="contact" action="{{ path('reclamation_ajouter') }}" method="post" class="footer-contact">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="nomAutRec" type="text" class="form-control" id="nomAutRec" placeholder="Nom" required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="adrRec" type="text" class="form-control" id="adrRec" pattern="[^ @]*@[^ @]*" placeholder="Adresse" required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="objetRec" type="text" class="form-control" id="objetRec" placeholder="Objet" required="">
+                                </fieldset>
+                                <fieldset>
+                                    <textarea name="contenuRec" rows="6" class="form-control" id="contenuRec" placeholder="Contenu" required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="depRec" type="text" class="form-control" id="depRec" placeholder="Département" required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="pieceJRec" type="text" class="form-control" id="pieceJRec" placeholder="Pièce jointe">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="dateRec" type="datetime-local" class="form-control" id="dateRec" placeholder="Date de réclamation" required="">
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="filled-button">Envoyer</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="sub-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Copyright &copy; 2024 E-Flex Bank
+
+                    - Design:
+                    <a rel="nofollow noopener" href="#" target="_blank">Innovatix</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Vos autres balises HTML ici -->
+</html></body></html>{#    <!-- Bootstrap core JavaScript -->
+	   <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	    document.getElementById('read-aloud-btn').addEventListener('click', function() {
+	        var articleId = {{ article.id }};
+	        var audioElement = document.createElement('audio');
+	        audioElement.controls = true;
+
+	        // Make an AJAX request to get the audio content
+	        var xhr = new XMLHttpRequest();
+	        xhr.open('GET', '/read-aloud/' + articleId, true);
+	        xhr.responseType = 'blob';
+
+	        xhr.onload = function() {
+	            if (xhr.status === 200) {
+	                var blob = xhr.response;
+	                var audioUrl = URL.createObjectURL(blob);
+	                audioElement.src = audioUrl;
+	                document.body.appendChild(audioElement);
+	                audioElement.play();
+	            } else {
+	                console.error('Error retrieving audio');
+	            }
+	        };
+
+	        xhr.onerror = function() {
+	            console.error('Network error while retrieving audio');
+	        };
+
+	        xhr.send();
+	    });
+	});
+	</script>#}
+
+</body>
+</html>

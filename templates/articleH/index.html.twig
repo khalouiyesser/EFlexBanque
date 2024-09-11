@@ -1,0 +1,154 @@
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Liste des articles{% endblock %}
+{% block recherche %}
+    <li class="nav-item d-flex align-items-center">
+        <div class="input-group search-area">
+            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+            <span class="input-group-text"><a href="javascript:void(0)"><i class="flaticon-381-search-2"></i></a></span>
+        </div>
+    </li>
+    <script>
+        function filterTable() {
+            const filter = document.getElementById('searchInput').value.toUpperCase();
+            const rows = document.querySelectorAll('table tr');
+            for (let i = 1; i < rows.length; i++) {
+                const cols = rows[i].querySelectorAll('td');
+                let visible = false;
+                for (let j = 0; j < cols.length; j++) {
+                    const cell = cols[j];
+                    if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                        visible = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = visible ? '' : 'none';
+            }
+        }
+        document.getElementById('searchInput').addEventListener('keyup', filterTable);
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"  > Liste des Articles </h4> <button class="btn btn-outline-success " onclick="toggleColumns()">Afficher/Masquerles colonnes</button>
+                        <div class="mb-4">
+                            <a href="{{ path('app_article_new')}}" class="btn btn-outline-success btn-rounded fs-18">+ Nouvel Article</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-sm mb-0">
+                                            <thead>
+                                            <tr>
+
+                                                <th class="align-middle sortable additional-column">Image</th>
+                                                <th class="align-middle sortable">Titre Article</th>
+                                                <th class="align-middle pe-7 sortable additional-column">Contenu</th>
+                                                <th class="align-middle" style="min-width: 12.5rem;">Adresse auteur</th>
+                                                <th class="align-middle  sortable">Catégorie</th>
+                                                <th class="align-middle sortable">Piéce jointe</th>
+                                                <th class="align-middle sortable ">Date pub</th>
+                                                <th class="no-sort sortable additional-column">Durée</th>
+                                                <th class="no-sort sortable ">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="orders">
+                                            {% for article in articles %}
+                                                <tr class="btn-reveal-trigger">
+
+                                                    <td class="py-2">
+                                                        <div class="media me-2">
+                                                            <img alt="image" width="50" src="{{ asset('/uploads_directory/' ~ article.imageArt) }}">
+                                                        </div>
+                                                    </td>
+                                                    <td class="py-2 sortable ">{{article.titreArt}}</td>
+                                                    <td class="py-2 sortable">{{article.contenuArt}} </td>
+                                                    <td class="py-2 sortable additional-column ">{{article.adrAutArt}}</td>
+                                                    <td class="py-2  sortable additional-column">{{article.categorieArt}}</td>
+                                                    <td class="py-2"><a href="{{ asset('uploads_directory_rec/' ~ article.piecejointeArt) }}" target="_blank">Consulter la pièce jointe</a>
+                                                    </td>
+                                                    <td class="py-2  sortable ">{{article.datePubArt ? article.datePubArt|date('Y-m-d') : '' }}</td>
+                                                    <td class="py-2 sortable additional-column ">{{article.dureeArt}}</td>
+                                                    <td class="py-2 ps-5">
+                                                        <div class="d-flex">
+                                                            <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1""><i class="bi bi-eye"></i></a>
+                                                            <a href="{{ path('app_article_edit', {'id': article.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="bi bi-pencil"></i></a>
+                                                            <a href="{{ path('app_article_delete', {'id': article.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            {% if articles is empty %}
+                                                <tr>
+                                                    <td colspan="7">no records found</td>
+                                                </tr>
+                                            {% endif %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        var headers = document.querySelectorAll('th.sortable');
+
+        headers.forEach(function(header) {
+            header.addEventListener('click', function() {
+                // Obtient le numéro de colonne à trier
+                var columnIndex = Array.prototype.indexOf.call(header.parentNode.children, header);
+
+                // Obtient toutes les lignes du tableau, sauf la première (en-tête)
+                var rows = Array.from(document.querySelectorAll('tbody tr')).slice(1);
+
+                // Trie les lignes en fonction du contenu de la colonne cliquée
+                rows.sort(function(a, b) {
+                    var aValue = a.cells[columnIndex].innerText;
+                    var bValue = b.cells[columnIndex].innerText;
+
+                    return aValue - bValue;
+                });
+
+                // Met à jour le tableau avec les lignes triées
+                rows.forEach(function(row) {
+                    row.parentNode.appendChild(row);
+                });
+            });
+        });
+        var hidden = false;
+
+        function toggleColumns() {
+            var additionalColumns = document.querySelectorAll('.additional-column');
+            var rows = document.querySelectorAll('tbody tr');
+
+            if (hidden) {
+                // Affiche les colonnes supplémentaires
+                additionalColumns.forEach(function(column) {
+                    column.style.display = 'table-cell';
+                });
+                hidden = false;
+            } else {
+                // Masque les colonnes supplémentaires
+                additionalColumns.forEach(function(column) {
+                    column.style.display = 'none';
+                });
+                hidden = true;
+            }
+        }
+    </script>
+
+{% endblock %}

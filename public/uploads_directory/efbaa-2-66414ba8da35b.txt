@@ -1,0 +1,927 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 10 mai 2024 à 10:47
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `efba`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL,
+  `nom_aut_art` varchar(255) NOT NULL,
+  `adr_aut_art` varchar(255) NOT NULL,
+  `date_pub_art` datetime NOT NULL,
+  `duree_art` int(11) NOT NULL,
+  `categorie_art` varchar(255) NOT NULL,
+  `titre_art` varchar(255) NOT NULL,
+  `contenu_art` varchar(255) NOT NULL,
+  `piecejointe_art` varchar(255) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `image_art` varchar(255) DEFAULT NULL,
+  `likes` int(11) NOT NULL,
+  `dislikes` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cheque`
+--
+
+CREATE TABLE `cheque` (
+  `id` int(11) NOT NULL,
+  `compte_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `beneficiaire` varchar(255) NOT NULL,
+  `montant` double NOT NULL,
+  `telephone` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `cin` int(11) NOT NULL,
+  `nom_prenom` varchar(255) NOT NULL,
+  `date` date DEFAULT NULL,
+  `decision` varchar(255) DEFAULT NULL,
+  `photo_cin` varchar(255) DEFAULT NULL,
+  `signature_id` varchar(255) DEFAULT NULL,
+  `document_id` varchar(255) DEFAULT NULL,
+  `signer_id` varchar(255) DEFAULT NULL,
+  `pdf_sans_signature` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaire`
+--
+
+CREATE TABLE `commentaire` (
+  `id` int(11) NOT NULL,
+  `contenu` longtext DEFAULT NULL,
+  `date_creation` datetime DEFAULT NULL,
+  `nomuser` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
+  `evenement_id` int(11) DEFAULT NULL,
+  `dislikes` int(11) DEFAULT NULL,
+  `likes` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `commentaire`
+--
+
+INSERT INTO `commentaire` (`id`, `contenu`, `date_creation`, `nomuser`, `img`, `evenement_id`, `dislikes`, `likes`) VALUES
+(16, 'Your dedication is truly inspiring! 🙌 Keep up the fantastic work! 💫', '2024-03-27 00:27:13', 'Mekni', 'ayoub.jpg', 1, 29, 38),
+(17, 'Wow, you\'re absolutely crushing it! 🚀👏 Keep up the amazing work! 💪🔥', '2024-03-27 01:03:45', 'Cross', 'ayoub.jpg', 1, 8, 7),
+(18, 'Wow, Keep up the amazing work! 💪🔥', '2024-03-30 16:47:09', 'Karim', 'ayoub.jpg', 7, 12, 50),
+(42, 'azaza', NULL, 'azaa', 'ayoub.jpg', 1, 0, 0),
+(43, 'rrr', NULL, 'rrrr', 'ayoub.jpg', 1, 0, 1),
+(44, 'cccc', NULL, 'ayoub', 'ayoub.jpg', 1, 0, 1),
+(45, 'ayoub', NULL, 'zaza', 'ayoub.jpg', 1, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaire_hadhemi`
+--
+
+CREATE TABLE `commentaire_hadhemi` (
+  `id` int(11) NOT NULL,
+  `article_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `contenu` longtext NOT NULL,
+  `date_creation` datetime NOT NULL,
+  `nom_aut_com` varchar(255) NOT NULL,
+  `image_u` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `compte`
+--
+
+CREATE TABLE `compte` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `confirmation_email` varchar(255) NOT NULL,
+  `cin` int(11) NOT NULL,
+  `date_delivrance_cin` date NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `sexe` varchar(255) NOT NULL,
+  `date_naissance` date NOT NULL,
+  `proffesion` varchar(255) NOT NULL,
+  `type_compte` varchar(255) NOT NULL,
+  `montant` double NOT NULL,
+  `statut_marital` varchar(255) NOT NULL,
+  `nationalite` varchar(255) NOT NULL,
+  `numero_telephone` int(11) NOT NULL,
+  `preference_communic` varchar(255) NOT NULL,
+  `type_cin` varchar(255) NOT NULL,
+  `rib` bigint(20) DEFAULT NULL,
+  `statut` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contrat`
+--
+
+CREATE TABLE `contrat` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `date_debut` date NOT NULL,
+  `dure` varchar(255) NOT NULL,
+  `datefin` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `credit`
+--
+
+CREATE TABLE `credit` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `id_client` int(11) NOT NULL,
+  `montant` double NOT NULL,
+  `statusclient` varchar(255) NOT NULL,
+  `mensualite` double NOT NULL,
+  `datedebut` date NOT NULL,
+  `duree` int(11) NOT NULL,
+  `taux` double NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `fraisretard` double NOT NULL,
+  `fichesalire` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `demandestage`
+--
+
+CREATE TABLE `demandestage` (
+  `id` int(11) NOT NULL,
+  `offre_stage_id` int(11) DEFAULT NULL,
+  `nom` varchar(30) DEFAULT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `numerotelephone` int(11) NOT NULL,
+  `lettremotivation` longtext DEFAULT NULL,
+  `cv` varchar(50) DEFAULT NULL,
+  `domaine` varchar(50) DEFAULT NULL,
+  `etat` varchar(10) NOT NULL,
+  `date` date NOT NULL,
+  `score` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `doctrine_migration_versions`
+--
+
+CREATE TABLE `doctrine_migration_versions` (
+  `version` varchar(191) NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `doctrine_migration_versions`
+--
+
+INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
+('DoctrineMigrations\\Version20240304234537', '2024-03-05 00:45:49', 1121),
+('DoctrineMigrations\\Version20240304234725', '2024-03-05 00:47:32', 447);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evenement`
+--
+
+CREATE TABLE `evenement` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `date_debut` datetime NOT NULL,
+  `date_fin` datetime NOT NULL,
+  `lieu` varchar(255) NOT NULL,
+  `organisateur` varchar(255) DEFAULT NULL,
+  `prix` double NOT NULL,
+  `likes` int(11) NOT NULL DEFAULT 0,
+  `dislikes` int(11) NOT NULL DEFAULT 0,
+  `project_id` int(11) DEFAULT NULL,
+  `img` varchar(100) NOT NULL,
+  `remise` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`id`, `nom`, `description`, `date_debut`, `date_fin`, `lieu`, `organisateur`, `prix`, `likes`, `dislikes`, `project_id`, `img`, `remise`) VALUES
+(1, 'Tech Talk: The Future of AI', 'Join us for an insightful discussion on the future...', '2024-03-12 01:51:00', '2024-03-21 01:51:00', 'Bizerte', 'projet', 200, 22, 12, 8, '1ae3427d-3ae5-4e0a-9f1a-d0104c8148ff.jpg', 20),
+(7, 'Project Showcase and Networking Mixer', 'Join us for an insightful discussion on the future...', '2019-01-01 00:00:00', '2019-01-01 00:00:00', 'Bizerte', 'aa', 55, 0, 0, 8, '5ef1c154-97db-4726-b0e7-329bdb5263fd.png', 50);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messenger_messages`
+--
+
+CREATE TABLE `messenger_messages` (
+  `id` bigint(20) NOT NULL,
+  `body` longtext NOT NULL,
+  `headers` longtext NOT NULL,
+  `queue_name` varchar(190) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `available_at` datetime NOT NULL,
+  `delivered_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `offre_stage`
+--
+
+CREATE TABLE `offre_stage` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `title` varchar(80) NOT NULL,
+  `domaine` varchar(50) NOT NULL,
+  `type_offre` varchar(30) NOT NULL,
+  `poste_propose` int(11) NOT NULL,
+  `experience` varchar(255) DEFAULT NULL,
+  `niveau` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '(DC2Type:json)' CHECK (json_valid(`niveau`)),
+  `language` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '(DC2Type:json)' CHECK (json_valid(`language`)),
+  `description` longtext NOT NULL,
+  `exigence_offre` longtext NOT NULL,
+  `date_postu` date DEFAULT NULL,
+  `mots_cles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '(DC2Type:json)' CHECK (json_valid(`mots_cles`)),
+  `pfe_book` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `project`
+--
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `nomprojet` varchar(100) NOT NULL,
+  `img` varchar(100) NOT NULL,
+  `categorie` varchar(100) NOT NULL,
+  `descriptionprojet` varchar(100) NOT NULL,
+  `budgetprojet` double NOT NULL,
+  `datecreation` datetime NOT NULL,
+  `dureeprojet` int(11) NOT NULL,
+  `statutprojet` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `project`
+--
+
+INSERT INTO `project` (`id`, `user_id`, `nomprojet`, `img`, `categorie`, `descriptionprojet`, `budgetprojet`, `datecreation`, `dureeprojet`, `statutprojet`) VALUES
+(8, 1, 'Ayoub', 'asma.jpg', 'commerciale', '\"CodeForge\" évo', 80, '2024-03-13 00:00:00', 14, 9),
+(19, NULL, 'test', 'asma.jpg', 'zaz', 'test', 0, '2024-05-03 00:00:00', 0, 0),
+(36, NULL, 'test', 'ayoub.jpeg', 'zaz', 'test', 0, '2024-05-10 00:00:00', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `propretyseach`
+--
+
+CREATE TABLE `propretyseach` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rdv`
+--
+
+CREATE TABLE `rdv` (
+  `id` int(11) NOT NULL,
+  `credit_id` int(11) DEFAULT NULL,
+  `idclient` int(11) NOT NULL,
+  `heure` time NOT NULL,
+  `daterdv` date NOT NULL,
+  `methode` varchar(255) NOT NULL,
+  `employename` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reclamation`
+--
+
+CREATE TABLE `reclamation` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `objet_rec` varchar(255) NOT NULL,
+  `contenu_rec` varchar(255) NOT NULL,
+  `adr_rec` varchar(255) NOT NULL,
+  `nom_aut_rec` varchar(255) NOT NULL,
+  `dep_rec` varchar(255) NOT NULL,
+  `statut_rec` varchar(255) DEFAULT NULL,
+  `piece_jrec` varchar(255) NOT NULL,
+  `date_rec` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reponse`
+--
+
+CREATE TABLE `reponse` (
+  `id` int(11) NOT NULL,
+  `reclamation_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `adr_rep` varchar(255) NOT NULL,
+  `date_rep` datetime NOT NULL,
+  `contenu_rep` varchar(255) NOT NULL,
+  `piece_jrep` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reponse_commentaire`
+--
+
+CREATE TABLE `reponse_commentaire` (
+  `id` int(11) NOT NULL,
+  `commentaire_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `contenu_rep_com` longtext NOT NULL,
+  `nom_rep_com` varchar(255) NOT NULL,
+  `date_rep_com` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reset_password_request`
+--
+
+CREATE TABLE `reset_password_request` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `selector` varchar(20) NOT NULL,
+  `hashed_token` varchar(100) NOT NULL,
+  `requested_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `expires_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stage`
+--
+
+CREATE TABLE `stage` (
+  `id` int(11) NOT NULL,
+  `sujet` longtext NOT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(180) NOT NULL,
+  `roles` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '(DC2Type:json)' CHECK (json_valid(`roles`)),
+  `password` varchar(255) NOT NULL,
+  `cin` varchar(255) DEFAULT NULL,
+  `date_naissance` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `salaire` varchar(255) DEFAULT NULL,
+  `profession` varchar(255) DEFAULT NULL,
+  `poste` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `is_verified` tinyint(1) NOT NULL,
+  `is_blocked` tinyint(1) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `cin`, `date_naissance`, `tel`, `adresse`, `salaire`, `profession`, `poste`, `name`, `is_verified`, `is_blocked`, `photo`) VALUES
+(1, 'ayoubmekni211@gmail.com', '[\"ROLE_CLIENT\"]', '$2y$13$sPlmhMtQLxxpgVcW/GLzCeL3BJXQBb5dNKpKy36HuX2SdAImiC3pW', NULL, NULL, '25869258', 'Manouba', NULL, NULL, NULL, 'ayoub mekni', 0, 0, NULL),
+(2, 'azzzzbmekni211@gmail.com', '[\"ROLE_CLIENT\"]', '$2y$13$yxWxJjbrE56J2rTlgOxBTexo7TUD3Uek6k7wCPQQyDB6wieHpGCaS', NULL, NULL, '25869258', 'Manouba', NULL, NULL, NULL, 'Makni ', 0, 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_compte`
+--
+
+CREATE TABLE `user_compte` (
+  `user_id` int(11) NOT NULL,
+  `compte_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_stage`
+--
+
+CREATE TABLE `user_stage` (
+  `user_id` int(11) NOT NULL,
+  `stage_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `virement`
+--
+
+CREATE TABLE `virement` (
+  `id` int(11) NOT NULL,
+  `compte_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `nomet_prenom` varchar(255) DEFAULT NULL,
+  `type_virement` varchar(255) NOT NULL,
+  `transferez_a` varchar(255) NOT NULL,
+  `num_beneficiare` int(11) NOT NULL,
+  `montant` varchar(255) NOT NULL,
+  `cin` int(11) NOT NULL,
+  `rib` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `decision_v` varchar(255) NOT NULL,
+  `photo_cin_v` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_23A0E66A76ED395` (`user_id`);
+
+--
+-- Index pour la table `cheque`
+--
+ALTER TABLE `cheque`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_A0BBFDE9F2C56620` (`compte_id`),
+  ADD KEY `IDX_A0BBFDE9A76ED395` (`user_id`);
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_67F068BCFD02F13` (`evenement_id`);
+
+--
+-- Index pour la table `commentaire_hadhemi`
+--
+ALTER TABLE `commentaire_hadhemi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_AD5458EC7294869C` (`article_id`),
+  ADD KEY `IDX_AD5458ECA76ED395` (`user_id`);
+
+--
+-- Index pour la table `compte`
+--
+ALTER TABLE `compte`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `contrat`
+--
+ALTER TABLE `contrat`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_60349993A76ED395` (`user_id`);
+
+--
+-- Index pour la table `credit`
+--
+ALTER TABLE `credit`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_1CC16EFEA76ED395` (`user_id`);
+
+--
+-- Index pour la table `demandestage`
+--
+ALTER TABLE `demandestage`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_F8FC91A7195A2A28` (`offre_stage_id`);
+
+--
+-- Index pour la table `doctrine_migration_versions`
+--
+ALTER TABLE `doctrine_migration_versions`
+  ADD PRIMARY KEY (`version`);
+
+--
+-- Index pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_B26681E166D1F9C` (`project_id`);
+
+--
+-- Index pour la table `messenger_messages`
+--
+ALTER TABLE `messenger_messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_75EA56E0FB7336F0` (`queue_name`),
+  ADD KEY `IDX_75EA56E0E3BD61CE` (`available_at`),
+  ADD KEY `IDX_75EA56E016BA31DB` (`delivered_at`);
+
+--
+-- Index pour la table `offre_stage`
+--
+ALTER TABLE `offre_stage`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_955674F2A76ED395` (`user_id`);
+
+--
+-- Index pour la table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_2FB3D0EEA76ED395` (`user_id`);
+
+--
+-- Index pour la table `propretyseach`
+--
+ALTER TABLE `propretyseach`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `rdv`
+--
+ALTER TABLE `rdv`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_10C31F86CE062FF9` (`credit_id`);
+
+--
+-- Index pour la table `reclamation`
+--
+ALTER TABLE `reclamation`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_CE606404A76ED395` (`user_id`);
+
+--
+-- Index pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_5FB6DEC72D6BA2D9` (`reclamation_id`),
+  ADD KEY `IDX_5FB6DEC7A76ED395` (`user_id`);
+
+--
+-- Index pour la table `reponse_commentaire`
+--
+ALTER TABLE `reponse_commentaire`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_6E5B5DB9BA9CD190` (`commentaire_id`),
+  ADD KEY `IDX_6E5B5DB9A76ED395` (`user_id`);
+
+--
+-- Index pour la table `reset_password_request`
+--
+ALTER TABLE `reset_password_request`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_7CE748AA76ED395` (`user_id`);
+
+--
+-- Index pour la table `stage`
+--
+ALTER TABLE `stage`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
+
+--
+-- Index pour la table `user_compte`
+--
+ALTER TABLE `user_compte`
+  ADD PRIMARY KEY (`user_id`,`compte_id`),
+  ADD KEY `IDX_AAA4495DA76ED395` (`user_id`),
+  ADD KEY `IDX_AAA4495DF2C56620` (`compte_id`);
+
+--
+-- Index pour la table `user_stage`
+--
+ALTER TABLE `user_stage`
+  ADD PRIMARY KEY (`user_id`,`stage_id`),
+  ADD KEY `IDX_20BE6831A76ED395` (`user_id`),
+  ADD KEY `IDX_20BE68312298D193` (`stage_id`);
+
+--
+-- Index pour la table `virement`
+--
+ALTER TABLE `virement`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `IDX_2D4DCFA6F2C56620` (`compte_id`),
+  ADD KEY `IDX_2D4DCFA6A76ED395` (`user_id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `cheque`
+--
+ALTER TABLE `cheque`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT pour la table `commentaire_hadhemi`
+--
+ALTER TABLE `commentaire_hadhemi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `compte`
+--
+ALTER TABLE `compte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `contrat`
+--
+ALTER TABLE `contrat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `credit`
+--
+ALTER TABLE `credit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `demandestage`
+--
+ALTER TABLE `demandestage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT pour la table `messenger_messages`
+--
+ALTER TABLE `messenger_messages`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `offre_stage`
+--
+ALTER TABLE `offre_stage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT pour la table `propretyseach`
+--
+ALTER TABLE `propretyseach`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `rdv`
+--
+ALTER TABLE `rdv`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reclamation`
+--
+ALTER TABLE `reclamation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reponse_commentaire`
+--
+ALTER TABLE `reponse_commentaire`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reset_password_request`
+--
+ALTER TABLE `reset_password_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `stage`
+--
+ALTER TABLE `stage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `virement`
+--
+ALTER TABLE `virement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `article`
+--
+ALTER TABLE `article`
+  ADD CONSTRAINT `FK_23A0E66A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `cheque`
+--
+ALTER TABLE `cheque`
+  ADD CONSTRAINT `FK_A0BBFDE9A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_A0BBFDE9F2C56620` FOREIGN KEY (`compte_id`) REFERENCES `compte` (`id`);
+
+--
+-- Contraintes pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD CONSTRAINT `FK_67F068BCFD02F13` FOREIGN KEY (`evenement_id`) REFERENCES `evenement` (`id`);
+
+--
+-- Contraintes pour la table `commentaire_hadhemi`
+--
+ALTER TABLE `commentaire_hadhemi`
+  ADD CONSTRAINT `FK_AD5458EC7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FK_AD5458ECA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `contrat`
+--
+ALTER TABLE `contrat`
+  ADD CONSTRAINT `FK_60349993A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `credit`
+--
+ALTER TABLE `credit`
+  ADD CONSTRAINT `FK_1CC16EFEA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `demandestage`
+--
+ALTER TABLE `demandestage`
+  ADD CONSTRAINT `FK_F8FC91A7195A2A28` FOREIGN KEY (`offre_stage_id`) REFERENCES `offre_stage` (`id`);
+
+--
+-- Contraintes pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD CONSTRAINT `FK_B26681E166D1F9C` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`);
+
+--
+-- Contraintes pour la table `offre_stage`
+--
+ALTER TABLE `offre_stage`
+  ADD CONSTRAINT `FK_955674F2A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `FK_2FB3D0EEA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `rdv`
+--
+ALTER TABLE `rdv`
+  ADD CONSTRAINT `FK_10C31F86CE062FF9` FOREIGN KEY (`credit_id`) REFERENCES `credit` (`id`);
+
+--
+-- Contraintes pour la table `reclamation`
+--
+ALTER TABLE `reclamation`
+  ADD CONSTRAINT `FK_CE606404A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  ADD CONSTRAINT `FK_5FB6DEC72D6BA2D9` FOREIGN KEY (`reclamation_id`) REFERENCES `reclamation` (`id`),
+  ADD CONSTRAINT `FK_5FB6DEC7A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `reponse_commentaire`
+--
+ALTER TABLE `reponse_commentaire`
+  ADD CONSTRAINT `FK_6E5B5DB9A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_6E5B5DB9BA9CD190` FOREIGN KEY (`commentaire_id`) REFERENCES `commentaire_hadhemi` (`id`);
+
+--
+-- Contraintes pour la table `reset_password_request`
+--
+ALTER TABLE `reset_password_request`
+  ADD CONSTRAINT `FK_7CE748AA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `user_compte`
+--
+ALTER TABLE `user_compte`
+  ADD CONSTRAINT `FK_AAA4495DA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_AAA4495DF2C56620` FOREIGN KEY (`compte_id`) REFERENCES `compte` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `user_stage`
+--
+ALTER TABLE `user_stage`
+  ADD CONSTRAINT `FK_20BE68312298D193` FOREIGN KEY (`stage_id`) REFERENCES `stage` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_20BE6831A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `virement`
+--
+ALTER TABLE `virement`
+  ADD CONSTRAINT `FK_2D4DCFA6A76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_2D4DCFA6F2C56620` FOREIGN KEY (`compte_id`) REFERENCES `compte` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

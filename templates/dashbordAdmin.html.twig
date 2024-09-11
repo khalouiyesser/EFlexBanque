@@ -1,0 +1,199 @@
+{#{% extends 'baseadmin.html.twig' %}#}
+
+ {# {% block body %}#}
+
+{#     <div class="content-body">#}
+{#            <!-- row -->#}
+{#			<div class="container-fluid">#}
+{#				<div class="row">#}
+{#					<div class="col-xl-12">#}
+{#						<div class="row">#}
+{#							<div class="col-xl-6">#}
+{#								<div class="row">#}
+{#									<div class="col-xl-12">#}
+{#										<div class="card tryal-gradient">#}
+{#    <div class="card-body tryal row justify-content-center align-items-center">#}
+{#        <div class="col-xl-7 col-sm-6 text-center">#}
+{#            <h2>E-Flex Bank</h2>#}
+{#            <span>Innover, Economiser, Prospérer:</span>#}
+{#            <span>Tout En Ligne</span>#}
+{#        </div>#}
+{#        <div class="col-xl-5 col-sm-6">#}
+{#            <img src="{{asset('images/chart.png')}}" alt="" class="sd-shape">#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+{#									</div>#}
+{#									#}
+{#								</div>#}
+{#								#}
+{#							</div>#}
+{#						<div class="col-xl-6">#}
+{#    <div class="row justify-content-center align-items-center">#}
+{#        <div class="col-xl-12">#}
+{#            <div class="row justify-content-center">#}
+{#                <div class="col-lg-9">#}
+{#                    <div class="au-card">#}
+{#                        <div class="au-card-inner text-center"> <!-- Ajout de la classe text-center pour centrer le texte -->#}
+{#                            <h3 class="title-2 m-b-40">Interaction avec nos articles</h3>#}
+{#                            <div class="chart-container" style="position: relative; height:50vh; width:100%;">#}
+{#                                <canvas id="articleChart" height="200"></canvas>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+
+{#<!-- JavaScript pour dessiner le graphique -->#}
+{#<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>#}
+{#<script>#}
+{#    document.addEventListener('DOMContentLoaded', function () {#}
+{#        var ctx = document.getElementById('articleChart').getContext('2d');#}
+{#        var myChart = new Chart(ctx, {#}
+{#            type: 'doughnut', // Graphique circulaire#}
+{#            data: {#}
+{#                labels: ['J\'aime', 'Je n\'aime pas'],#}
+{#                datasets: [{#}
+{#                    data: [{{ likesDislikesData.totalLikes }}, {{ likesDislikesData.totalDislikes }}],#}
+{#                    backgroundColor: [#}
+{#                        getRandomColor(),#}
+{#                        getRandomColor()#}
+{#                    ],#}
+{#                    borderColor: 'transparent',#}
+{#                    borderWidth: 1#}
+{#                }]#}
+{#            },#}
+{#            options: {#}
+{#                legend: {#}
+{#                    display: true,#}
+{#                    position: 'right',#}
+{#                    labels: {#}
+{#                        fontSize: 14#}
+{#                    }#}
+{#                }#}
+{#            }#}
+{#        });#}
+
+{#        // Fonction pour générer une couleur aléatoire#}
+{#        function getRandomColor() {#}
+{#            var letters = '0123456789ABCDEF';#}
+{#            var color = '#';#}
+{#            for (var i = 0; i < 6; i++) {#}
+{#                color += letters[Math.floor(Math.random() * 16)];#}
+{#            }#}
+{#            return color;#}
+{#        }#}
+{#    });#}
+{#</script>#}
+
+
+{#										#}
+{#									</div>#}
+{#								#}
+{#									#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#            </div>#}
+{#        </div>#}
+{# #}
+{# {% endblock %}#}
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+  <div class="content-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class=" gradient-7 ">
+                    <div class="card-body tryal row justify-content-center align-items-center">
+                      <div class="col-xl-7 col-sm-6 text-center" style="color: green;">
+                        <h2 style="color: green;">E-Flex Bank</h2>
+                        <span style="color: green;">Innover, Economiser, Prospérer:</span>
+                        <span style="color: green;">Tout En Ligne</span>
+                      </div>
+                      <div class="col-xl-5 col-sm-6">
+                        <img src="{{asset('images/chart.png')}}" alt="" class="sd-shape">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-xl-12">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                      <div class="au-card">
+                        <div class="au-card-inner text-center">
+                          <h3 class="title-2 m-b-40">Interaction avec nos articles</h3>
+                          <div class="chart-container" style="position: relative; height:50vh; width:100%;">
+                            <canvas id="articleChart" height="200"></canvas>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript pour dessiner le graphique -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var ctx = document.getElementById('articleChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['J\'aime', 'Je n\'aime pas'],
+          datasets: [{
+            data: [{{ likesDislikesData.totalLikes }}, {{ likesDislikesData.totalDislikes }}],
+            backgroundColor: [
+              getRandomColor(),
+              getRandomColor()
+            ],
+            borderColor: 'transparent',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          legend: {
+            display: true,
+            position: 'right',
+            labels: {
+              fontSize: 14
+            }
+          }
+        }
+      });
+
+      // Fonction pour générer une couleur aléatoire
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    });
+  </script>
+{% endblock %}

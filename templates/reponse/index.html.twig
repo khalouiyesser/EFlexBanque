@@ -1,0 +1,154 @@
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Liste des réponses
+{% endblock %}
+{% block recherche %}
+    <li class="nav-item d-flex align-items-center">
+        <div class="input-group search-area">
+            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+            <span class="input-group-text">
+				<a href="javascript:void(0)">
+					<i class="flaticon-381-search-2"></i>
+				</a>
+			</span>
+        </div>
+    </li>
+
+
+    <script>
+        function filterTable() {
+            const filter = document.getElementById('searchInput').value.toUpperCase();
+            const rows = document.querySelectorAll('table tr');
+            for (let i = 1; i < rows.length; i++) {
+                const cols = rows[i].querySelectorAll('td');
+                let visible = false;
+                for (let j = 0; j < cols.length; j++) {
+                    const cell = cols[j];
+                    if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                        visible = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = visible ? '' : 'none';
+            }
+        }
+        document.getElementById('searchInput').addEventListener('keyup', filterTable);
+    </script>
+{% endblock %}
+{% block body %}
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <li class="nav-item d-flex align-items-center">
+                            <div class="input-group search-area">
+                                <input type="text" class="form-control" id="searchInput" placeholder="Rechercher ...">
+                                <span class="input-group-text">
+									<a href="javascript:void(0)">
+										<i class="flaticon-381-search-2"></i>
+									</a>
+								</span>
+                            </div>
+                        </li>
+
+                        <script>
+                            function filterTable() {
+                                const filter = document.getElementById('searchInput').value.toUpperCase();
+                                const rows = document.querySelectorAll('table tr');
+                                for (let i = 1; i < rows.length; i++) {
+                                    const cols = rows[i].querySelectorAll('td');
+                                    let visible = false;
+                                    for (let j = 0; j < cols.length; j++) {
+                                        const cell = cols[j];
+                                        if (cell.innerText.toUpperCase().indexOf(filter) > -1) {
+                                            visible = true;
+                                            break;
+                                        }
+                                    }
+                                    rows[i].style.display = visible ? '' : 'none';
+                                }
+                            }
+                            document.getElementById('searchInput').addEventListener('keyup', filterTable);
+                        </script>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm mb-0 table-striped">
+                                    <thead>
+                                    <tr>
+                                        {#<th><strong>Id réponse</strong></th>
+											                                        <th><strong>Id réclamation</strong></th>#}
+                                        <th>
+                                            <strong>Adresse rec</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Date</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Contenu</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Pièce jointe</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Action</strong>
+                                        </th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for reponse in reponses %}
+                                        <tr>
+                                            {#<td>{{ reponse.id }}</td>
+												                                        <td>{{ reponse.reclamation.id }}</td>#}
+                                            <td>{{ reponse.reclamation.adrRec }}</td>
+                                            <td>{{ reponse.dateRep ? reponse.dateRep|date('Y-m-d') : '' }}</td>
+                                            <td>{{ reponse.contenuRep }}</td>
+
+                                            <td>
+                                                {% if reponse.pieceJRep is defined %}
+                                                    <a href="{{ asset('uploads_directory_rec/' ~ reponse.pieceJRep) }}" target="_blank">
+                                                        <button class="badge badge-success">Ouvrir&nbsp;&nbsp;&nbsp;</button>
+                                                    </a>
+{#                                                    <a href="{{ asset('uploads_directory_rec/' ~ reponse.pieceJRep) }}" download="{{ reponse.pieceJRep }}">#}
+{#                                                        <button class="btn-rounded btn-warning">Télécharger&nbsp;&nbsp;&nbsp;<span class="btn-icon-start text-warning">#}
+{#																	<i class="fa fa-download color-warning"></i>#}
+{#																</span>#}
+{#                                                        </button>#}
+{#                                                    </a>#}
+                                                {% else %}
+                                                    Aucune pièce jointe
+                                                {% endif %}
+                                            </td>
+
+                                            <td>
+
+                                                <div class="d-flex">
+                                                    <a href="{{ path('app_reponse_show', {'id': reponse.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1">
+                                                        <i class="bi bi-eye"></i>
+                                                    </a>
+                                                    <a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}" class="btn btn-primary shadow btn-xs sharp me-1">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </a>
+
+                                                    <a href="{{ path('app_reponse_delete', {'id': reponse.id}) }}" class="btn btn-danger shadow btn-xs sharp" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="6">Aucune réponse trouvée.</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

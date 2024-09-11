@@ -1,0 +1,38 @@
+{% extends 'baseEmploye.html.twig' %}
+{% block body %}
+<div class="page-wrapper">
+			<div class="content container-fluid">
+				<div class="page-header">
+					<div class="row align-items-center">
+						<div class="col">
+							<div class="mt-5">
+								<h4 class="card-title float-left mt-2">Articles</h4> <a href="{{path('app_newEmpArt')}}" class="btn btn-primary float-right veiwbutton">Ajouter des articles</a> </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+			        {% for article in articles %}
+
+					<div class="col-12 col-sm-8 col-md-6 col-lg-4">
+						<div class="card"> <img class="card-img" src="{{asset('employe/assets/img/bank1.png')}}" alt="">
+							<div class="card-body">
+								<h4 class="card-title">{{article.titreArt}}</h4>
+								<p class="card-text mt-3">{{article.datePubArt ? article.datePubArt|date('d-m-Y') : '' }} </p> 
+								<p class="card-text mt-3">Catégorie : {{article.categorieArt}} </p> 
+								<p class="card-text mt-3">{{article.contenuArt}} </p> 
+								<a href="{{path('app_ArticleEmploye_delete', {'id': article.id}) }}" class="btn btn-info">Supprimer</a> 
+								</div>
+						</div>
+
+
+
+
+
+
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+      {% endblock %}
+  

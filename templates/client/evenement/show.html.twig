@@ -1,0 +1,43 @@
+{% extends 'baseclient.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>&ensp;&ensp;&ensp;&ensp;Evenement</h1>
+
+    <section class="py-5 bg-gray-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="card card-blog card-plain">
+                        <div class="position-relative">
+                            <a class="d-block blur-shadow-image">
+                                <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/devices-table.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                            </a>
+                        </div>
+                        <div class="card-body px-0 pt-4">
+                            <p class="text-gradient text-primary text-gradient font-weight-bold text-sm text-uppercase">Enterprise</p>
+                            <a href="javascript:;">
+                                <h4>
+                                    Siri brings hands-free TV to more devices
+                                </h4>
+                            </a>
+                            <p>
+                                Siri's latest trick is offering a hands-free TV viewing experience, that will allow consumers to turn on or off their television, change inputs, fast forward, rewind and more, without having to first invoke a specific skill, or even
+                                press a button on their remote.
+                            </p>
+                            <a type="button" href="{{ path('app_event') }}" class="btn bg-gradient-primary mt-3">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <a  href="{{ path('app_evenement_eventsC') }}" class="btn bg-gradient-dark mt-3">retour à la liste</a>
+
+ 
+{% endblock %}

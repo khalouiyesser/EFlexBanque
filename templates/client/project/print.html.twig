@@ -1,0 +1,143 @@
+
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+{% block stylesheets %}
+    <link href="{{ asset('client/assets/css/nucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('client/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link href="{{ asset('client/assets/css/soft-ui-dashboard.css?v=1.0.7') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+{% endblock %}
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+   <!--**********************************
+            Content body start
+        ***********************************-->
+             <body class="g-sidenav-show  bg-gray-100">
+
+     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+ <div class="container-fluid py-4">
+  
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h6>Liste des projets</h6>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+ <table class="table align-items-center mb-0">
+
+                  <thead>
+
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom de client</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom de projet</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Categorie</th>
+                                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
+
+                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">statut</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                                            {% for project in projects %}
+
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+<img src="{{ asset('client/assets/img/team-2.jpg') }}" class="avatar avatar-sm me-3" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{ project.nomProjet }}</h6>
+                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{ project.nomProjet }}</p>
+                        <p class="text-xs text-secondary mb-0">Organization</p>
+                      </td>
+                       
+                       <td>
+                        <p class="text-xs font-weight-bold mb-0">{{ project.categorie }}</p>
+                        <p class="text-xs text-secondary mb-0">Organization</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="badge badge-sm bg-gradient-success">{{ project.dateCreation ? project.dateCreation|date('Y-m-d') : '' }}</span>
+                      </td>
+                       <td>
+                        <p class="text-xs font-weight-bold mb-0">{{ project.descriptionProjet }}</p>
+                        <p class="text-xs text-secondary mb-0">Organization</p>
+                      </td>
+                     
+                      
+                       <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{ project.budgetprojet }}</span>
+                      </td>
+                        <td class="align-middle text-center">
+                        {% if 50 < project.statutProjet  %}
+
+                        <div class="d-flex align-items-center justify-content-center">
+                          <span class="me-2 text-xs font-weight-bold">{{ project.statutProjet }}%</span>
+                          <div>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="{{ project.statutProjet }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.statutProjet }}%;"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% else %}
+
+                        <div class="d-flex align-items-center justify-content-center">
+                          <span class="me-2 text-xs font-weight-bold">{{ project.statutProjet }}%</span>
+                          <div>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="{{ project.statutProjet }}" aria-valuemin="0" aria-valuemax="30" style="width: {{ project.statutProjet }}%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endif %}
+
+                      </td>
+                     
+                    </tr>
+        {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+     
+    </div>
+    
+    </main>
+   <button class="btn btn-primary btn-rounded fs-18" id="printbtn">Print</button>
+    <script>
+    const printbtn = document.getElementById("printbtn");
+    printbtn.addEventListener("click", () => {
+        printbtn.disabled = true;
+        window.print();
+        setTimeout(() => {
+            printbtn.disabled = false;
+        }, 1000);
+    });
+    </script>
+    </body>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+ 

@@ -1,0 +1,99 @@
+{% extends 'baseadmin.html.twig' %}
+
+    {% block body %}
+    {% block nompage %}liste rdv{% endblock %}
+
+    
+        <div class="content-body">
+            <div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<!-- Lien pour ajouter un nouveau crédit -->
+						
+						</div>
+						
+				
+                <!-- row -->
+
+                <div class="row">
+                   
+					<div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-md">
+                                        <thead>
+                                            <tr >
+                                            
+                                                <th><strong>Cin</strong></th>
+                                                <th><strong>date</strong></th>
+                                                <th><strong>heure</strong></th>
+                                                <th><strong>methode</strong></th>
+                                                <th><strong>nom_employee</strong></th>
+                                                
+                                                
+
+                                                
+
+												<th><strong>action</strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for rdv in rdvs %}
+
+                                            <tr>
+                                                
+                                                <td><strong>{{rdv.idclient}}</strong></td>
+                                                <td>{{rdv.daterdv|date('Y-m-d')}}</td>
+                                                <td>{{ rdv.heure|date('H:i:s') }}</td>                                                <td>{{rdv.methode}}</td>
+                                                <td>{{rdv.employename}}</td>
+                                                
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <form method="post" action="{{ path('send_sms') }}">
+                                                            <!-- Hidden input field for rdv_id -->
+                                                            <input type="hidden" name="rdv_id" value="{{ rdv.id }}">                                                            <!-- Form fields go here -->
+                                                        
+                                                            <button type="submit" class="btn btn-success shadow btn-xs sharp me-1"><span>&#10003;</span> </button>
+                                                        </form>
+                                                                                                                </button>
+                                                        <button class="btn btn-danger shadow btn-xs sharp"><span>&#10005;</span></button>
+                                                    </div>
+                                                </td>
+                                               <td>
+   
+                                                <div class="d-flex">
+                                                    <div class="d-flex">
+                                                        <button type="button" class="btn btn-primary shadow btn-xs sharp me-1" onclick="window.location.href='{{ path('app_modifierrdv', {'id': rdv.id}) }}'">
+                                                            <i class="bi bi-pencil"></i> <!-- Utilisation de l'icône de modification -->
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger shadow btn-xs sharp" onclick="window.location.href='{{ path('app_deleterdv', {'id': rdv.id}) }}'">
+                                                            <i class="fa fa-trash"></i> <!-- Garder l'icône de suppression -->
+                                                        </button>
+                                                    </div>
+                                                    
+
+</td>
+
+
+                                            </tr>
+                                        {% endfor %}
+                                        {% if smsSent %}
+                                            <div class="alert alert-success mt-3 text-center">Le SMS a été envoyé avec succèsd.</div>
+                                        {% endif %}
+                                        
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+                </div>
+            </div>
+        </div>
+    {% endblock %}

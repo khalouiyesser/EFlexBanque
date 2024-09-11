@@ -1,0 +1,45 @@
+{% extends 'baseadmin.html.twig' %}
+{% block nompage %}Liste des commentaires{% endblock %}
+
+{% block body %}
+    <div class="content-body">
+        <div class="container-fluid">
+            <!-- row -->
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-xxl-10 col-lg-12">
+                    <div class="card border-0 pb-0">
+                        <div class="card-header border-0 pb-0">
+                            <h4 class="card-title">Commentaires</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="DZ_W_Todo3" class="widget-media dlab-scroll height500">
+                                <ul class="timeline">
+                                    {% for commentaire in commentaires %}
+                                        <li>
+                                            <div class="timeline-panel">
+                                                <div class="media me-2">
+                                                    <img alt="image" width="50" src="{{asset('images/b13e13a0-b686-4e50-8093-3057e76ac120.jpeg')}}">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h5 class="mb-1">{{ commentaire.nomAutCom }} <small class="text-muted">{{ commentaire.dateCreation ? commentaire.dateCreation|date('Y-m-d') : '' }}</small></h5>
+
+                                                    <p class="mb-1">{{ commentaire.contenu }}</p>
+
+                                                    <a href="{{ path('app_commentaire_delete', {'id': commentaire.id}) }}" class="btn btn-outline-danger btn-xxs" onclick="return confirm('Are you sure you want to delete this item?');">Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="7">Aucun commentaire</td>
+                                        </tr>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
